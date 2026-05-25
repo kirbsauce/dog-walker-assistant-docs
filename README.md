@@ -14,5 +14,5 @@ list so walkers can see at a glance who still needs attention.
 
 ## Live app
 
-Open the app and sign in with your shelter Google account. Access is
-invite-only; ask an admin to add you.
+Open [dwa.kirbsauce.com](https://dwa.kirbsauce.com) and sign in with your
+shelter Google account. Access is invite-only; ask an admin to add you.

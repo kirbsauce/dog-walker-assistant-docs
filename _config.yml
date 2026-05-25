@@ -1,0 +1,22 @@
+title: Dog Walker Assistant
+description: Public docs for DWA — walker guide and admin guide.
+
+# Use the supported Cayman theme (good for project docs out of the box).
+theme: jekyll-theme-cayman
+
+# Rewrite .md links in markdown sources to .html at build time, so links like
+# `[Walker Guide](WALKER.md)` keep working on github.com AND on the Pages site.
+plugins:
+  - jekyll-relative-links
+
+relative_links:
+  enabled: true
+  collections: true
+
+# Render .md files at /WALKER, /ADMIN (no .html suffix in URLs).
+permalink: pretty
+
+# Don't include these in the built site.
+exclude:
+  - README-internal.md
+  - .gitignore
