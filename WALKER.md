@@ -104,6 +104,9 @@ Dogs above your color grade fall to the bottom, dimmed.
 
 ![Screenshot: SORT BY overlay with WALK ORDER selected](images/walker-sort-overlay.png)
 
+*This example is what an **Aqua**-level walker sees — which dogs sit at the top,
+and which dim out, depends on your own color grade.*
+
 Open the **SORT BY** overlay from the sort icon in the header to pick another
 sort. View-based sorts like WALK ORDER are **one-way** orderings — the asc/desc
 toggle only applies to plain field sorts (**Kennel**, **Color**, **Name**). Use
