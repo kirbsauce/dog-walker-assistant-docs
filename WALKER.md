@@ -112,9 +112,9 @@ toggle only applies to plain field sorts (**Kennel**, **Color**, **Name**). Use
 ## The shift timer
 
 If you enable **Timer** in **Settings → APPEARANCE**, a small `mm:ss` timer
-appears in the header (top nav) or bottom-right (bottom nav). Tap it to open
-play / pause / reset controls. It's a shared shift timer — resetting it resets
-it for the shift — and it caps at **30:00**.
+appears **on the roster page** — in the header (top nav) or bottom-right (bottom
+nav). Tap it to open play / pause / reset controls. It's a shared shift timer —
+resetting it resets it for the shift — and it caps at **30:00**.
 
 ## Resources
 
