@@ -34,7 +34,7 @@ sort (WALK ORDER by default). Each row shows, left to right:
 
 **Tap any row to open the dog's page** — that's where you log walks now.
 
-![Screenshot: A roster row with the status icons and columns annotated](images/walker-roster-row.png)
+![Screenshot: A roster row showing the status icons and columns](images/walker-roster-row.png)
 
 ## Logging a walk
 
