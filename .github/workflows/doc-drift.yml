@@ -33,12 +33,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout docs (this repo)
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           fetch-depth: 0
 
       - name: Checkout app repo
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           repository: kirbsauce/dog-walker-assistant-app
           token: ${{ secrets.DOCS_BOT_TOKEN }}
@@ -46,7 +46,7 @@ jobs:
           fetch-depth: 0
 
       - name: Checkout backend repo
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           repository: kirbsauce/dog-walker-assistant-mcp
           token: ${{ secrets.DOCS_BOT_TOKEN }}
@@ -64,7 +64,7 @@ jobs:
             --force
 
       - name: Setup Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
           node-version: 20
 
