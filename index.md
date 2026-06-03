@@ -1,12 +1,12 @@
 ---
 title: Home
-description: Dog Walker Assistant helps San José ACS shelter volunteers coordinate dog walks.
+description: Dog Walker Assistant helps shelter volunteers coordinate dog walks.
 ---
 
 # Dog Walker Assistant
 
-**Dog Walker Assistant (DWA)** helps volunteers at the San José Animal Care
-Services shelter coordinate dog walks. It pulls the live shelter roster, tracks
+**Dog Walker Assistant (DWA)** helps volunteers at the shelter coordinate dog
+walks. It pulls the live shelter roster, tracks
 first walk (W1), second walk (W2), and playgroup (PG) status for every dog, and
 orders the list so walkers can see at a glance who still needs attention.
 
