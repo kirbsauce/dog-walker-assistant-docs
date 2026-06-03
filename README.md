@@ -1,18 +1,29 @@
-# Dog Walker Assistant
+# Dog Walker Assistant — Docs
 
-Dog Walker Assistant (DWA) helps volunteers at the San José Animal Care Services
-shelter coordinate dog walks. It pulls the live shelter roster, tracks first
-walk (W1), second walk (W2), and playgroup (PG) status per dog, and orders the
-list so walkers can see at a glance who still needs attention.
+Public documentation for [Dog Walker Assistant (DWA)](https://dwa.kirbsauce.com),
+served via GitHub Pages at **[docs.kirbsauce.com](https://docs.kirbsauce.com)**.
 
-## Guides
+## Contents
 
-- **[Walker Guide](WALKER.md)** — signing in, the roster, color grades, checking
-  off walks, the WALK ORDER sort.
-- **[Admin Guide](ADMIN.md)** — settings panel, kennel verification, user
-  management, push notifications.
+- [`index.md`](index.md) — site home / overview.
+- [`WALKER.md`](WALKER.md) — Walker Guide.
+- [`ADMIN.md`](ADMIN.md) — Admin Guide.
 
-## Live app
+## Theme
 
-Open [dwa.kirbsauce.com](https://dwa.kirbsauce.com) and sign in with your
-shelter Google account. Access is invite-only; ask an admin to add you.
+The site uses a custom dark + amber theme matching the app — no gem-based Jekyll
+theme. Branding lives in:
+
+- `_layouts/default.html` — page shell (header, nav, footer).
+- `assets/css/style.css` — palette and typography (mirrors the app's
+  `src/index.css`).
+- `images/paw-logo.svg` — the paw logo (`#F5A800`).
+
+`_config.yml` applies the `default` layout to every page. Add a screenshot by
+dropping a PNG in `images/` with the filename referenced in the guide.
+
+## Local preview
+
+```sh
+bundle exec jekyll serve
+```

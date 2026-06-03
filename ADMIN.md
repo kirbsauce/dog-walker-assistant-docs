@@ -1,54 +1,65 @@
+---
+title: Admin Guide
+description: Admin-only features in Dog Walker Assistant — kennel verification, user management, and notifications.
+---
+
 # Admin Guide
 
-A short tour of the admin-only features. You'll see these sections only if your
-account has the `admin` or `super` role.
+A tour of the admin-only features. You'll see these only if your account has the
+`admin` role.
 
-## Opening the settings panel
+## Where admin tools live
 
-Tap the gear icon in the header. Admins and supers see extra sections under
-**TOOLS** and **USERS**.
+Admin tools are in the **nav menu** (not the settings panel). Open the menu and,
+alongside the walker items (Search, Kennel Map, Resources), admins also see:
 
-![Screenshot: Settings panel showing admin TOOLS and USERS sections](images/admin-settings-panel.png)
+- **Kennel Verification**
+- **Notifications**
+- **User Management**
+
+![Screenshot: Nav menu showing admin-only items](images/admin-nav-menu.png)
 
 ## Kennel verification
 
-The **Kennel verification** screen cross-checks each dog's roster kennel against
-San José ACS's GIS data, so you can spot dogs whose location in the sheet
-doesn't match where they actually are.
+**Kennel Verification** cross-checks each dog's roster kennel against the
+shelter's GIS kennel data, so you can spot dogs whose location in the sheet
+doesn't match where they actually are. Each row shows a status:
 
 - **MATCH** (green) — roster and GIS agree.
-- **MISMATCH** (red) — roster says one kennel, GIS says another. Investigate.
-- **NOT FOUND** (yellow) — animal ID isn't in GIS today. Likely off-site or
+- **MISMATCH** (red) — they disagree; the row shows the kennel GIS reports.
+  Investigate.
+- **NOT FOUND** (orange) — the animal ID isn't in GIS today. Likely off-site or
   just-arrived.
 
-![Screenshot: Kennel verification screen with all three status types visible](images/admin-kennel-verify.png)
+![Screenshot: Kennel verification with MATCH, MISMATCH, and NOT FOUND rows](images/admin-kennel-verify.png)
 
-Opening this screen from the settings panel automatically refreshes the data;
-the timestamp under the title shows when the last batch ran. Use the refresh
-icon (↺) at any time to re-run.
+Tap **Run verification** (or **Re-run verification** afterward) to run a fresh
+batch; summary counts for matches, mismatches, and not-found appear at the top.
+Tap any row to jump to that dog's page.
 
-Tap a row to jump to that dog's detail page.
+## User management
 
-## Managing users
+**User Management** lists everyone with access. For each user you'll see an
+active/blocked dot, their name and email, and — if you have permission — a role
+control and a block/unblock action. Tap **+** to invite a new user by their
+shelter Google address.
 
-The **User management** section under settings lets you add or remove walkers,
-set their color grade, and promote or demote roles.
+![Screenshot: User management list with role and status controls](images/admin-users.png)
 
 Roles:
 
 - **walker** — default; can use the app and see the roster.
-- **admin** — everything a walker can do, plus the tools above.
-- **super** — admin, plus can manage other admins.
+- **admin** — everything a walker can do, plus the tools above. (Older `super`
+  accounts display as **admin**.)
 
-New walkers must be invited by email (their shelter Google address) before they
-can sign in.
+New walkers must be invited by email before they can sign in, and they show as
+inactive until you approve them. The first time you activate an account, DWA
+emails the walker to let them know it's ready — replies come back to the
+maintainer.
 
-![Screenshot: User management list with role and color grade controls](images/admin-users.png)
+## Notifications
 
-## Push notifications
-
-Toggle **Push notifications** in the settings panel to enable browser push for
-your own account. The first toggle prompts the OS to allow notifications.
-
-The app also runs scheduled push jobs server-side (configured via cron) for
-routine reminders to all subscribed walkers.
+Push notifications are **available to every user** now — each walker enables them
+under **Settings → NOTIFICATIONS**, no admin role required. The admin
+**Notifications** screen and the server-side scheduled jobs handle push messages
+sent out to subscribed walkers (e.g. routine reminders).
