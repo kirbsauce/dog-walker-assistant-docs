@@ -1,0 +1,79 @@
+name: Doc drift scan
+
+# Nightly watchdog: looks at the last 24h of changes in the app + backend repos,
+# compares them against the docs in this repo, and files a GitHub issue (labeled
+# `doc-drift`) for each user-facing change the docs don't yet reflect. Issues
+# only — it never edits docs or pushes commits.
+#
+# Required repo secrets (Settings → Secrets and variables → Actions):
+#   ANTHROPIC_API_KEY  — for the Claude reasoning step.
+#   DOCS_BOT_TOKEN     — fine-grained PAT with access to all three DWA repos:
+#                          • Contents: Read  (docs, app, mcp)
+#                          • Issues:  Read and write  (docs)
+#
+# Run it by hand anytime from the Actions tab (workflow_dispatch).
+
+on:
+  schedule:
+    - cron: '0 9 * * *'      # 09:00 UTC nightly (~01:00–02:00 PT)
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+concurrency:
+  group: doc-drift
+  cancel-in-progress: false
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout docs (this repo)
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Checkout app repo
+        uses: actions/checkout@v4
+        with:
+          repository: kirbsauce/dog-walker-assistant-app
+          token: ${{ secrets.DOCS_BOT_TOKEN }}
+          path: _watch/app
+          fetch-depth: 0
+
+      - name: Checkout backend repo
+        uses: actions/checkout@v4
+        with:
+          repository: kirbsauce/dog-walker-assistant-mcp
+          token: ${{ secrets.DOCS_BOT_TOKEN }}
+          path: _watch/mcp
+          fetch-depth: 0
+
+      - name: Ensure doc-drift label exists
+        env:
+          GH_TOKEN: ${{ secrets.DOCS_BOT_TOKEN }}
+        run: |
+          gh label create doc-drift \
+            --repo kirbsauce/dog-walker-assistant-docs \
+            --color FBCA04 \
+            --description "Possible doc staleness from app/backend changes" \
+            --force
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install Claude Code
+        run: npm install -g @anthropic-ai/claude-code
+
+      - name: Scan for doc drift and file issues
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          GH_TOKEN: ${{ secrets.DOCS_BOT_TOKEN }}
+        run: |
+          claude -p "$(cat .github/doc-drift-prompt.md)" \
+            --model sonnet \
+            --max-turns 50 \
+            --dangerously-skip-permissions
