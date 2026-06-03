@@ -20,6 +20,6 @@ orders the list so walkers can see at a glance who still needs attention.
 ## Open the app
 
 Go to **[dwa.kirbsauce.com](https://dwa.kirbsauce.com)** and sign in with your
-shelter Google account. Access is invite-only — if you can't get in, ask an
-admin to add you, then sign in again. New walkers get a welcome email once their
-account is approved.
+Google account. If you're new, you'll be prompted to request access; an admin
+reviews and approves new walkers. Once you're approved you'll get a welcome
+email, and your next sign-in lets you straight in.

@@ -11,12 +11,11 @@ A tour of the app for shelter walkers.
 
 ## Signing in
 
-DWA uses your shelter Google account. Tap **Sign in with Google** on the launch
-screen and pick your address. An admin must add you to the walker list first; if
-you aren't approved yet you'll land on a request-access form — fill it in and
-an admin will be notified. Once you're approved you'll get a welcome email, and
-your next Google sign-in will let you straight in. If sign-in keeps failing,
-message an admin.
+DWA uses your Google account. Tap **Sign in with Google** on the launch screen
+and pick your address. If you're new, you'll land on a request-access form —
+fill it in and an admin will be notified. Once an admin approves you, you'll get
+a welcome email, and your next Google sign-in will let you straight in. If
+sign-in keeps failing, message an admin.
 
 ## The roster screen
 

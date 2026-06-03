@@ -41,8 +41,8 @@ Tap any row to jump to that dog's page.
 
 **User Management** lists everyone with access. For each user you'll see an
 active/blocked dot, their name and email, and — if you have permission — a role
-control and a block/unblock action. Tap **+** to invite a new user by their
-shelter Google address.
+control and a block/unblock action. Tap **+** to add a new user by their Google
+address.
 
 ![Screenshot: User management list with role and status controls](images/admin-users.png)
 
@@ -52,10 +52,10 @@ Roles:
 - **admin** — everything a walker can do, plus the tools above. (Older `super`
   accounts display as **admin**.)
 
-New walkers must be invited by email before they can sign in, and they show as
-inactive until you approve them. The first time you activate an account, DWA
-emails the walker to let them know it's ready — replies come back to the
-maintainer.
+New walkers can request access themselves (you'll be notified) or you can add
+them with **+**; either way they show as inactive until you approve them. The
+first time you activate an account, DWA emails the walker to let them know it's
+ready — replies come back to the maintainer.
 
 ## Notifications
 
