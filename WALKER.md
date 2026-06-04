@@ -121,8 +121,12 @@ resetting it resets it for the shift — and it caps at **30:00**.
 
 ## Resources
 
-The **Resources** screen (in the nav menu) holds an **Adopter Resources** QR
-code. Tap it to open, or let an adopter scan it to share the info.
+The **Resources** screen (in the nav menu) has two sections:
+
+- **Adopter Resources** — a QR code for the adoption info page. Tap it to
+  open, or let an adopter scan it to share the info.
+- **Documentation** — a **Walker Guide** link that opens this guide in your
+  browser.
 
 ## Settings
 
