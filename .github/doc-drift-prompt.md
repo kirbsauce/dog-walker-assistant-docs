@@ -7,8 +7,10 @@ diff) of a user-facing change the docs describe wrongly or omit.
 ## Repos on disk
 
 - **`.` (current dir)** — the public docs site (`dog-walker-assistant-docs`).
-  The files that may need updating: `index.md`, `WALKER.md` (walker guide),
-  `ADMIN.md` (admin guide). These are the ONLY things you ever propose changing.
+  The files that may need updating: `index.md` and `WALKER.md` (walker guide).
+  These are the ONLY things you ever propose changing. (The admin guide is NOT
+  here — it lives in-app at `_watch/app/src/screens/AdminDocs.jsx`; don't propose
+  edits to it, but you may flag in an issue if app changes make it stale.)
 - **`_watch/app`** — the React PWA frontend (`dog-walker-assistant-app`). The
   primary source of user-facing change (UI labels, screens, flows, settings).
 - **`_watch/mcp`** — the Node backend / MCP server (`dog-walker-assistant-mcp`).
@@ -29,7 +31,7 @@ diff) of a user-facing change the docs describe wrongly or omit.
    Ignore pure refactors, tests, dependency bumps, build config, and cosmetic
    tweaks with no doc-visible effect.
 
-3. **Compare against the current docs.** Read `WALKER.md`, `ADMIN.md`, `index.md`.
+3. **Compare against the current docs.** Read `WALKER.md` and `index.md`.
    Classify each user-facing change as:
    - **OK** — already documented correctly (do nothing), or
    - **STALE** — the docs say something that is now wrong, or

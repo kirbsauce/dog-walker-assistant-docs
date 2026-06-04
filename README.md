@@ -7,7 +7,9 @@ served via GitHub Pages at **[docs.kirbsauce.com](https://docs.kirbsauce.com)**.
 
 - [`index.md`](index.md) — site home / overview.
 - [`WALKER.md`](WALKER.md) — Walker Guide.
-- [`ADMIN.md`](ADMIN.md) — Admin Guide.
+
+(The Admin Guide is no longer public — it now lives in-app, gated to admin
+accounts, in the `dog-walker-assistant-app` repo: `src/screens/AdminDocs.jsx`.)
 
 ## Theme
 

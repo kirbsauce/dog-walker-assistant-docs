@@ -1,5 +1,5 @@
 title: Dog Walker Assistant
-description: Public docs for DWA — walker guide and admin guide.
+description: Public docs for DWA — the walker guide.
 
 # Custom dark + amber theme lives in _layouts/ and assets/css/ (matches the app).
 # No gem-based theme; every page renders through _layouts/default.html.
@@ -13,7 +13,7 @@ relative_links:
   enabled: true
   collections: true
 
-# Render .md files at /WALKER, /ADMIN (no .html suffix in URLs).
+# Render .md files at /WALKER (no .html suffix in URLs).
 permalink: pretty
 
 # Apply the custom layout to every page without per-file front matter repetition.
