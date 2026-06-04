@@ -10,11 +10,6 @@ walks. It pulls the live shelter roster, tracks
 first walk (W1), second walk (W2), and playgroup (PG) status for every dog, and
 orders the list so walkers can see at a glance who still needs attention.
 
-## Guide
-
-- **[Walker Guide](WALKER.md)** — signing in, the roster, color grades, logging
-  walks on the dog page, the WALK ORDER sort, the shift timer, and resources.
-
 ## Open the app
 
 Go to **[dwa.kirbsauce.com](https://dwa.kirbsauce.com)** and sign in with your
