@@ -161,6 +161,17 @@ sort. View-based sorts like WALK ORDER are **one-way** orderings — the asc/des
 toggle only applies to plain field sorts (**Kennel**, **Color**, **Name**). Use
 **CLEAR SORT** to drop back to the default.
 
+## The Search screen
+
+Open **Search** from the nav menu to find a dog by name, ID, kennel, breed,
+color, or even a word from its notes — matches appear as you type, with name
+matches listed first.
+
+![Screenshot: Search results for a query](images/walker-search.png)
+
+Each result shows the dog's color, name, kennel, and today's **W1 · W2 · PG**
+ticks (green once logged). Tap a result to open that dog's page.
+
 ## The Kennel Map
 
 Open **Kennel Map** from the nav menu — or tap a dog's kennel on its detail
