@@ -161,6 +161,22 @@ sort. View-based sorts like WALK ORDER are **one-way** orderings — the asc/des
 toggle only applies to plain field sorts (**Kennel**, **Color**, **Name**). Use
 **CLEAR SORT** to drop back to the default.
 
+## The Kennel Map
+
+Open **Kennel Map** from the nav menu — or tap a dog's kennel on its detail
+page to jump straight there, centered on that room.
+
+![Screenshot: Kennel Map with a room selected](images/walker-kennel-map.png)
+
+Tap a room to see its kennels. Each row shows the dog's name, color, and walk
+status (**✓ WALKED**, **✓ PLAYGROUP**, or **NEEDS WALK**), plus a running tally
+of how many dogs in that room still need a walk. Tap a dog's row to open its
+detail page.
+
+Kennels that look empty, or dogs that aren't on your walk list, can still show
+up here — the map cross-checks against Pet Compass, so it'll flag a mismatch
+(⚠) if a dog is actually housed somewhere different than the roster says.
+
 ## The walk timer
 
 If you enable **Timer** in **Settings → APPEARANCE**, a small `mm:ss` timer
