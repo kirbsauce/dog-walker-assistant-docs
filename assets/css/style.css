@@ -81,7 +81,7 @@ body {
   padding: 36px 20px 64px;
 }
 
-.content h1, .content h2, .content h3 {
+.content h1, .content h2, .content h3, .content h4 {
   color: var(--accent);
   line-height: 1.25;
   margin-top: 2em;
@@ -100,6 +100,7 @@ body {
   text-transform: uppercase;
 }
 .content h3 { font-size: 15px; letter-spacing: 0.5px; }
+.content h4 { font-size: 15px; letter-spacing: 0.5px; }
 
 .content a { color: var(--accent); text-decoration: none; }
 .content a:hover { text-decoration: underline; }

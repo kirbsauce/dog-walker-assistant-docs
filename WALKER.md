@@ -1,13 +1,11 @@
 ---
 title: Walker Guide
-description: A tour of Dog Walker Assistant for shelter walkers — signing in, the roster, color grades, logging walks, sorting, and the shift timer.
+description: A tour of Dog Walker Assistant for shelter walkers — signing in, the roster, color grades, logging walks, sorting, and the walk timer.
 ---
 
 # Walker Guide
 
 A tour of the app for shelter walkers.
-
-![Screenshot: Roster screen, default WALK ORDER sort](images/walker-roster.png)
 
 ## Signing in
 
@@ -17,9 +15,32 @@ fill it in and an admin will be notified. Once an admin approves you, you'll get
 a welcome email, and your next Google sign-in will let you straight in. If
 sign-in keeps failing, message an admin.
 
+## Add to your home screen
+
+Install DWA as an app icon so it opens full-screen, without the browser bar.
+
+### Android (Chrome)
+
+1. Open **dwa.kirbsauce.com** in Chrome.
+2. Tap the **⋮** menu (top right) and choose **Add to Home screen** — or tap
+   **Install** if Chrome already offered you a banner.
+3. Confirm by tapping **Add** / **Install**.
+
+### iOS (Safari)
+
+1. Open **dwa.kirbsauce.com** in Safari.
+2. Tap the **Share** icon (the square with an arrow pointing up).
+3. Scroll down and tap **Add to Home Screen**.
+4. Tap **Add** in the top right.
+
+Either way, you'll get a DWA icon on your home screen that opens the app
+full-screen, just like a native app.
+
 ## The roster screen
 
-The roster lists every adoptable dog in the kennel today, ordered by the current
+![Screenshot: Roster screen, default WALK ORDER sort](images/walker-roster.png)
+
+The roster lists every walkable dog in the kennel today, ordered by the current
 sort (WALK ORDER by default). Each row shows, left to right:
 
 - **Y** — yesterday's activity at a glance (walked once, twice, playgroup, or
@@ -32,14 +53,25 @@ sort (WALK ORDER by default). Each row shows, left to right:
 - **NAME** — the dog's name.
 - **W1 · W2 · PG** — the time each activity was logged, or a check once done.
 
-**Tap any row to open the dog's page** — that's where you log walks now.
+**Tap any row to open the dog's page** — that's where you log walks, check
+kennel location, and read notes.
 
-![Screenshot: A roster row showing the status icons and columns](images/walker-roster-row.png){:.wide}
+## The dog detail page
 
-## Logging a walk
+![Screenshot: Dog page LOG ACTIVITY with Walk/Playgroup buttons and a logged time](images/walker-dog-activity.png)
 
-Walks are logged on the **dog's page**, not from the roster row. Tap a dog to
-open it, then under **LOG ACTIVITY** you'll see up to three buttons:
+- **ID** — tap it to copy the animal ID to your clipboard; the button flashes
+  **Copied!** for a moment to confirm.
+- **Kennel** (e.g. `AC03`) — tap it to jump straight to the **Kennel Map**,
+  centered on that dog's room.
+- **Photo** — tap it to view full-screen.
+- Other information may show up below these, when it applies to that
+  dog — flags like **Potty Dog**, **Recent surgery**, **Adoption hold**, and
+  **DROP DIVIDERS**.
+
+### Logging a walk
+
+Under **LOG ACTIVITY** you'll see up to three buttons:
 
 - **Walk 1**
 - **Walk 2** — locked until Walk 1 is logged.
@@ -52,9 +84,7 @@ Walk 2 first if you need to undo Walk 1. Each tap writes back to the shelter
 Google Sheet and syncs across devices instantly, so what you log shows up for
 everyone right away.
 
-![Screenshot: Dog page LOG ACTIVITY with Walk/Playgroup buttons and a logged time](images/walker-dog-activity.png)
-
-### Reservations
+#### Reservations
 
 A dog can be reserved before you walk it. When so, a pill appears above the
 buttons:
@@ -63,11 +93,28 @@ buttons:
 - **Reserved for Training** (cyan) — the Walk 1 button also gets a cyan border;
   the dog is spoken for by training.
 
-### Walk notes
+#### Walk notes
 
 Below the buttons, the dog's most recent note for each activity is shown. If
 there's more than one note for an activity, a **`+N more`** link appears — tap it
 to read the full history for that slot.
+
+### Notes
+
+Further down, a **NOTES** section holds the dog's ongoing care and behavior
+notes — anything worth knowing before you walk it. Words in ALL CAPS (like
+**DROP DIVIDERS** or **NO CATS**) are highlighted in red so warnings jump out.
+
+### Useful links
+
+At the bottom, a **TOOLS** section links out to other systems:
+
+- **Submit a Comment** / **Submit Medical Observation** / **Submit Behavior
+  Observation** — opens a form to report something about the dog.
+- **View on Pet Compass** / **View on Pet Harbor** — opens the dog's record in
+  the county's own systems.
+- **Verify Kennel** — cross-checks the dog's kennel against Pet Compass and
+  flags it if they don't match.
 
 ## Color grades
 
@@ -114,12 +161,21 @@ sort. View-based sorts like WALK ORDER are **one-way** orderings — the asc/des
 toggle only applies to plain field sorts (**Kennel**, **Color**, **Name**). Use
 **CLEAR SORT** to drop back to the default.
 
-## The shift timer
+## The walk timer
 
 If you enable **Timer** in **Settings → APPEARANCE**, a small `mm:ss` timer
 appears **on the roster page** — in the header (top nav) or bottom-right (bottom
-nav). Tap it to open play / pause / reset controls. It's a shared shift timer —
-resetting it resets it for the shift — and it caps at **30:00**.
+nav) — to help you keep track of how long you've had a dog out. Tap it to open
+play / pause / reset controls, and reset it each time you head out with a new
+dog. It caps at **30:00**.
+
+## Action buttons
+
+**Settings → APPEARANCE → Action buttons** lets you move the header's icon
+buttons (back, refresh, menu, and so on) between **TOP** (the normal header) and
+**BOTTOM** — a bar docked near the bottom of the screen instead. If you're
+navigating the app one-handed, BOTTOM keeps those buttons within thumb reach
+instead of making you stretch to the top of the screen.
 
 ## Resources
 

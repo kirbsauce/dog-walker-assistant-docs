@@ -11,7 +11,7 @@ first walk (W1), second walk (W2), and playgroup (PG) status for every dog, and
 orders the list so walkers can see at a glance who still needs attention.
 
 For a full walkthrough — signing in, the roster, color grades, logging walks,
-the WALK ORDER sort, the shift timer, and resources — see the
+the WALK ORDER sort, the walk timer, and resources — see the
 **[Walker Guide](WALKER.md)**.
 
 ## Open the app
