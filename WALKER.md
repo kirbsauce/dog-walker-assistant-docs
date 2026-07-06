@@ -39,18 +39,20 @@ sort (WALK ORDER by default). Each row shows, left to right:
 ## Logging a walk
 
 Walks are logged on the **dog's page**, not from the roster row. Tap a dog to
-open it, then under **ACTIVITY TODAY** you'll see up to three buttons:
+open it, then under **LOG ACTIVITY** you'll see up to three buttons:
 
-- **Log Walk 1**
-- **Log Walk 2** — locked until Walk 1 is logged.
-- **Log Playgroup**
+- **Walk 1**
+- **Walk 2** — locked until Walk 1 is logged.
+- **Playgroup**
 
 Tap a button to log that activity. Once logged, the button switches to show the
 time it happened, e.g. **`W1 @ 8:47`**. To undo a mistake, tap the logged button
-again to clear it. Each tap writes back to the shelter Google Sheet and syncs
-across devices, so what you log shows up for everyone.
+again to clear it — except Walk 1, which locks once Walk 2 is logged; clear
+Walk 2 first if you need to undo Walk 1. Each tap writes back to the shelter
+Google Sheet and syncs across devices instantly, so what you log shows up for
+everyone right away.
 
-![Screenshot: Dog page ACTIVITY TODAY with Log Walk buttons and a logged time](images/walker-dog-activity.png)
+![Screenshot: Dog page LOG ACTIVITY with Walk/Playgroup buttons and a logged time](images/walker-dog-activity.png)
 
 ### Reservations
 
@@ -71,15 +73,15 @@ to read the full history for that slot.
 
 Every dog wears a color from easiest to hardest:
 
-> <span class="swatch" style="background:#4caf50"></span>Green →
-> <span class="swatch" style="background:#ff8fc8"></span>Pink →
-> <span class="swatch" style="background:#4dd0e1"></span>Aqua →
-> <span class="swatch" style="background:#5c9bd1"></span>Blue− →
+> <span class="swatch" style="background:#00c853"></span>Green →
+> <span class="swatch" style="background:#f501a4"></span>Pink →
+> <span class="swatch" style="background:#00bcd4"></span>Aqua →
+> <span class="swatch" style="background:#1565c0"></span>Blue− →
 > <span class="swatch" style="background:#1565c0"></span>Blue →
-> <span class="swatch" style="background:#e0b94d"></span>Gold− →
-> <span class="swatch" style="background:#c79100"></span>Gold →
-> <span class="swatch" style="background:#e53935"></span>Red →
-> <span class="swatch" style="background:#222"></span>Black
+> <span class="swatch" style="background:#ffd700"></span>Gold− →
+> <span class="swatch" style="background:#ffd700"></span>Gold →
+> <span class="swatch" style="background:#d32f2f"></span>Red →
+> <span class="swatch" style="background:#424242"></span>Black
 
 Your own color grade (shown in **Settings → WALKER PROFILE**, set by an admin) is
 the **hardest** color you're cleared to walk. You can walk any dog **at or below**
@@ -143,11 +145,13 @@ Open **Settings** from the nav menu. Walker-facing options:
 ## FAQ
 
 **Where did the roster checkboxes go?** Walk logging moved to the dog's page —
-tap a row, then use the **Log Walk** buttons under ACTIVITY TODAY.
+tap a row, then use the buttons under **LOG ACTIVITY**.
 
-**Why doesn't a logged walk show up immediately?** The write goes to the source
-Sheet; the app reads from a mirror that syncs via `IMPORTRANGE`. Give it a few
-seconds and refresh if needed.
+**Why didn't a logged walk show up right away?** Normally it does — writes push
+an instant update to every connected device. If your phone was backgrounded
+(screen locked or you switched apps) for a while, it may have missed that push;
+it re-syncs the moment you bring the app back to the foreground. Still stale?
+Pull to refresh.
 
 **Why is a dog dimmed?** Its color grade is higher than yours. You can still open
 it, but it's not on your walk list today.
