@@ -7,6 +7,26 @@ description: A tour of Dog Walker Assistant for shelter walkers — signing in, 
 
 A tour of the app for shelter walkers.
 
+<details class="toc" open markdown="1">
+<summary>Jump to&hellip;</summary>
+
+- [Signing In](#signing-in)
+- [Add To Your Home Screen](#add-to-your-home-screen)
+- [The Roster Screen](#the-roster-screen)
+- [The Dog Detail Page](#the-dog-detail-page)
+- [Color Grades](#color-grades)
+- [Cell Colors](#cell-colors)
+- [The WALK ORDER Sort](#the-walk-order-sort)
+- [The Search Screen](#the-search-screen)
+- [The Kennel Map](#the-kennel-map)
+- [The Walk Timer](#the-walk-timer)
+- [Action Buttons](#action-buttons)
+- [Resources](#resources)
+- [Settings](#settings)
+- [FAQ](#faq)
+
+</details>
+
 ## Signing in
 
 DWA uses your Google account. Tap **Sign in with Google** on the launch screen
