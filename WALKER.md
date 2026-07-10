@@ -186,9 +186,9 @@ Dogs above your color grade fall to the bottom, dimmed.
 and which dim out, depends on your own color grade.*
 
 Open the **SORT BY** overlay from the sort icon in the header to pick another
-sort. View-based sorts like WALK ORDER are **one-way** orderings — the asc/desc
-toggle only applies to plain field sorts (**Kennel**, **Color**, **Name**). Use
-**CLEAR SORT** to drop back to the default.
+sort. View-based sorts like WALK ORDER are **one-way** orderings — the
+**A → Z / Z → A** toggle only applies to plain field sorts (**Kennel**,
+**Color**, **Name**). Use **CLEAR SORT** to drop back to the default.
 
 ## Filters
 
