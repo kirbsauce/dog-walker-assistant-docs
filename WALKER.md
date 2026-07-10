@@ -17,6 +17,7 @@ A tour of the app for shelter walkers.
 - [Color Grades](#color-grades)
 - [Cell Colors](#cell-colors)
 - [The WALK ORDER Sort](#the-walk-order-sort)
+- [Filters](#filters)
 - [The Search Screen](#the-search-screen)
 - [The Kennel Map](#the-kennel-map)
 - [The Walk Timer](#the-walk-timer)
@@ -75,6 +76,13 @@ sort (WALK ORDER by default). Each row shows, left to right:
 
 **Tap any row to open the dog's page** — that's where you log walks, check
 kennel location, and read notes.
+
+Below the table, a row of pills summarizes what's outstanding: a **`N NEED
+WALKS`** count (dogs with no activity logged today) that's always shown — red
+while dogs still need a walk, green once it hits zero — and, when applicable,
+**`N TRAINING RSVD`** / **`N PLAYGROUP RSVD`** counts for dogs reserved but
+not yet attended. These counts reflect the full roster regardless of any
+active filter (see [Filters](#filters)).
 
 ## The dog detail page
 
@@ -180,6 +188,17 @@ Open the **SORT BY** overlay from the sort icon in the header to pick another
 sort. View-based sorts like WALK ORDER are **one-way** orderings — the asc/desc
 toggle only applies to plain field sorts (**Kennel**, **Color**, **Name**). Use
 **CLEAR SORT** to drop back to the default.
+
+## Filters
+
+Tap the filter icon next to the sort icon to narrow the roster. **COLORS**
+lets you multi-select color grades and either show only those (**ONLY**) or
+hide them (**NOT**). Filters such as **PG reserved** and **Training
+reserved** each toggle between **ANY** / **ONLY** / **NOT** — isolate dogs
+matching that filter, or hide them. While any filter is active the filter
+icon highlights and the count under **ROSTER** switches to `X OF Y DOGS
+SHOWN`. Tap **CLEAR
+FILTERS** to reset everything.
 
 ## The Search screen
 
