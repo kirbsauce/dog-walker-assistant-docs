@@ -193,10 +193,11 @@ toggle only applies to plain field sorts (**Kennel**, **Color**, **Name**). Use
 
 Tap the filter icon next to the sort icon to narrow the roster. **COLORS**
 lets you multi-select color grades and either show only those (**ONLY**) or
-hide them (**NOT**). **PG reserved** and **Training reserved** each toggle
-between **ANY** / **ONLY** / **NOT** — isolate dogs reserved but not yet
-attended, or hide them. While any filter is active the filter icon highlights
-and the count under **ROSTER** switches to `X OF Y DOGS SHOWN`. Tap **CLEAR
+hide them (**NOT**). Filters such as **PG reserved** and **Training
+reserved** each toggle between **ANY** / **ONLY** / **NOT** — isolate dogs
+matching that filter, or hide them. While any filter is active the filter
+icon highlights and the count under **ROSTER** switches to `X OF Y DOGS
+SHOWN`. Tap **CLEAR
 FILTERS** to reset everything.
 
 ## The Search screen
