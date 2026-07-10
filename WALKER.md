@@ -19,6 +19,7 @@ A tour of the app for shelter walkers.
 - [The WALK ORDER Sort](#the-walk-order-sort)
 - [Filters](#filters)
 - [The Search Screen](#the-search-screen)
+- [My Log](#my-log)
 - [The Kennel Map](#the-kennel-map)
 - [The Walk Timer](#the-walk-timer)
 - [Action Buttons](#action-buttons)
@@ -210,6 +211,14 @@ matches listed first.
 
 Each result shows the dog's color, name, kennel, and today's **W1 · W2 · PG**
 ticks (green once logged). Tap a result to open that dog's page.
+
+## My Log
+
+Open **My Log** from the nav menu to see your own walk-toggle history — every
+W1/W2/PG you've logged, newest first, grouped under **TODAY**, **YESTERDAY**,
+and earlier day headings. Each row shows the time, the dog's name, and which
+activity was toggled, with a green checkmark for checked or a red ✕ for
+unchecked. Tap a row to open that dog's page.
 
 ## The Kennel Map
 
