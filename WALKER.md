@@ -289,6 +289,3 @@ Pull to refresh.
 
 **Why is a dog dimmed?** Its color grade is higher than yours. You can still open
 it, but it's not on your walk list today.
-
-**Where's refresh?** Top-right of the header. On mobile you can also pull the
-roster down to refresh.
