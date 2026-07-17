@@ -78,8 +78,8 @@ sort (WALK ORDER by default). Each row shows, left to right:
 **Tap any row to open the dog's page** — that's where you log walks, check
 kennel location, and read notes.
 
-Below the table, a row of pills summarizes what's outstanding: a **`N NEED
-WALKS`** count (dogs with no activity logged today) that's always shown — red
+Below the table, a row of pills summarizes what's outstanding: a **`N NOT
+WALKED`** count (dogs with no activity logged today) that's always shown — red
 while dogs still need a walk, green once it hits zero — and, when applicable,
 **`N TRAINING RSVD`** / **`N PLAYGROUP RSVD`** counts for dogs reserved but
 not yet attended. These counts reflect the full roster regardless of any
