@@ -164,6 +164,10 @@ the **hardest** color you're cleared to walk. You can walk any dog **at or below
 your grade. Dogs above your grade appear dimmed and drop to the bottom of the
 list when a view-based sort like WALK ORDER is active.
 
+Dogs flagged for special handling in the shelter's system always display as
+**Red**, regardless of their usual color grade — treat these with the same
+caution as any other Red dog.
+
 ## Cell colors
 
 The status-icon highlights on the roster tell you what's pending:
