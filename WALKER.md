@@ -198,8 +198,8 @@ sort. View-based sorts like WALK ORDER are **one-way** orderings — the
 
 Tap the filter icon next to the sort icon to narrow the roster. **COLORS**
 lets you multi-select color grades and either show only those (**ONLY**) or
-hide them (**NOT**). Filters such as **PG reserved** and **Training
-reserved** each have a checkbox to turn that filter on, plus an **ONLY** /
+hide them (**NOT**). Filters such as **Playgroup (reserved)** and **Training
+(reserved)** each have a checkbox to turn that filter on, plus an **ONLY** /
 **NOT** toggle for which way it applies once checked — unchecking turns the
 filter off without losing your ONLY/NOT choice. While any filter is active
 the filter icon highlights and the count under **ROSTER** switches to `X OF
