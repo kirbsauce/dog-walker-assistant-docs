@@ -208,8 +208,8 @@ hide them (**NOT**). Filters such as **Playgroup (reserved)** and **Training
 (reserved)** each have a checkbox to turn that filter on, plus an **ONLY** /
 **NOT** toggle for which way it applies once checked — unchecking turns the
 filter off without losing your ONLY/NOT choice. While any filter is active
-the filter icon highlights and the count under **ROSTER** switches to `X OF
-Y DOGS SHOWN`. Tap **CLEAR FILTERS** to reset everything.
+the filter icon highlights and the count under **ROSTER** switches to
+`SHOWING X OF Y DOGS`. Tap **CLEAR FILTERS** to reset everything.
 
 ## The Search screen
 
