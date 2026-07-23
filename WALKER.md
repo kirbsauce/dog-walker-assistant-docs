@@ -145,7 +145,9 @@ notes — anything worth knowing before you walk it. Words in ALL CAPS (like
 At the bottom, a **TOOLS** section links out to other systems:
 
 - **Submit a Comment** / **Submit Medical Observation** / **Submit Behavior
-  Observation** — opens a form to report something about the dog.
+  Observation** / **Submit Kennel Observation** — opens a form to report
+  something about the dog or the kennel. Each form comes prepopulated with
+  available information.
 - **View on Pet Compass** / **View on Pet Harbor** — opens the dog's record in
   the county's own systems.
 - **Verify Kennel** — cross-checks the dog's kennel against Pet Compass and
