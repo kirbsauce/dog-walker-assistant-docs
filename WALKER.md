@@ -116,9 +116,8 @@ Under **LOG ACTIVITY** you'll see up to three buttons:
 Tap a button to log that activity. Once logged, the button switches to show the
 time it happened, e.g. **`W1 @ 8:47`**. To undo a mistake, tap the logged button
 again to clear it — except Walk 1, which locks once Walk 2 is logged; clear
-Walk 2 first if you need to undo Walk 1. Each tap writes back to the shelter
-Google Sheet and syncs across devices instantly, so what you log shows up for
-everyone right away.
+Walk 2 first if you need to undo Walk 1. Each tap syncs across devices
+instantly, so what you log shows up for everyone right away.
 
 #### Reservations
 
