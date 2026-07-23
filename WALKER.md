@@ -101,8 +101,9 @@ active filter (see [Filters](#filters)).
   centered on that dog's room.
 - **Photo** — tap it to view full-screen.
 - Other information may show up below these, when it applies to that
-  dog — flags like **Potty Dog**, **Recent surgery**, **Adoption hold**, and
-  **DROP DIVIDERS**.
+  dog — flags like **Potty Dog**, **Recent surgery - NO RUNNING**, **Adoption
+  hold**, **DROP DIVIDERS**, and **LIMITED ACTIVITY - SEE NOTES** (an
+  activity restriction — check the dog's notes for details).
 
 ### Logging a walk
 
