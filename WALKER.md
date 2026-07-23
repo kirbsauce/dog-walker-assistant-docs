@@ -74,6 +74,12 @@ sort (WALK ORDER by default). Each row shows, left to right:
 - **CLR** — the dog's color grade (see [Color grades](#color-grades)).
 - **NAME** — the dog's name.
 - **W1 · W2 · PG** — the time each activity was logged, or a check once done.
+- **⋮** — a kebab menu, shown only if you're flagged as a **trainer** and/or
+  **playgroup lead** (set by an admin). Tap it for **Reserve for Training** /
+  **Unreserve for Training** and/or **Reserve for Playgroup** / **Unreserve
+  for Playgroup** — toggles the dog's reservation right from the roster, no
+  confirm needed. See [Reservations](#reservations) for how a reservation
+  then displays.
 
 **Tap any row to open the dog's page** — that's where you log walks, check
 kennel location, and read notes.
