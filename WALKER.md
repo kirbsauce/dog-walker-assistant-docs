@@ -138,9 +138,10 @@ buttons:
 
 #### Walk notes
 
-Below the buttons, the dog's most recent note for each activity is shown. If
-there's more than one note for an activity, a **`+N more`** link appears — tap it
-to read the full history for that slot.
+Below the buttons, under **ACTIVITY TODAY**, each activity's most recent note
+from today is listed — or **"No activity"** if nothing's been logged yet
+today. For the dog's full history, see **Activity History** under
+[Tools](#tools) below.
 
 ### Notes
 
@@ -152,6 +153,11 @@ notes — anything worth knowing before you walk it. Words in ALL CAPS (like
 
 At the bottom, a **TOOLS** section links out to other systems:
 
+- **Activity History** — opens the dog's full W1/W2/PG note history, all
+  time (not just today), grouped by day with the most recent day first. A day
+  with nothing logged still shows, with a **"No data"** line, so the list
+  runs as an unbroken run of days back to the oldest note. If the dog has no
+  notes at all yet, it shows **"No history"** instead.
 - **Submit a Comment** / **Submit Medical Observation** / **Submit Behavior
   Observation** / **Submit Kennel Observation** — opens a form to report
   something about the dog or the kennel. Each form comes prepopulated with
