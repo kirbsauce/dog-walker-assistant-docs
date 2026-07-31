@@ -93,7 +93,7 @@ active filter (see [Filters](#filters)).
 
 ## The dog detail page
 
-![Screenshot: Dog page with Log Walk / Log Playgroup buttons above ACTIVITY TODAY](images/walker-dog-activity.jpeg)
+![Screenshot: Dog page with Log Walk / Log Playgroup buttons above ACTIVITY TODAY](images/walker-dog-activity.png)
 
 - **ID** — tap it to copy the animal ID to your clipboard; the button flashes
   **Copied!** for a moment to confirm.
