@@ -93,7 +93,7 @@ active filter (see [Filters](#filters)).
 
 ## The dog detail page
 
-![Screenshot: Dog page LOG ACTIVITY with Walk/Playgroup buttons and a logged time](images/walker-dog-activity.png)
+![Screenshot: Dog page with Log Walk / Log Playgroup buttons above ACTIVITY TODAY](images/walker-dog-activity.png)
 
 - **ID** — tap it to copy the animal ID to your clipboard; the button flashes
   **Copied!** for a moment to confirm.
@@ -107,17 +107,24 @@ active filter (see [Filters](#filters)).
 
 ### Logging a walk
 
-Under **LOG ACTIVITY** you'll see up to three buttons:
+Above the **ACTIVITY TODAY** heading you'll see up to two buttons:
 
-- **Walk 1**
-- **Walk 2** — locked until Walk 1 is logged.
-- **Playgroup**
+- **Log Walk** — one button for both walks. It logs Walk 1 first; once Walk 1
+  is logged, the same button logs Walk 2 instead. A confirm popup names the
+  specific walk you're about to log. Once Walk 2 is logged there's nothing
+  left to log, so the button stays in place but greys out.
+- **Log Playgroup** — logs playgroup attendance. Same greying behavior once
+  logged: the button stays but greys out rather than disappearing.
 
-Tap a button to log that activity. Once logged, the button switches to show the
-time it happened, e.g. **`W1 @ 8:47`**. To undo a mistake, tap the logged button
-again to clear it — except Walk 1, which locks once Walk 2 is logged; clear
-Walk 2 first if you need to undo Walk 1. Each tap syncs across devices
-instantly, so what you log shows up for everyone right away.
+Each tap syncs across devices instantly, so what you log shows up for everyone
+right away.
+
+Once an activity is logged, it also appears as its own pill next to the
+**ACTIVITY TODAY** heading (the same treatment **ACTIVITY YESTERDAY** gets),
+showing the time it happened, e.g. **`W1 @ 8:47`**. Tap that pill to undo a
+mistake — a red-bordered warning confirms first, showing how long ago it was
+logged, before permanently clearing it. Walk 1's pill locks (can't be tapped)
+while Walk 2 is still logged; clear Walk 2 first if you need to undo Walk 1.
 
 #### Reservations
 
@@ -125,8 +132,9 @@ A dog can be reserved before you walk it. When so, a pill appears above the
 buttons:
 
 - **Reserved for Playgroup** (green) — hold the dog for playgroup.
-- **Reserved for Training** (cyan) — the Walk 1 button also gets a cyan border;
-  the dog is spoken for by training.
+- **Reserved for Training** (cyan) — the Log Walk button also gets a cyan
+  border while Walk 1 is still the next one up; the dog is spoken for by
+  training.
 
 #### Walk notes
 
@@ -287,7 +295,8 @@ Open **Settings** from the nav menu. Walker-facing options:
 ## FAQ
 
 **Where did the roster checkboxes go?** Walk logging moved to the dog's page —
-tap a row, then use the buttons under **LOG ACTIVITY**.
+tap a row, then use the **Log Walk** / **Log Playgroup** buttons above
+**ACTIVITY TODAY**.
 
 **Why didn't a logged walk show up right away?** Normally it does — writes push
 an instant update to every connected device. If your phone was backgrounded
