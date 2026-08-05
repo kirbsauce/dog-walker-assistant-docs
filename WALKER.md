@@ -74,8 +74,9 @@ sort (WALK ORDER by default). Each row shows, left to right:
 - **CLR** — the dog's color grade (see [Color grades](#color-grades)).
 - **NAME** — the dog's name.
 - **W1 · W2 · PG** — the time each activity was logged, or a check once done.
-- **⋮** — a kebab menu, shown only if you're flagged as a **trainer** and/or
-  **playgroup lead** (set by an admin). Tap it for **Reserve for Training** /
+- **⋮** — a kebab menu, shown if you're flagged as a **trainer** and/or
+  **playgroup lead** (set by an admin), or if your account role is
+  **admin**. Tap it for **Reserve for Training** /
   **Unreserve for Training** and/or **Reserve for Playgroup** / **Unreserve
   for Playgroup** — toggles the dog's reservation right from the roster, no
   confirm needed. See [Reservations](#reservations) for how a reservation
