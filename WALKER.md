@@ -195,11 +195,19 @@ dog.
 
 The status-icon highlights on the roster tell you what's pending:
 
-- **Yellow / amber** on a walk icon — that walk slot is urgent.
-- **Green** on Playgroup — the dog is reserved for playgroup but hasn't attended.
-- **Cyan** on Walk 1 — the dog is reserved for training but hasn't walked.
+- <strong style="color:#ffff00">Yellow</strong> /
+  <strong style="color:#e3bd3e">amber</strong> on a walk icon — that walk
+  slot is urgent.
+- <strong style="color:#00c853">Green</strong> on Playgroup — the dog is
+  reserved for playgroup but hasn't attended.
+- <strong style="color:#00bcd4">Cyan</strong> on Walk 1 — the dog is reserved
+  for training. Unlike the other highlights, this one doesn't clear once
+  Walk 1 is logged — it stays cyan (with a checkmark drawn on top) until the
+  training reservation itself is removed.
 
-Once an activity is logged, its highlight clears — the check wins over the color.
+Once an activity is logged, its highlight clears and the check wins over the
+color — except cyan, which persists for the life of the reservation (see
+above).
 
 ## The WALK ORDER sort
 
