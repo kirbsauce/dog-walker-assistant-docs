@@ -16,6 +16,8 @@ name: Doc drift scan
 #   RESEND_API_KEY          — optional; enables the failure-notification email
 #                             (same key as the backend's Render env). If missing,
 #                             the email step skips — the scan itself still runs.
+#   NOTIFY_EMAIL            — optional; recipient for the failure-notification
+#                             email above. If missing, the email step skips.
 #
 # Run it by hand anytime from the Actions tab (workflow_dispatch).
 
@@ -86,17 +88,19 @@ jobs:
 
       # Backstop: emails the maintainer if ANY step above failed (e.g. auth
       # breaks, as in the CLAUDE_CODE_OAUTH_TOKEN outage). Runs only on failure;
-      # skips quietly if RESEND_API_KEY isn't set so it never masks the real error.
+      # skips quietly if RESEND_API_KEY or NOTIFY_EMAIL isn't set so it never
+      # masks the real error.
       - name: Notify on failure
         if: failure()
         env:
           RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          NOTIFY_EMAIL: ${{ secrets.NOTIFY_EMAIL }}
         run: |
-          if [ -z "$RESEND_API_KEY" ]; then
-            echo "RESEND_API_KEY not set — skipping failure email"; exit 0
+          if [ -z "$RESEND_API_KEY" ] || [ -z "$NOTIFY_EMAIL" ]; then
+            echo "RESEND_API_KEY or NOTIFY_EMAIL not set — skipping failure email"; exit 0
           fi
           RUN_URL="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
           curl -s -X POST https://api.resend.com/emails \
             -H "Authorization: Bearer $RESEND_API_KEY" \
             -H "Content-Type: application/json" \
-            -d "{\"from\":\"DWA@kirbsauce.com\",\"to\":[\"kirby.drumm@gmail.com\"],\"subject\":\"⚠️ Doc-drift scan failed\",\"html\":\"The nightly doc-drift scan failed.<br><br><a href=\\\"$RUN_URL\\\">View the run logs</a>\"}"
+            -d "{\"from\":\"DWA@kirbsauce.com\",\"to\":[\"$NOTIFY_EMAIL\"],\"subject\":\"⚠️ Doc-drift scan failed\",\"html\":\"The nightly doc-drift scan failed.<br><br><a href=\\\"$RUN_URL\\\">View the run logs</a>\"}"
