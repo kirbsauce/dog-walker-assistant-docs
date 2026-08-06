@@ -336,13 +336,21 @@ instead of making you stretch to the top of the screen.
 
 ## Resources
 
-The **Resources** screen (in the nav menu) has three sections:
+The **Resources** screen (in the nav menu) has five sections:
 
-- **Links** — a **Walker Guide** link that opens this guide in your browser.
-- **Feedback** — a **Submit Bug/Enhancement** button for reporting a problem
-  or requesting a feature.
+- **Guides** — a **Walker Guide** link that opens this guide in your browser
+  (plus an **Admin Guide** link, admins only).
+- **Submit an Observation** — the same **Submit a Comment** / **Submit
+  Medical Observation** / **Submit Behavior Observation** / **Submit Kennel
+  Observation** forms available from a dog's own Tools menu, but blank — from
+  here there's no specific dog to pre-fill them with.
 - **Adopter Resources** — a QR code for the adoption info page. Tap it to
   open, or let an adopter scan it to share the info.
+- **Other** — **Pet Compass** / **Pet Harbor** links for looking up an
+  animal directly, without a dog pre-filled (a dog's own Tools menu offers
+  the same lookups already pointed at that dog).
+- **Feedback** — a **Submit Bug/Enhancement** button for reporting a problem
+  or requesting a feature.
 
 ## Settings
 
