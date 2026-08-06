@@ -21,6 +21,7 @@ A tour of the app for shelter walkers.
 - [The Search Screen](#the-search-screen)
 - [My Log](#my-log)
 - [The Kennel Map](#the-kennel-map)
+- [The Playgroup Screen](#the-playgroup-screen)
 - [The Walk Timer](#the-walk-timer)
 - [Action Buttons](#action-buttons)
 - [Resources](#resources)
@@ -225,6 +226,17 @@ sort. View-based sorts like WALK ORDER are **one-way** orderings — the
 **A → Z / Z → A** toggle only applies to plain field sorts (**Kennel**,
 **Color**, **Name**). Use **CLEAR SORT** to drop back to the default.
 
+The overlay also offers a **PLAYGROUP** sort: instead of walk urgency, it
+groups dogs already reserved for playgroup (and not yet attended) using the
+same grouping as [the Playgroup screen](#the-playgroup-screen), with a
+**REMAINING ROSTER** group underneath, in plain WALK ORDER, for everyone
+else. If nobody's currently reserved, it shows **"No dogs currently reserved
+for playgroup"** instead.
+
+Both WALK ORDER and PLAYGROUP are available to every role, including guests —
+since a guest account has no color grade of its own, it's treated as **Gold**
+for grouping/dimming purposes in either sort.
+
 ## Filters
 
 Tap the filter icon next to the sort icon to narrow the roster. **COLORS**
@@ -270,6 +282,39 @@ detail page.
 Kennels that look empty, or dogs that aren't on your walk list, can still show
 up here — the map cross-checks against Pet Compass, so it'll flag a mismatch
 (⚠) if a dog is actually housed somewhere different than the roster says.
+
+## The Playgroup screen
+
+Open **Playgroup** from the nav menu to see the roster grouped the same way
+the shelter's own Playgroup tracking does, rather than by walk urgency.
+
+Dogs are grouped by their Playgroup **Style** — **Gentle Dainty 1**, **Gentle
+Dainty 2**, **Push/Pull**, and **Rough/Rowdy** — each split into **Regular**
+and **Unassessed** subgroups. Dogs with no Style or Cat info fall under
+**Unassessed**. Dogs tagged for something other than regular playgroup show up
+in their own groups instead: **Selectives** (subgrouped per selective tag,
+with buddy dogs or a **NEED INSTRUCTIONS** note), **Projects**, and **No
+Playgroup** (holds like **Does Not Benefit**, **Medical / Age**,
+**Investigation**, or **Recent Surgery**). Each group header shows a count and
+a chevron to collapse/expand it. Tap a dog's row to open its detail page. A
+**Refresh** icon in the header re-fetches the page.
+
+### Managing playgroup reservations
+
+If you're flagged as a **playgroup lead** (set by an admin) or your account
+role is **admin**, you get two extra tools:
+
+- **Per-dog kebab (⋮)** — on any row, offering **Reserve for Playgroup** /
+  **Unreserve for Playgroup** (single tap, no confirmation), **Log Playgroup**
+  / **Unlog Playgroup** (unlogging asks you to confirm first, showing how long
+  ago it was logged), and **Details** (opens the dog's page).
+- **Bulk Reserve** — a header icon that puts every row into a checkbox select
+  mode, pre-checked for dogs already reserved. Check or uncheck any dogs, then
+  **Save** (only the dogs you actually changed are sent) or **Cancel**
+  (discards everything, no writes). Save shows a summary of how many dogs were
+  reserved, unreserved, already correct (no change needed), and — if any
+  failed to save — which ones, left selected so tapping Save again retries
+  just those.
 
 ## The walk timer
 
