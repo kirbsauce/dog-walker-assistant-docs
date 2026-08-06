@@ -159,7 +159,9 @@ At the bottom, a **TOOLS** section links out to other systems:
   time (not just today), grouped by day with the most recent day first. A day
   with nothing logged still shows, with a **"No data"** line, so the list
   runs as an unbroken run of days back to the oldest note. If the dog has no
-  notes at all yet, it shows **"No history"** instead.
+  notes at all yet, it shows **"No history"** instead. Training
+  reservations/unreservations show up here too, as their own **TR** entries
+  interleaved with W1/W2/PG — cyan when reserved, red when unreserved.
 - **Submit a Comment** / **Submit Medical Observation** / **Submit Behavior
   Observation** / **Submit Kennel Observation** — opens a form to report
   something about the dog or the kennel. Each form comes prepopulated with
