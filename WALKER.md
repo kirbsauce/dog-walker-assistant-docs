@@ -350,8 +350,12 @@ Open **Settings** from the nav menu. Walker-facing options:
   for **guest** accounts, which have no color grade of their own.
 - **APPEARANCE** — **Theme** (dark / light), **Font size**, **Action buttons**
   (nav at top or bottom, for one-handed use), and the **Timer** toggle.
-- **NOTIFICATIONS** — turn on **Push notifications** for your account (the first
-  toggle asks the browser for permission).
+- **NOTIFICATIONS** — **Push notifications** shows your device's current
+  permission as read-only status text: **ENABLED**, **NOT YET ENABLED**, or
+  **BLOCKED — ENABLE IN DEVICE SETTINGS**. There's no toggle here to tap —
+  enabling or disabling notifications happens in your device's own settings.
+  If you haven't enabled them yet, a banner may prompt you to **ENABLE** from
+  the roster screen; tapping it triggers the one-time OS permission prompt.
 
 ## FAQ
 
