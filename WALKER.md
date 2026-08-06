@@ -346,7 +346,8 @@ The **Resources** screen (in the nav menu) has three sections:
 
 Open **Settings** from the nav menu. Walker-facing options:
 
-- **WALKER PROFILE** — your color level (read-only, set by an admin).
+- **WALKER PROFILE** — your color level (read-only, set by an admin). Hidden
+  for **guest** accounts, which have no color grade of their own.
 - **APPEARANCE** — **Theme** (dark / light), **Font size**, **Action buttons**
   (nav at top or bottom, for one-handed use), and the **Timer** toggle.
 - **NOTIFICATIONS** — turn on **Push notifications** for your account (the first
