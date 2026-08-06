@@ -283,7 +283,9 @@ detail page.
 
 Kennels that look empty, or dogs that aren't on your walk list, can still show
 up here — the map cross-checks against Pet Compass, so it'll flag a mismatch
-(⚠) if a dog is actually housed somewhere different than the roster says.
+(⚠) if a dog is actually housed somewhere different than the roster says. A
+dog with no Pet Compass record at all gets its own **⚠ NOT FOUND IN PC**
+badge instead, not a mismatch to fix.
 
 ## The Playgroup screen
 
