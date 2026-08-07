@@ -292,6 +292,8 @@ badge instead, not a mismatch to fix.
 Open **Playgroup** from the nav menu to see the roster grouped the same way
 the shelter's own Playgroup tracking does, rather than by walk urgency.
 
+![Screenshot: Playgroup screen showing Style groups with Regular/Unassessed subgroups](images/walker-playgroup.png)
+
 Dogs are grouped by their Playgroup **Style** — **Gentle Dainty 1**, **Gentle
 Dainty 2**, **Push/Pull**, and **Rough/Rowdy** — each split into **Regular**
 and **Unassessed** subgroups. Dogs with no Style or Cat info fall under
