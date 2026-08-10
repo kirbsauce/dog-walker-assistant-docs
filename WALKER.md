@@ -95,7 +95,7 @@ active filter (see [Filters](#filters)).
 
 ## The dog detail page
 
-![Screenshot: Dog page with Log Walk / Log Playgroup buttons above ACTIVITY TODAY](images/walker-dog-activity.png)
+![Screenshot: Dog page with Log Walk 1 / Log Walk 2 / Log PG buttons](images/walker-dog-activity.png)
 
 - **ID** — tap it to copy the animal ID to your clipboard; the button flashes
   **Copied!** for a moment to confirm.
@@ -109,24 +109,22 @@ active filter (see [Filters](#filters)).
 
 ### Logging a walk
 
-Above the **ACTIVITY TODAY** heading you'll see up to two buttons:
+At the top of the page you'll see three buttons:
 
-- **Log Walk** — one button for both walks. It logs Walk 1 first; once Walk 1
-  is logged, the same button logs Walk 2 instead. A confirm popup names the
-  specific walk you're about to log. Once Walk 2 is logged there's nothing
-  left to log, so the button stays in place but greys out.
-- **Log Playgroup** — logs playgroup attendance. Same greying behavior once
-  logged: the button stays but greys out rather than disappearing.
+- **Log Walk 1** / **Log Walk 2** — separate buttons for each walk. Walk 2
+  stays greyed out until Walk 1 is logged. Once logged, a button turns green
+  and shows the time it happened, e.g. **`8:47am`**.
+- **Log PG** — logs playgroup attendance, with the same green-with-time
+  treatment once logged.
 
-Each tap syncs across devices instantly, so what you log shows up for everyone
-right away.
+Tap an already-logged button to undo a mistake — a red-bordered
+warning confirms first, showing how long ago it was logged, before
+permanently clearing it. Walk 1 locks (can't be tapped) while Walk 2 is still
+logged; clear Walk 2 first if you need to undo Walk 1.
 
-Once an activity is logged, it also appears as its own pill next to the
-**ACTIVITY TODAY** heading (the same treatment **ACTIVITY YESTERDAY** gets),
-showing the time it happened, e.g. **`W1 @ 8:47`**. Tap that pill to undo a
-mistake — a red-bordered warning confirms first, showing how long ago it was
-logged, before permanently clearing it. Walk 1's pill locks (can't be tapped)
-while Walk 2 is still logged; clear Walk 2 first if you need to undo Walk 1.
+**Walkers can't undo a walk more than 30 minutes after logging it** — the
+button shows a notice asking you to contact an admin instead. Admins aren't
+limited by this. Playgroup has no time limit.
 
 #### Reservations
 
@@ -134,16 +132,23 @@ A dog can be reserved before you walk it. When so, a pill appears above the
 buttons:
 
 - **Reserved for Playgroup** (green) — hold the dog for playgroup.
-- **Reserved for Training** (cyan) — the Log Walk button also gets a cyan
-  border while Walk 1 is still the next one up; the dog is spoken for by
-  training.
+- **Reserved for Training** (cyan) — the **Log Walk 1** button also gets a
+  cyan border. Unlike other button styling, this doesn't clear once Walk 1
+  is logged — it stays cyan until the training reservation itself is
+  removed, the same behavior the roster's Walk 1 icon has (see [Cell
+  Colors](#cell-colors)).
 
-#### Walk notes
+#### Activity notes
 
-Below the buttons, under **ACTIVITY TODAY**, each activity's most recent note
-from today is listed — or **"No activity"** if nothing's been logged yet
-today. For the dog's full history, see **Activity History** under
-[Tools](#tools) below.
+Below the buttons, each activity's most recent note from today is listed —
+or **"No activity today"** if nothing's been logged yet. For the dog's full
+history, see **Activity History** below.
+
+#### Activity History
+
+Below **ACTIVITY YESTERDAY**, tap **Activity History** to open the dog's
+full W1/W2/PG note history, grouped by day with the most recent day first.
+If the dog has no notes at all yet, it shows **"No history"** instead.
 
 ### Notes
 
@@ -155,13 +160,6 @@ notes — anything worth knowing before you walk it. Words in ALL CAPS (like
 
 At the bottom, a **TOOLS** section links out to other systems:
 
-- **Activity History** — opens the dog's full W1/W2/PG note history, all
-  time (not just today), grouped by day with the most recent day first. A day
-  with nothing logged still shows, with a **"No data"** line, so the list
-  runs as an unbroken run of days back to the oldest note. If the dog has no
-  notes at all yet, it shows **"No history"** instead. Training
-  reservations/unreservations show up here too, as their own **TR** entries
-  interleaved with W1/W2/PG — cyan when reserved, red when unreserved.
 - **Submit a Comment** / **Submit Medical Observation** / **Submit Behavior
   Observation** / **Submit Kennel Observation** — opens a form to report
   something about the dog or the kennel. Each form comes prepopulated with
