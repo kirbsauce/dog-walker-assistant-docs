@@ -300,8 +300,11 @@ in their own groups instead: **Selectives** (subgrouped per selective tag,
 with buddy dogs or a **NEED INSTRUCTIONS** note), **Projects**, and **No
 Playgroup** (holds like **Does Not Benefit**, **Medical / Age**,
 **Investigation**, or **Recent Surgery**). Each group header shows a count and
-a chevron to collapse/expand it. Tap a dog's row to open its detail page. A
-**Refresh** icon in the header re-fetches the page.
+a chevron to collapse/expand it. Tap a dog's row to expand/collapse its PG
+notes. Long-press (hold) a row to open the dog's detail page — this is the
+only way plain walkers can reach Details from this screen; PG leads/admins
+can also use the kebab menu's **Details** entry. A **Refresh** icon in the
+header re-fetches the page.
 
 ### Managing playgroup reservations
 
