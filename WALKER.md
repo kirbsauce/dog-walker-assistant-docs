@@ -301,19 +301,16 @@ with buddy dogs or a **NEED INSTRUCTIONS** note), **Projects**, and **No
 Playgroup** (holds like **Does Not Benefit**, **Medical / Age**,
 **Investigation**, or **Recent Surgery**). Each group header shows a count and
 a chevron to collapse/expand it. Tap a dog's row to expand/collapse its PG
-notes. Long-press (hold) a row to open the dog's detail page. PG leads can
-reserve/unreserve a single dog for playgroup via the kebab menu. A
-**Refresh** icon in the header re-fetches the page.
+notes. Long-press (hold) a row to open the dog's detail page — double-click
+does the same on desktop/mouse. A **Refresh** icon in the header re-fetches
+the page. Logging or unlogging a dog's playgroup attendance is done from the
+dog's own page (see [FAQ](#faq)), not from this screen.
 
 ### Managing playgroup reservations
 
 If you're flagged as a **playgroup lead** (set by an admin) or your account
-role is **admin**, you get two extra tools:
+role is **admin**, you get one extra tool:
 
-- **Per-dog kebab (⋮)** — on any row, offering **Reserve for Playgroup** /
-  **Unreserve for Playgroup** (single tap, no confirmation), **Log Playgroup**
-  / **Unlog Playgroup** (unlogging asks you to confirm first, showing how long
-  ago it was logged), and **Details** (opens the dog's page).
 - **Bulk Reserve** — a header icon that puts every row into a checkbox select
   mode, pre-checked for dogs already reserved. Check or uncheck any dogs, then
   **Save** (only the dogs you actually changed are sent) or **Cancel**
