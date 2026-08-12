@@ -301,7 +301,7 @@ with buddy dogs or a **NEED INSTRUCTIONS** note), **Projects**, and **No
 Playgroup** (holds like **Does Not Benefit**, **Medical / Age**,
 **Investigation**, or **Recent Surgery**). Each group header shows a count and
 a chevron to collapse/expand it. Tap a dog's row to expand/collapse its PG
-notes. Long-press (hold) a row to open the dog's detail page. Admins can
+notes. Long-press (hold) a row to open the dog's detail page. PG leads can
 reserve a single dog for playgroup via the kebab menu. A **Refresh** icon in
 the header re-fetches the page.
 
