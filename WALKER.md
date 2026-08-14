@@ -307,6 +307,11 @@ does the same on desktop/mouse. Logging or unlogging a dog's playgroup
 attendance is done from the dog's own page (see [FAQ](#faq)), not from this
 screen.
 
+Style/Cat/Buddies/Sex/Alt/Time/PG Notes update automatically as they change.
+If a change was made by editing the Playgroup sheet directly rather than
+through the app — e.g. staff physically moving a dog and updating the tab by
+hand — it can take up to **~10 seconds** to show up here.
+
 ### Managing playgroup reservations
 
 If you're flagged as a **playgroup lead** (set by an admin) or your account
