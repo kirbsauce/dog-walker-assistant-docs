@@ -241,10 +241,11 @@ for grouping/dimming purposes in either sort.
 
 Tap the filter icon next to the sort icon to narrow the roster. **COLORS**
 lets you multi-select color grades and either show only those (**ONLY**) or
-hide them (**NOT**). Filters such as **Playgroup (reserved)** and **Training
-(reserved)** each have a checkbox to turn that filter on, plus an **ONLY** /
-**NOT** toggle for which way it applies once checked — unchecking turns the
-filter off without losing your ONLY/NOT choice. While any filter is active
+hide them (**NOT**). Filters such as **Playgroup (reserved)**, **Training
+(reserved)**, and **BMOD** (dogs flagged for behavior modification) each have
+a checkbox to turn that filter on, plus an **ONLY** / **NOT** toggle for
+which way it applies once checked — unchecking turns the filter off without
+losing your ONLY/NOT choice. While any filter is active
 the filter icon highlights and the count under **ROSTER** switches to
 `SHOWING X OF Y DOGS`. Tap **CLEAR FILTERS** to reset everything.
 
@@ -302,9 +303,14 @@ Playgroup** (holds like **Does Not Benefit**, **Medical / Age**,
 **Investigation**, or **Recent Surgery**). Each group header shows a count and
 a chevron to collapse/expand it. Tap a dog's row to expand/collapse its PG
 notes. Long-press (hold) a row to open the dog's detail page — double-click
-does the same on desktop/mouse. A **Refresh** icon in the header re-fetches
-the page. Logging or unlogging a dog's playgroup attendance is done from the
-dog's own page (see [FAQ](#faq)), not from this screen.
+does the same on desktop/mouse. Logging or unlogging a dog's playgroup
+attendance is done from the dog's own page (see [FAQ](#faq)), not from this
+screen.
+
+Style/Cat/Buddies/Sex/Alt/Time/PG Notes update automatically as they change.
+If a change was made by editing the Playgroup sheet directly rather than
+through the app — e.g. staff physically moving a dog and updating the tab by
+hand — it can take up to **~10 seconds** to show up here.
 
 ### Managing playgroup reservations
 
