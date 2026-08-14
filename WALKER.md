@@ -302,9 +302,9 @@ Playgroup** (holds like **Does Not Benefit**, **Medical / Age**,
 **Investigation**, or **Recent Surgery**). Each group header shows a count and
 a chevron to collapse/expand it. Tap a dog's row to expand/collapse its PG
 notes. Long-press (hold) a row to open the dog's detail page — double-click
-does the same on desktop/mouse. A **Refresh** icon in the header re-fetches
-the page. Logging or unlogging a dog's playgroup attendance is done from the
-dog's own page (see [FAQ](#faq)), not from this screen.
+does the same on desktop/mouse. Logging or unlogging a dog's playgroup
+attendance is done from the dog's own page (see [FAQ](#faq)), not from this
+screen.
 
 ### Managing playgroup reservations
 
