@@ -369,10 +369,13 @@ Open **Settings** from the nav menu. Walker-facing options:
   (nav at top or bottom, for one-handed use), and the **Timer** toggle.
 - **NOTIFICATIONS** — **Push notifications** shows your device's current
   permission as read-only status text: **ENABLED**, **NOT YET ENABLED**, or
-  **BLOCKED — ENABLE IN DEVICE SETTINGS**. There's no toggle here to tap —
-  enabling or disabling notifications happens in your device's own settings.
-  If you haven't enabled them yet, a banner may prompt you to **ENABLE** from
-  the roster screen; tapping it triggers the one-time OS permission prompt.
+  **BLOCKED — ENABLE IN DEVICE SETTINGS**. That row has no toggle — enabling or
+  disabling notifications happens in your device's own settings. If you haven't
+  enabled them yet, a banner may prompt you to **ENABLE** from the roster
+  screen; tapping it triggers the one-time OS permission prompt.
+  **Shift Reminders** (on by default) — after you log your first walk or
+  playgroup of a shift, a prompt offers to send you to the Bloomerang kiosk to
+  check in. Turn it off here.
 
 ## FAQ
 
