@@ -156,6 +156,12 @@ Further down, a **NOTES** section holds the dog's ongoing care and behavior
 notes — anything worth knowing before you walk it. Words in ALL CAPS (like
 **DROP DIVIDERS** or **NO CATS**) are highlighted in red so warnings jump out.
 
+### Playgroup notes
+
+Dogs with playgroup notes get a collapsed **PLAYGROUP NOTES** section below
+**NOTES** — tap the title to open it. Inside is the dog's **Playstyle** and its
+dated playgroup notes.
+
 ### Tools
 
 At the bottom, a **TOOLS** section links out to other systems:
