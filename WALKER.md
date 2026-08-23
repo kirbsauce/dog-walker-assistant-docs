@@ -179,8 +179,8 @@ At the bottom, a **TOOLS** section links out to other systems:
 
 Every dog wears a color from easiest to hardest:
 
-> <span class="swatch" style="background:#00c853"></span>Green →
 > <span class="swatch" style="background:#f501a4"></span>Pink →
+> <span class="swatch" style="background:#00c853"></span>Green →
 > <span class="swatch" style="background:#00bcd4"></span>Aqua →
 > <span class="swatch" style="background:#1565c0"></span>Blue− →
 > <span class="swatch" style="background:#1565c0"></span>Blue →
