@@ -1,3 +1,8 @@
 _site/
 .jekyll-cache/
 .jekyll-metadata
+
+# macOS Finder metadata — created in any folder opened in Finder, and this
+# repo's images/ gets opened often. Jekyll would otherwise copy it into _site
+# and publish it.
+.DS_Store
