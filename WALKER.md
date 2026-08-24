@@ -22,11 +22,11 @@ A tour of the app for shelter walkers.
 - [My Log](#my-log)
 - [The Kennel Map](#the-kennel-map)
 - [The Playgroup Screen](#the-playgroup-screen)
-- [Walker Activity](#walker-activity)
-- [The Walk Timer](#the-walk-timer)
-- [Action Buttons](#action-buttons)
 - [Resources](#resources)
+- [Walker Activity](#walker-activity)
 - [Settings](#settings)
+  - [The Walk Timer](#the-walk-timer)
+  - [Action Buttons](#action-buttons)
 - [FAQ](#faq)
 
 </details>
@@ -332,6 +332,24 @@ role is **admin**, you get one extra tool:
   failed to save — which ones, left selected so tapping Save again retries
   just those.
 
+## Resources
+
+The **Resources** screen (in the nav menu) has five sections:
+
+- **Guides** — a **Walker Guide** link that opens this guide in your browser
+  (plus an **Admin Guide** link, admins only).
+- **Submit an Observation** — the same **Submit a Comment** / **Submit
+  Medical Observation** / **Submit Behavior Observation** / **Submit Kennel
+  Observation** forms available from a dog's own Tools menu, but blank — from
+  here there's no specific dog to pre-fill them with.
+- **Adopter Resources** — a QR code for the adoption info page. Tap it to
+  open, or let an adopter scan it to share the info.
+- **Other** — **Pet Compass** / **Pet Harbor** links for looking up an
+  animal directly, without a dog pre-filled (a dog's own Tools menu offers
+  the same lookups already pointed at that dog).
+- **Feedback** — a **Submit Bug/Enhancement** button for reporting a problem
+  or requesting a feature.
+
 ## Walker Activity
 
 Open **Walker Activity** from the nav menu to see who else is at the shelter
@@ -366,48 +384,15 @@ A walker shows up here only once they've logged something today, so an early
 shift with nothing logged yet looks the same as an empty shelter: **NO WALKS
 LOGGED YET TODAY**.
 
-## The walk timer
-
-If you enable **Timer** in **Settings → APPEARANCE**, a small `mm:ss` timer
-appears **on the roster page** — in the header (top nav) or bottom-right (bottom
-nav) — to help you keep track of how long you've had a dog out. Tap it to open
-play / pause / reset controls, and reset it each time you head out with a new
-dog. It caps at **30:00**.
-
-## Action buttons
-
-**Settings → APPEARANCE → Action buttons** lets you move the header's icon
-buttons (back, refresh, menu, and so on) between **TOP** (the normal header) and
-**BOTTOM** — a bar docked near the bottom of the screen instead. If you're
-navigating the app one-handed, BOTTOM keeps those buttons within thumb reach
-instead of making you stretch to the top of the screen.
-
-## Resources
-
-The **Resources** screen (in the nav menu) has five sections:
-
-- **Guides** — a **Walker Guide** link that opens this guide in your browser
-  (plus an **Admin Guide** link, admins only).
-- **Submit an Observation** — the same **Submit a Comment** / **Submit
-  Medical Observation** / **Submit Behavior Observation** / **Submit Kennel
-  Observation** forms available from a dog's own Tools menu, but blank — from
-  here there's no specific dog to pre-fill them with.
-- **Adopter Resources** — a QR code for the adoption info page. Tap it to
-  open, or let an adopter scan it to share the info.
-- **Other** — **Pet Compass** / **Pet Harbor** links for looking up an
-  animal directly, without a dog pre-filled (a dog's own Tools menu offers
-  the same lookups already pointed at that dog).
-- **Feedback** — a **Submit Bug/Enhancement** button for reporting a problem
-  or requesting a feature.
-
 ## Settings
 
 Open **Settings** from the nav menu. Walker-facing options:
 
 - **WALKER PROFILE** — your color level (read-only, set by an admin). Hidden
   for **guest** accounts, which have no color grade of their own.
-- **APPEARANCE** — **Theme** (dark / light), **Font size**, **Action buttons**
-  (nav at top or bottom, for one-handed use), and the **Timer** toggle.
+- **APPEARANCE** — **Theme** (dark / light), **Font size**,
+  **[Action buttons](#action-buttons)** (nav at top or bottom, for one-handed
+  use), and the **[Timer](#the-walk-timer)** toggle.
 - **NOTIFICATIONS** — **Push notifications** shows your device's current
   permission as read-only status text: **ENABLED**, **NOT YET ENABLED**, or
   **BLOCKED — ENABLE IN DEVICE SETTINGS**. That row has no toggle — enabling or
@@ -417,6 +402,25 @@ Open **Settings** from the nav menu. Walker-facing options:
   **Shift Reminders** (on by default) — after you log your first walk or
   playgroup of a shift, a prompt offers to send you to the Bloomerang kiosk to
   check in. Turn it off here.
+
+Two of those APPEARANCE options change enough about how the app behaves to be
+worth their own walkthrough:
+
+### The walk timer
+
+If you enable **Timer** in **Settings → APPEARANCE**, a small `mm:ss` timer
+appears **on the roster page** — in the header (top nav) or bottom-right (bottom
+nav) — to help you keep track of how long you've had a dog out. Tap it to open
+play / pause / reset controls, and reset it each time you head out with a new
+dog. It caps at **30:00**.
+
+### Action buttons
+
+**Settings → APPEARANCE → Action buttons** lets you move the header's icon
+buttons (back, refresh, menu, and so on) between **TOP** (the normal header) and
+**BOTTOM** — a bar docked near the bottom of the screen instead. If you're
+navigating the app one-handed, BOTTOM keeps those buttons within thumb reach
+instead of making you stretch to the top of the screen.
 
 ## FAQ
 
