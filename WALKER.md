@@ -20,6 +20,7 @@ A tour of the app for shelter walkers.
 - [Filters](#filters)
 - [The Search Screen](#the-search-screen)
 - [My Log](#my-log)
+- [Walker Activity](#walker-activity)
 - [The Kennel Map](#the-kennel-map)
 - [The Playgroup Screen](#the-playgroup-screen)
 - [The Walk Timer](#the-walk-timer)
@@ -273,6 +274,40 @@ W1/W2/PG you've logged, newest first, grouped under **TODAY**, **YESTERDAY**,
 and earlier day headings. Each row shows the time, the dog's name, and which
 activity was toggled, with a green checkmark for checked or a red ✕ for
 unchecked. Tap a row to open that dog's page.
+
+## Walker Activity
+
+Open **Walker Activity** from the nav menu to see who else is at the shelter
+today. Where [My Log](#my-log) is your own history, this is everyone's — one
+row per walker who's logged a walk or playgroup today, most recently active
+first.
+
+![Screenshot: Walker Activity, one row per walker active today](images/walker-activity.png)
+
+Each row shows:
+
+- **WALKER** — their name, first name over surname.
+- **COLOR** — that walker's own color grade, not any dog's.
+- **FIRST** — the first W1/W2/PG they logged today.
+- **LAST** — the most recent one.
+- **LAST DOG** — the dog behind that last entry, with how long ago underneath
+  (`now`, `14m`, `2h 5m`). It reads
+  <strong style="color:#00c853">green</strong> under 45 minutes — they're
+  almost certainly still here — then plain up to 2 hours, then greys out.
+  That's a reading aid, not a status: nothing tracks whether someone has
+  actually left, only when they last logged something.
+
+Only **logging** counts as activity. Undoing a walk is a correction, so it
+never moves someone's **LAST** time or renames their **LAST DOG**.
+
+Under the title, **`UPDATED 8:47 AM · 6 TODAY`** tells you when the rows were
+built and how many walkers are on them. The screen refreshes itself every
+couple of minutes and whenever you come back to the app, and the elapsed times
+tick every minute in between — tap the refresh icon if you want it now.
+
+A walker shows up here only once they've logged something today, so an early
+shift with nothing logged yet looks the same as an empty shelter: **NO WALKS
+LOGGED YET TODAY**.
 
 ## The Kennel Map
 
