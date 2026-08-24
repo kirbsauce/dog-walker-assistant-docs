@@ -25,8 +25,6 @@ A tour of the app for shelter walkers.
 - [Resources](#resources)
 - [Walker Activity](#walker-activity)
 - [Settings](#settings)
-  - [The Walk Timer](#the-walk-timer)
-  - [Action Buttons](#action-buttons)
 - [FAQ](#faq)
 
 </details>
