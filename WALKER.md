@@ -366,11 +366,10 @@ Each row shows:
 - **LAST DOG** — the dog behind that last entry, with how long ago underneath
   (`now`, `14m`, and then just `> 1h` for anything past an hour). It reads
   <strong style="color:#00c853">green</strong> under 45 minutes — they're
-  almost certainly still here — then plain up to 2 hours, then greys out.
-  That's a reading aid, not a status: nothing tracks whether someone has
-  actually left, only when they last logged something. Two rows can both say
-  `> 1h` in different shades for that reason; **LAST** has the exact time
-  either way.
+  almost certainly still here — and plain text after that. That's a reading
+  aid, not a status: nothing tracks whether someone has actually left, only
+  when they last logged something, and a walker on a long walk looks exactly
+  like one who went home. **LAST** has the exact time if you need it.
 
 Only **logging** counts as activity. Undoing a walk is a correction, so it
 never moves someone's **LAST** time or renames their **LAST DOG**.
