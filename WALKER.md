@@ -94,7 +94,7 @@ active filter (see [Filters](#filters)).
 
 ## The dog detail page
 
-![Screenshot: Dog page with Log Walk 1 / Log Walk 2 / Log PG buttons](images/walker-dog-activity.png)
+![Screenshot: Dog page with Walk 1 logged, and Log Walk 2 / Log PG still to do](images/walker-dog-activity.png)
 
 The photo sits on the left, with the dog's details stacked beside it:
 
