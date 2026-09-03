@@ -101,7 +101,8 @@ active filter (see [Filters](#filters)).
 - **Kennel** (e.g. `AC03`) — tap it to jump straight to the **Kennel Map**,
   centered on that dog's room.
 - **Photo** — tap it to view full-screen.
-- Other information may show up beside the photo, when it applies to that
+- **Breed** — beside the photo, below the ID.
+- Other information may show up under the breed, when it applies to that
   dog — **Potty Dog** (or **Bold Potty Dog**) and **Adoption hold**.
 - **Standing cautions** stack below the photo, one per line and in red, each
   spanning the full width of the page: **DROP DIVIDERS**, any **note flags**
