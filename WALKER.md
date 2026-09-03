@@ -299,6 +299,14 @@ up here — the map cross-checks against Pet Compass, so it'll flag a mismatch
 dog with no Pet Compass record at all gets its own **⚠ NOT FOUND IN PC**
 badge instead, not a mismatch to fix.
 
+An animal Pet Compass puts in a kennel that isn't on your walk list gets a
+blue italic row of its own — *Buddy (A1402638) - not on walk list*, or just
+the A-number and a sex letter when Pet Compass has no name for it. **Tap the
+row to open that animal's Pet Compass record**, which is where to check
+whether the kennel it's listed in is still right. There's no highlight
+marking these as tappable, and a record with no A-number has nothing to open,
+so that one is a plain row.
+
 ## The Playgroup screen
 
 Open **Playgroup** from the nav menu to see the roster grouped the same way
