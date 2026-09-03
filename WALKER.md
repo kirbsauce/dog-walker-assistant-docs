@@ -108,11 +108,10 @@ The photo sits on the left, with the dog's details stacked beside it:
 - Other information may show up below these, when it applies to that
   dog — **Potty Dog** (or **Bold Potty Dog**) and **Adoption hold**.
 - **Standing cautions** stack below the photo, one per line and in red, each
-  spanning the full width of the page: **DROP DIVIDERS**, any **note flags**
-  the dog's notes carry (see [Notes](#notes)), **LIMITED ACTIVITY - SEE
-  NOTES** (an activity restriction — check the dog's notes for details), and
-  **Recent surgery - NO RUNNING**. A dog shows these whether or not it has
-  any notes written.
+  spanning the full width of the page: **DROP DIVIDERS**, **LIMITED ACTIVITY -
+  SEE NOTES** (an activity restriction — check the dog's notes for details),
+  **Recent surgery - NO RUNNING**, and any other caution flagged on that dog.
+  A dog shows these whether or not it has any notes written.
 
 ### Logging a walk
 
@@ -162,28 +161,6 @@ If the dog has no notes at all yet, it shows **"No history"** instead.
 Further down, a **NOTES** section holds the dog's ongoing care and behavior
 notes — anything worth knowing before you walk it. Words in ALL CAPS (like
 **DROP DIVIDERS** or **NO CATS**) are highlighted in red so warnings jump out.
-
-#### Note flags (`#`)
-
-To make a standing caution visible without reading the notes, write a `#` in
-front of it:
-
-- `#pulls` — a single-word flag.
-- `#[wide berth from dogs]` — use square brackets for more than one word, so
-  it's clear where the phrase ends.
-
-Anything marked that way is lifted to the standing-caution stack below the
-photo, uppercased, alongside **DROP DIVIDERS**. The note itself is left exactly
-as written — `#` and brackets included — so what you see in **NOTES** always
-matches what's in the raw data.
-
-Two things to know:
-
-- A `#` followed by a digit is left alone — `#2 walk`, `kennel #12` and `#3rd`
-  read as ordinary references, not flags. If you really want a flag that starts
-  with a number, bracket it: `#[3 strikes]`.
-- Playgroup notes are skipped, since their codes (`RR`, `GD1`, `SE2`) aren't
-  warnings.
 
 ### Playgroup notes
 
