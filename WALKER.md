@@ -101,10 +101,14 @@ active filter (see [Filters](#filters)).
 - **Kennel** (e.g. `AC03`) — tap it to jump straight to the **Kennel Map**,
   centered on that dog's room.
 - **Photo** — tap it to view full-screen.
-- Other information may show up below these, when it applies to that
-  dog — flags like **Potty Dog**, **Recent surgery - NO RUNNING**, **Adoption
-  hold**, **DROP DIVIDERS**, and **LIMITED ACTIVITY - SEE NOTES** (an
-  activity restriction — check the dog's notes for details).
+- Other information may show up beside the photo, when it applies to that
+  dog — **Potty Dog** (or **Bold Potty Dog**) and **Adoption hold**.
+- **Standing cautions** stack below the photo, one per line and in red, each
+  spanning the full width of the page: **DROP DIVIDERS**, any **note flags**
+  the dog's notes carry (see [Notes](#notes)), **LIMITED ACTIVITY - SEE
+  NOTES** (an activity restriction — check the dog's notes for details), and
+  **Recent surgery - NO RUNNING**. A dog shows these whether or not it has
+  any notes written.
 
 ### Logging a walk
 
@@ -155,6 +159,28 @@ Further down, a **NOTES** section holds the dog's ongoing care and behavior
 notes — anything worth knowing before you walk it. Words in ALL CAPS (like
 **DROP DIVIDERS** or **NO CATS**) are highlighted in red so warnings jump out.
 
+#### Note flags (`#`)
+
+To make a standing caution visible without reading the notes, write a `#` in
+front of it:
+
+- `#pulls` — a single-word flag.
+- `#[wide berth from dogs]` — use square brackets for more than one word, so
+  it's clear where the phrase ends.
+
+Anything marked that way is lifted to the standing-caution stack below the
+photo, uppercased, alongside **DROP DIVIDERS**. The note itself is left exactly
+as written — `#` and brackets included — so what you see in **NOTES** always
+matches what's in the raw data.
+
+Two things to know:
+
+- A `#` followed by a digit is left alone — `#2 walk`, `kennel #12` and `#3rd`
+  read as ordinary references, not flags. If you really want a flag that starts
+  with a number, bracket it: `#[3 strikes]`.
+- Playgroup notes are skipped, since their codes (`RR`, `GD1`, `SE2`) aren't
+  warnings.
+
 ### Playgroup notes
 
 Dogs with playgroup notes get a collapsed **PLAYGROUP NOTES** section below
@@ -165,10 +191,11 @@ dated playgroup notes.
 
 At the bottom, a **TOOLS** section links out to other systems:
 
-- **Submit a Comment** / **Submit Medical Observation** / **Submit Behavior
-  Observation** / **Submit Kennel Observation** — opens a form to report
-  something about the dog or the kennel. Each form comes prepopulated with
-  available information.
+- **Submit a Note for `<Dog>`** / **Submit a Medical Ticket** / **Submit a
+  Kennel Ticket** — opens a form to report something about the dog or the
+  kennel. Each form comes prepopulated with available information. (A
+  behavior ticket isn't offered from a dog's page — file one from
+  [Resources](#resources).)
 - **View on Pet Compass** / **View on Pet Harbor** — opens the dog's record in
   the county's own systems.
 - **Verify Kennel** — cross-checks the dog's kennel against Pet Compass and
@@ -336,10 +363,11 @@ The **Resources** screen (in the nav menu) has five sections:
 
 - **Guides** — a **Walker Guide** link that opens this guide in your browser
   (plus an **Admin Guide** link, admins only).
-- **Submit an Observation** — the same **Submit a Comment** / **Submit
-  Medical Observation** / **Submit Behavior Observation** / **Submit Kennel
-  Observation** forms available from a dog's own Tools menu, but blank — from
-  here there's no specific dog to pre-fill them with.
+- **Submissions** — **Submit a Note** / **Submit a Medical Ticket** / **Submit
+  a Behavior Ticket** / **Submit a Kennel Ticket**, blank: from here there's no
+  specific dog to pre-fill them with. All but the **behavior ticket** are also
+  on a dog's own Tools menu, pre-filled; a behavior ticket can only be filed
+  from here.
 - **Adopter Resources** — a QR code for the adoption info page. Tap it to
   open, or let an adopter scan it to share the info.
 - **Other** — **Pet Compass** / **Pet Harbor** links for looking up an
