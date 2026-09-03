@@ -96,13 +96,16 @@ active filter (see [Filters](#filters)).
 
 ![Screenshot: Dog page with Log Walk 1 / Log Walk 2 / Log PG buttons](images/walker-dog-activity.png)
 
-- **ID** — tap it to copy the animal ID to your clipboard; the button flashes
-  **Copied!** for a moment to confirm.
+The photo sits on the left, with the dog's details stacked beside it:
+
+- **Photo** — tap it to view full-screen.
 - **Kennel** (e.g. `AC03`) — tap it to jump straight to the **Kennel Map**,
   centered on that dog's room.
-- **Photo** — tap it to view full-screen.
-- **Breed** — beside the photo, below the ID.
-- Other information may show up under the breed, when it applies to that
+- **Color** — the dog's color grade (see [Color grades](#color-grades)).
+- **ID** — tap it to copy the animal ID to your clipboard; the button flashes
+  **Copied!** for a moment to confirm.
+- **Breed** — when the dog's record has one.
+- Other information may show up below these, when it applies to that
   dog — **Potty Dog** (or **Bold Potty Dog**) and **Adoption hold**.
 - **Standing cautions** stack below the photo, one per line and in red, each
   spanning the full width of the page: **DROP DIVIDERS**, any **note flags**
