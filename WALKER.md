@@ -96,15 +96,22 @@ active filter (see [Filters](#filters)).
 
 ![Screenshot: Dog page with Log Walk 1 / Log Walk 2 / Log PG buttons](images/walker-dog-activity.png)
 
-- **ID** — tap it to copy the animal ID to your clipboard; the button flashes
-  **Copied!** for a moment to confirm.
+The photo sits on the left, with the dog's details stacked beside it:
+
+- **Photo** — tap it to view full-screen.
 - **Kennel** (e.g. `AC03`) — tap it to jump straight to the **Kennel Map**,
   centered on that dog's room.
-- **Photo** — tap it to view full-screen.
+- **Color** — the dog's color grade (see [Color grades](#color-grades)).
+- **ID** — tap it to copy the animal ID to your clipboard; the button flashes
+  **Copied!** for a moment to confirm.
+- **Breed** — when the dog's record has one.
 - Other information may show up below these, when it applies to that
-  dog — flags like **Potty Dog**, **Recent surgery - NO RUNNING**, **Adoption
-  hold**, **DROP DIVIDERS**, and **LIMITED ACTIVITY - SEE NOTES** (an
-  activity restriction — check the dog's notes for details).
+  dog — **Potty Dog** (or **Bold Potty Dog**) and **Adoption hold**.
+- **Standing cautions** stack below the photo, one per line and in red, each
+  spanning the full width of the page: **DROP DIVIDERS**, **LIMITED ACTIVITY -
+  SEE NOTES** (an activity restriction — check the dog's notes for details),
+  **Recent surgery - NO RUNNING**, and any other caution flagged on that dog.
+  A dog shows these whether or not it has any notes written.
 
 ### Logging a walk
 
@@ -165,10 +172,11 @@ dated playgroup notes.
 
 At the bottom, a **TOOLS** section links out to other systems:
 
-- **Submit a Comment** / **Submit Medical Observation** / **Submit Behavior
-  Observation** / **Submit Kennel Observation** — opens a form to report
-  something about the dog or the kennel. Each form comes prepopulated with
-  available information.
+- **Submit a Note for `<Dog>`** / **Submit a Medical Ticket** / **Submit a
+  Kennel Ticket** — opens a form to report something about the dog or the
+  kennel. Each form comes prepopulated with available information. (A
+  behavior ticket isn't offered from a dog's page — file one from
+  [Resources](#resources).)
 - **View on Pet Compass** / **View on Pet Harbor** — opens the dog's record in
   the county's own systems.
 - **Verify Kennel** — cross-checks the dog's kennel against Pet Compass and
@@ -336,10 +344,11 @@ The **Resources** screen (in the nav menu) has five sections:
 
 - **Guides** — a **Walker Guide** link that opens this guide in your browser
   (plus an **Admin Guide** link, admins only).
-- **Submit an Observation** — the same **Submit a Comment** / **Submit
-  Medical Observation** / **Submit Behavior Observation** / **Submit Kennel
-  Observation** forms available from a dog's own Tools menu, but blank — from
-  here there's no specific dog to pre-fill them with.
+- **Submissions** — **Submit a Note** / **Submit a Medical Ticket** / **Submit
+  a Behavior Ticket** / **Submit a Kennel Ticket**, blank: from here there's no
+  specific dog to pre-fill them with. All but the **behavior ticket** are also
+  on a dog's own Tools menu, pre-filled; a behavior ticket can only be filed
+  from here.
 - **Adopter Resources** — a QR code for the adoption info page. Tap it to
   open, or let an adopter scan it to share the info.
 - **Other** — **Pet Compass** / **Pet Harbor** links for looking up an
