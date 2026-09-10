@@ -360,8 +360,14 @@ they work the way the walk columns do: a time once logged, a dash until then.
 They clear overnight along with the walk checkboxes.
 
 Tapping a dog opens their behavior page, which shows their photo, kennel,
-color, breed, standing cautions and behavior note, plus the three session
-slots.
+color, breed, standing cautions and behavior note, plus three buttons —
+**Log BMOD 1**, **2** and **3** — for recording a session. Each asks you to
+confirm, then stamps the time.
+
+Sessions clear in reverse order: you can't clear the first while the second
+is still logged, or the second while the third is. The button for a locked
+one is greyed out. And as with walks, clearing a session you logged more
+than 30 minutes ago needs an admin.
 
 A few things that surprise people:
 
@@ -374,6 +380,8 @@ A few things that surprise people:
   anything.
 - **The roster gives no sign a dog is in behavior modification.** This page is
   the only place that shows.
+- **Sessions count as your activity.** They appear in **My Log** and in a dog's
+  activity history alongside walks, labelled B1/B2/B3 rather than W1/W2/PG.
 
 ## Resources
 
