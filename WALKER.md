@@ -22,6 +22,7 @@ A tour of the app for shelter walkers.
 - [My Log](#my-log)
 - [The Kennel Map](#the-kennel-map)
 - [The Playgroup Screen](#the-playgroup-screen)
+- [Behavior Modification](#behavior-modification)
 - [Resources](#resources)
 - [Walker Activity](#walker-activity)
 - [Settings](#settings)
@@ -368,10 +369,11 @@ plus three buttons —
 **Log BMOD 1**, **2** and **3** — for recording a session. Each asks you to
 confirm, then stamps the time.
 
-Sessions clear in reverse order: you can't clear the first while the second
-is still logged, or the second while the third is. The button for a locked
-one is greyed out. And as with walks, clearing a session you logged more
-than 30 minutes ago needs an admin.
+Sessions are logged in order and cleared in reverse. You can't log the second
+until the first is logged, or the third until the second is. Likewise, you
+can't clear the first while the second is still logged, or the second while
+the third is. A button that isn't available yet is greyed out. And as with
+walks, clearing a session you logged more than 30 minutes ago needs an admin.
 
 A few things that surprise people:
 
