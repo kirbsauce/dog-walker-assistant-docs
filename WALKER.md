@@ -349,6 +349,8 @@ role is **admin**, you get one extra tool:
 
 ## Behavior Modification
 
+![Screenshot: Behavior Modification list, sorted by kennel, each dog's behavior note underneath](images/walker-bmod.png)
+
 **Behavior Modification** (in the nav menu, just under Playgroup) is a separate
 list from the roster, for dogs working through a behavior plan. It reads like
 the roster — kennel, color, name — but it is ordered by kennel, so you can work
@@ -362,6 +364,8 @@ training video. It's also under **Guides** in Resources.
 The **B1**, **B2** and **B3** columns are the day's three session slots, and
 they work the way the walk columns do: a time once logged, a dash until then.
 They clear overnight along with the walk checkboxes.
+
+![Screenshot: Behavior page with BMOD 1 logged, Log BMOD 2 available and Log BMOD 3 still waiting](images/walker-bmod-detail.png)
 
 Tapping a dog opens their behavior page, which shows their photo, kennel,
 color, breed, standing cautions and their behavior note under **BMOD Notes**,
