@@ -358,8 +358,9 @@ a room at a time, and each dog's **behavior note** sits on its own line
 underneath. That note is the handling protocol written for that dog, and it is
 not the same text as the walk notes on their dog detail page.
 
-A red banner at the top of the page is a reminder that BMOD activities are
-performed with the dog in its kennel. Its **this video** link opens the
+A red banner at the top of the page is a reminder that all activities are
+performed with the dog **inside** the kennel and you **outside** their door.
+Its **this video** link opens the
 behavior modification training video — please watch it before you start. The video is
 also under **Guides** in Resources.
 
