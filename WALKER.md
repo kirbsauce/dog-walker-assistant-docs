@@ -22,6 +22,7 @@ A tour of the app for shelter walkers.
 - [My Log](#my-log)
 - [The Kennel Map](#the-kennel-map)
 - [The Playgroup Screen](#the-playgroup-screen)
+- [Behavior Modification](#behavior-modification)
 - [Resources](#resources)
 - [Walker Activity](#walker-activity)
 - [Settings](#settings)
@@ -254,8 +255,8 @@ for grouping/dimming purposes in either sort.
 
 Tap the filter icon next to the sort icon to narrow the roster. **COLORS**
 lets you multi-select color grades and either show only those (**ONLY**) or
-hide them (**NOT**). Filters such as **Playgroup (reserved)**, **Training
-(reserved)**, and **BMOD** (dogs flagged for behavior modification) each have
+hide them (**NOT**). Filters such as **Playgroup (reserved)** and **Training
+(reserved)** each have
 a checkbox to turn that filter on, plus an **ONLY** / **NOT** toggle for
 which way it applies once checked — unchecking turns the filter off without
 losing your ONLY/NOT choice. While any filter is active
@@ -346,12 +347,59 @@ role is **admin**, you get one extra tool:
   failed to save — which ones, left selected so tapping Save again retries
   just those.
 
+## Behavior Modification
+
+![Screenshot: Behavior Modification list, sorted by kennel, each dog's behavior note underneath](images/walker-bmod.png)
+
+**Behavior Modification** (in the nav menu, just under Playgroup) is a separate
+list from the roster, for dogs working through a behavior plan. It reads like
+the roster — kennel, color, name — but it is ordered by kennel, so you can work
+a room at a time, and each dog's **behavior note** sits on its own line
+underneath. That note is the handling protocol written for that dog, and it is
+not the same text as the walk notes on their dog detail page.
+
+The video button beside the page title opens the behavior modification
+training video. It's also under **Guides** in Resources.
+
+The **B1**, **B2** and **B3** columns are the day's three session slots, and
+they work the way the walk columns do: a time once logged, a dash until then.
+They clear overnight along with the walk checkboxes.
+
+![Screenshot: Behavior page with BMOD 1 logged, Log BMOD 2 available and Log BMOD 3 still waiting](images/walker-bmod-detail.png)
+
+Tapping a dog opens their behavior page, which shows their photo, kennel,
+color, breed, standing cautions and their behavior note under **BMOD Notes**,
+plus three buttons —
+**Log BMOD 1**, **2** and **3** — for recording a session. Each asks you to
+confirm, then stamps the time.
+
+Sessions are logged in order and cleared in reverse. You can't log the second
+until the first is logged, or the third until the second is. Likewise, you
+can't clear the first while the second is still logged, or the second while
+the third is. A button that isn't available yet is greyed out. And as with
+walks, clearing a session you logged more than 30 minutes ago needs an admin.
+
+A few things that surprise people:
+
+- **A dog can be on both lists, or on this one only.** The two are kept
+  separately, so a dog in behavior modification doesn't have to be on the
+  roster at all — and nothing on this page is pulled from their roster entry
+  even when they have one.
+- **There's no color-grade limit here.** Unlike walking, the list shows every
+  dog in behavior modification regardless of your grade, and doesn't dim
+  anything.
+- **The roster gives no sign a dog is in behavior modification.** This page is
+  the only place that shows.
+- **Sessions count as your activity.** They appear in **My Log** and in a dog's
+  activity history alongside walks, labelled B1/B2/B3 rather than W1/W2/PG.
+
 ## Resources
 
 The **Resources** screen (in the nav menu) has five sections:
 
 - **Guides** — a **Walker Guide** link that opens this guide in your browser
-  (plus an **Admin Guide** link, admins only).
+  (plus an **Admin Guide** link, admins only), and a **Behavior Modification
+  Video** link to the training video.
 - **Submissions** — **Submit a Note** / **Submit a Medical Ticket** / **Submit
   a Behavior Ticket** / **Submit a Kennel Ticket**, blank: from here there's no
   specific dog to pre-fill them with. All but the **behavior ticket** are also
