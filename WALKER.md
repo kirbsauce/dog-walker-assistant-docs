@@ -22,7 +22,7 @@ A tour of the app for shelter walkers.
 - [My Log](#my-log)
 - [The Kennel Map](#the-kennel-map)
 - [The Playgroup Screen](#the-playgroup-screen)
-- [Behavior Modification](#behavior-modification)
+- [In-kennel BMOD](#in-kennel-bmod)
 - [Resources](#resources)
 - [Walker Activity](#walker-activity)
 - [Settings](#settings)
@@ -347,11 +347,11 @@ role is **admin**, you get one extra tool:
   failed to save — which ones, left selected so tapping Save again retries
   just those.
 
-## Behavior Modification
+## In-kennel BMOD
 
-![Screenshot: Behavior Modification list, sorted by kennel, each dog's behavior note underneath](images/walker-bmod.png)
+![Screenshot: In-kennel BMOD list, sorted by kennel, each dog's behavior note underneath](images/walker-bmod.png)
 
-**Behavior Modification** (in the nav menu, just under Playgroup) is a separate
+**In-kennel BMOD** (in the nav menu, just under Playgroup) is a separate
 list from the roster, for dogs working through a behavior plan. It reads like
 the roster — kennel, color, name — but it is ordered by kennel, so you can work
 a room at a time, and each dog's **behavior note** sits on its own line
@@ -402,7 +402,7 @@ A few things that surprise people:
 The **Resources** screen (in the nav menu) has five sections:
 
 - **Guides** — a **Walker Guide** link that opens this guide in your browser
-  (plus an **Admin Guide** link, admins only), and a **Behavior Modification
+  (plus an **Admin Guide** link, admins only), and an **In-kennel BMOD
   Video** link to the training video.
 - **Submissions** — **Submit a Note** / **Submit a Medical Ticket** / **Submit
   a Behavior Ticket** / **Submit a Kennel Ticket**, blank: from here there's no
