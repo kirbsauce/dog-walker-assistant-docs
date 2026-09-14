@@ -363,7 +363,8 @@ they work the way the walk columns do: a time once logged, a dash until then.
 They clear overnight along with the walk checkboxes.
 
 Tapping a dog opens their behavior page, which shows their photo, kennel,
-color, breed, standing cautions and behavior note, plus three buttons —
+color, breed, standing cautions and their behavior note under **BMOD Notes**,
+plus three buttons —
 **Log BMOD 1**, **2** and **3** — for recording a session. Each asks you to
 confirm, then stamps the time.
 
