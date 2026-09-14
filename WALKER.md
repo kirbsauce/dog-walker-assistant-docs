@@ -373,6 +373,10 @@ plus three buttons —
 **Log BMOD 1**, **2** and **3** — for recording a session. Each asks you to
 confirm, then stamps the time.
 
+Below the buttons, each session's most recent note from today is listed — who
+logged it and when — or **"No sessions today"** if nothing's been logged yet.
+It works like the list under the walk buttons on a dog's detail page.
+
 Sessions are logged in order and cleared in reverse. You can't log the second
 until the first is logged, or the third until the second is. Likewise, you
 can't clear the first while the second is still logged, or the second while
