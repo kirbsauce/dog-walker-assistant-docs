@@ -358,8 +358,10 @@ a room at a time, and each dog's **behavior note** sits on its own line
 underneath. That note is the handling protocol written for that dog, and it is
 not the same text as the walk notes on their dog detail page.
 
-The video button beside the page title opens the behavior modification
-training video. It's also under **Guides** in Resources.
+A red banner at the top of the page is a reminder that this list is for
+in-kennel activities only. Its **this video** link opens the behavior
+modification training video — please watch it before you start. The video is
+also under **Guides** in Resources.
 
 The **B1**, **B2** and **B3** columns are the day's three session slots, and
 they work the way the walk columns do: a time once logged, a dash until then.
