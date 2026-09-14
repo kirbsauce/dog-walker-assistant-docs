@@ -367,7 +367,7 @@ The **B1**, **B2** and **B3** columns are the day's three session slots, and
 they work the way the walk columns do: a time once logged, a dash until then.
 They clear overnight along with the walk checkboxes.
 
-![Screenshot: Behavior page with BMOD 1 logged, Log BMOD 2 available and Log BMOD 3 still waiting](images/walker-bmod-detail.png)
+![Screenshot: Behavior page with no sessions logged yet, Log BMOD 1 available and Log BMOD 2 and 3 waiting](images/walker-bmod-detail.png)
 
 Tapping a dog opens their behavior page, which shows their photo, kennel,
 color, breed, standing cautions and their behavior note under **BMOD Notes**,
