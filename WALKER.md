@@ -355,6 +355,9 @@ a room at a time, and each dog's **behavior note** sits on its own line
 underneath. That note is the handling protocol written for that dog, and it is
 not the same text as the walk notes on their dog detail page.
 
+The video button beside the page title opens the behavior modification
+training video. It's also under **Guides** in Resources.
+
 The **B1**, **B2** and **B3** columns are the day's three session slots, and
 they work the way the walk columns do: a time once logged, a dash until then.
 They clear overnight along with the walk checkboxes.
@@ -388,7 +391,8 @@ A few things that surprise people:
 The **Resources** screen (in the nav menu) has five sections:
 
 - **Guides** — a **Walker Guide** link that opens this guide in your browser
-  (plus an **Admin Guide** link, admins only).
+  (plus an **Admin Guide** link, admins only), and a **Behavior Modification
+  Video** link to the training video.
 - **Submissions** — **Submit a Note** / **Submit a Medical Ticket** / **Submit
   a Behavior Ticket** / **Submit a Kennel Ticket**, blank: from here there's no
   specific dog to pre-fill them with. All but the **behavior ticket** are also
