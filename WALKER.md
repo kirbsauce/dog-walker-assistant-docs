@@ -402,11 +402,13 @@ A few things that surprise people:
 
 ## Resources
 
-The **Resources** screen (in the nav menu) has five sections:
+The **Resources** screen (in the nav menu) has six sections:
 
 - **Guides** — a **Walker Guide** link that opens this guide in your browser
   (plus an **Admin Guide** link, admins only), and a **Behavior Modification
   Video** link to the training video.
+- **Volunteer Shifts** — a **Shift Calendar** link that opens the week's
+  volunteer shift sign-ups (see [Shift Calendar](#shift-calendar) below).
 - **Submissions** — **Submit a Note** / **Submit a Medical Ticket** / **Submit
   a Behavior Ticket** / **Submit a Kennel Ticket**, blank: from here there's no
   specific dog to pre-fill them with. All but the **behavior ticket** are also
@@ -419,6 +421,33 @@ The **Resources** screen (in the nav menu) has five sections:
   the same lookups already pointed at that dog).
 - **Feedback** — a **Submit Bug/Enhancement** button for reporting a problem
   or requesting a feature.
+
+### Shift Calendar
+
+**Resources → Volunteer Shifts → Shift Calendar** opens a week-at-a-glance view
+of who's signed up for dog-walking shifts, read from the shelter's Bloomerang
+Volunteer sign-up portal. It's a quick way to see where coverage is thin before
+you commit to a shift.
+
+It shows one **Sunday–Saturday** week at a time. Use the **‹** / **›** chevrons
+to page to the previous or next week — the calendar covers the current week plus
+the next three. The week's dates sit between the chevrons, **today's column is
+highlighted**, and days already past are dimmed.
+
+Days run across as columns; the three daily shifts stack down the side, numbered
+**1**, **2**, **3** (morning 8am–12pm, mid-day 12–3pm, afternoon 3–6pm). Each
+cell holds three little bars — one per handler color, **Green**, **Blue**,
+**Gold** — and each bar fills in proportion to how full that color's slots are:
+an empty bar means no one's signed up for that color yet, a full bar means it's
+fully booked. Handler colors line up with the walk [color grades](#color-grades)
+— a **Blue** handler slot is for walkers cleared up to Blue, and so on.
+
+**Tap any cell** for the exact numbers: for each color, how many are **signed up
+out of the total** slots, and how many are still **open**.
+
+The calendar is read-only and shows counts only — it never names who's signed
+up. To actually claim a shift, use the Bloomerang Volunteer portal itself. The
+counts refresh every few minutes.
 
 ## Walker Activity
 
