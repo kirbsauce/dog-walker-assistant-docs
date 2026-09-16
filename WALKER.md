@@ -435,7 +435,7 @@ the next three. The week's dates sit between the chevrons, **today's column is
 highlighted**, and days already past are dimmed.
 
 Days run across as columns; the three daily shifts stack down the side, numbered
-**1**, **2**, **3** (morning 8am–12pm, mid-day 12–3pm, afternoon 3–6pm). Each
+**1**, **2**, **3** (morning, mid-day, afternoon). Each
 cell holds three little bars — one per handler color, **Green**, **Blue**,
 **Gold** — and each bar fills in proportion to how full that color's slots are:
 an empty bar means no one's signed up for that color yet, a full bar means it's
@@ -445,9 +445,8 @@ fully booked. Handler colors line up with the walk [color grades](#color-grades)
 **Tap any cell** for the exact numbers: for each color, how many are **signed up
 out of the total** slots, and how many are still **open**.
 
-The calendar is read-only and shows counts only — it never names who's signed
-up. To actually claim a shift, use the Bloomerang Volunteer portal itself. The
-counts refresh every few minutes.
+The calendar is read-only. To actually claim a shift, use the Bloomerang
+Volunteer portal itself. The counts refresh every few minutes.
 
 ## Walker Activity
 
