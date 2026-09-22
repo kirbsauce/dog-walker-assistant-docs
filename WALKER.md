@@ -153,9 +153,10 @@ history, see **Activity History** below.
 
 #### Activity History
 
-Below **ACTIVITY YESTERDAY**, tap **Activity History** to open the dog's
-full W1/W2/PG note history, grouped by day with the most recent day first.
-If the dog has no notes at all yet, it shows **"No history"** instead.
+In the **TOOLS** section at the bottom of the page, tap **Activity History**
+to open the dog's full W1/W2/PG note history, grouped by day with the most
+recent day first. If the dog has no notes at all yet, it shows **"No
+history"** instead.
 
 ### Notes
 
@@ -171,8 +172,11 @@ dated playgroup notes.
 
 ### Tools
 
-At the bottom, a **TOOLS** section links out to other systems:
+At the bottom, a **TOOLS** section holds the dog's history and links out to
+other systems:
 
+- **Activity History** — opens the dog's full note history in a popup, without
+  leaving the page (see [Activity History](#activity-history) above).
 - **Submit a Note for `<Dog>`** / **Submit a Medical Ticket** / **Submit a
   Kennel Ticket** — opens a form to report something about the dog or the
   kennel. Each form comes prepopulated with available information. (A
@@ -297,8 +301,8 @@ detail page.
 Kennels that look empty, or dogs that aren't on your walk list, can still show
 up here — the map cross-checks against Pet Compass, so it'll flag a mismatch
 (⚠) if a dog is actually housed somewhere different than the roster says. A
-dog with no Pet Compass record at all gets its own **⚠ NOT FOUND IN PC**
-badge instead, not a mismatch to fix.
+dog with no Pet Compass record at all gets its own **⚠ NOT IN PC** badge
+instead, not a mismatch to fix.
 
 An animal Pet Compass puts in a kennel that isn't on your walk list gets a
 blue italic row of its own — *Buddy (A1402638) - not on walk list*, or just
@@ -321,7 +325,7 @@ and **Unassessed** subgroups. Dogs with no Style or Cat info fall under
 **Unassessed**. Dogs tagged for something other than regular playgroup show up
 in their own groups instead: **Selectives** (subgrouped per selective tag,
 with buddy dogs or a **NEED INSTRUCTIONS** note), **Projects**, and **No
-Playgroup** (holds like **Does Not Benefit**, **Medical / Age**,
+Playgroup** (holds like **Behavior**, **Does Not Benefit**, **Medical / Age**,
 **Investigation**, or **Recent Surgery**). Each group header shows a count and
 a chevron to collapse/expand it. Tap a dog's row to expand/collapse its PG
 notes. Long-press (hold) a row to open the dog's detail page — double-click
