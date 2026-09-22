@@ -68,10 +68,16 @@ jobs:
             --description "Possible doc staleness from app/backend changes" \
             --force
 
+      # Hardcoded, unlike the app and backend repos, which read
+      # `engines.node` from their package.json — this repo is a Jekyll site
+      # and has no package.json to single-source from. Node is here only to
+      # install and run Claude Code, so keep it on a current LTS: 20 left
+      # maintenance on 2026-04-30, and a tool installed fresh on every run
+      # will raise its floor past an EOL runtime sooner or later.
       - name: Setup Node
         uses: actions/setup-node@v5
         with:
-          node-version: 20
+          node-version: 24
 
       - name: Install Claude Code
         run: npm install -g @anthropic-ai/claude-code
