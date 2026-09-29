@@ -411,8 +411,10 @@ The **Resources** screen (in the nav menu) has six sections:
 - **Guides** — a **Walker Guide** link that opens this guide in your browser
   (plus an **Admin Guide** link, admins only), and a **Behavior Modification
   Video** link to the training video.
-- **Volunteer Shifts** — a **Shift Calendar** link that opens the week's
-  volunteer shift sign-ups (see [Shift Calendar](#shift-calendar) below).
+- **Volunteer** — a **Shift Calendar** link that opens the week's volunteer
+  shift sign-ups (see [Shift Calendar](#shift-calendar) below), and a
+  **WhatsApp New Volunteer Chat** link that opens the shelter's new-volunteer
+  group chat in a new tab.
 - **Submissions** — **Submit a Note** / **Submit a Medical Ticket** / **Submit
   a Behavior Ticket** / **Submit a Kennel Ticket**, blank: from here there's no
   specific dog to pre-fill them with. All but the **behavior ticket** are also
@@ -428,7 +430,7 @@ The **Resources** screen (in the nav menu) has six sections:
 
 ### Shift Calendar
 
-**Resources → Volunteer Shifts → Shift Calendar** opens a week-at-a-glance view
+**Resources → Volunteer → Shift Calendar** opens a week-at-a-glance view
 of who's signed up for dog-walking shifts, read from the shelter's Bloomerang
 Volunteer sign-up portal. It's a quick way to see where coverage is thin before
 you commit to a shift.
@@ -446,8 +448,15 @@ an empty bar means no one's signed up for that color yet, a full bar means it's
 fully booked. Handler colors line up with the walk [color grades](#color-grades)
 — a **Blue** handler slot is for walkers cleared up to Blue, and so on.
 
-**Tap any cell** for the exact numbers: for each color, how many are **signed up
-out of the total** slots, and how many are still **open**.
+**Tap any cell** for that shift's detail. Under each handler color you'll see
+who's signed up — each name with their own [color grade](#color-grades) pill —
+along with how many are **signed up out of the total** slots and how many are
+still **open**. A sign-up the app can't match to a DWA account shows as
+**User** followed by a number, sorted to the bottom of its color.
+
+**Tap a day's header** — the weekday and date at the top of a column — for the
+same detail covering every shift that day, in time order. Days with no shifts
+aren't tappable.
 
 The calendar is read-only. To actually claim a shift, use the Bloomerang
 Volunteer portal itself. The counts refresh every few minutes.
