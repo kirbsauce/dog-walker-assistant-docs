@@ -509,8 +509,13 @@ Open **Settings** from the nav menu. Walker-facing options:
   permission as read-only status text: **ENABLED**, **NOT YET ENABLED**, or
   **BLOCKED — ENABLE IN DEVICE SETTINGS**. That row has no toggle — enabling or
   disabling notifications happens in your device's own settings. If you haven't
-  enabled them yet, a banner may prompt you to **ENABLE** from the roster
-  screen; tapping it triggers the one-time OS permission prompt.
+  answered the permission prompt yet, a **Select notification settings** banner
+  appears on the roster screen; tap **CONTINUE** and your device asks whether to
+  allow notifications. Closing the banner with **✕** only hides it until you
+  next open the app — it comes back until you've answered that prompt, either
+  way. Answering it is also what makes DWA appear in your device's own
+  notification settings, so **Don't Allow** is worth choosing over ignoring it
+  if you don't want them.
   **Shift Reminders** (on by default) — after you log your first walk or
   playgroup of a shift, a prompt offers to send you to the Bloomerang kiosk to
   check in. Turn it off here.
