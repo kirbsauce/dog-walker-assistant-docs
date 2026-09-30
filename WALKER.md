@@ -333,6 +333,11 @@ does the same on desktop/mouse. Logging or unlogging a dog's playgroup
 attendance is done from the dog's own page (see [FAQ](#faq)), not from this
 screen.
 
+Each row also shows today's playgroup status, the same cell as the roster's
+**PG** column: a dash until the dog attends, then the time in green once it's
+logged. So you can see who's already been out without leaving this screen —
+though you still log it from the dog's own page.
+
 Style/Cat/Buddies/Sex/Alt/Time/PG Notes update automatically as they change.
 If a change was made by editing the Playgroup sheet directly rather than
 through the app — e.g. staff physically moving a dog and updating the tab by
