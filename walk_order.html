@@ -1,0 +1,807 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="How the WALK ORDER roster sort decides which dog comes next: cell colors, grades, sections and tie-breakers.">
+<link rel="icon" type="image/svg+xml" href="images/paw-logo.svg">
+<title>Walk Order Field Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@500;700&display=swap">
+<style>
+/* Layout: a single reading column shaped like the roster itself — sections
+   stack top to bottom in the same order the dogs do, each one marked by the
+   cell color that puts a dog there. */
+:root {
+  --bg: #f6f5f1;
+  --surface: #ffffff;
+  --surface-2: #eeece6;
+  --fg: #1b1c1f;
+  --muted: #5f6168;
+  --line: #d9d6cd;
+  --accent: #b36f00;          /* shelter orange, darkened for text on light */
+  --band: #f5a800;            /* shelter orange, as a fill */
+
+  /* roster cell colors, straight from the app */
+  --chk-bright: #fafa00;
+  --chk-dim: #fad861;
+  --cyan: #00bcd4;
+  --pg-res: #c5f219;
+  --pg-done: #00c853;
+  --done: #666666;
+  --potty: #9900ff;
+  --deprio: #cccccc;
+  --cell-stroke: #888888;
+
+  --display: "Bricolage Grotesque", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+  --body: "Atkinson Hyperlegible", "Segoe UI", system-ui, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #111111; --surface: #1a1a1a; --surface-2: #222222; --fg: #f0f0f0;
+    --muted: #a3a3a3; --line: #2f2f2f; --accent: #f5a800; --band: #f5a800;
+    --chk-bright: #ffff00; --chk-dim: #e3bd3e; --potty: #bb86fc; --deprio: #2a2a2a;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #111111; --surface: #1a1a1a; --surface-2: #222222; --fg: #f0f0f0;
+  --muted: #a3a3a3; --line: #2f2f2f; --accent: #f5a800; --band: #f5a800;
+  --chk-bright: #ffff00; --chk-dim: #e3bd3e; --potty: #bb86fc; --deprio: #2a2a2a;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--fg);
+  font-family: var(--body); font-size: 16px; line-height: 1.55;
+}
+.wrap {
+  max-width: 920px; margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+h1, h2, h3 { font-family: var(--display); text-wrap: balance; line-height: 1.12; margin: 0; }
+h1 { font-size: clamp(2.2rem, 6vw, 3.6rem); font-weight: 800; letter-spacing: -0.02em; }
+h2 { font-size: clamp(1.5rem, 3.6vw, 2.1rem); font-weight: 800; letter-spacing: -0.01em; }
+h3 { font-size: 1.15rem; font-weight: 600; }
+p { margin: 0; max-width: 68ch; }
+.eyebrow {
+  font-family: var(--mono); font-size: 0.72rem; font-weight: 700;
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent);
+}
+.muted { color: var(--muted); }
+.mono { font-family: var(--mono); }
+a { color: var(--accent); }
+section.block { padding-block: 44px; border-top: 1px solid var(--line); display: grid; gap: 18px; }
+.stack { display: grid; gap: 12px; }
+
+/* ---------- header ---------- */
+header.top { padding-block: 36px 28px; display: grid; gap: 16px; }
+.stripe { display: flex; height: 10px; border-radius: 3px; overflow: hidden; }
+.stripe span { flex: 1; }
+.lede { font-size: 1.12rem; }
+.tagrow { display: flex; flex-wrap: wrap; gap: 8px; }
+.tag {
+  font-family: var(--mono); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em;
+  text-transform: uppercase; padding: 4px 9px; border-radius: 999px;
+  border: 1px solid var(--line); background: var(--surface);
+}
+.tag.hot { background: var(--band); color: #111; border-color: var(--band); }
+
+.short {
+  background: var(--surface); border: 1px solid var(--line); border-radius: 10px;
+  padding: 20px; display: grid; gap: 12px;
+}
+.short ol { margin: 0; padding-left: 1.3em; display: grid; gap: 8px; }
+.short li::marker { font-family: var(--mono); font-weight: 700; color: var(--accent); }
+
+/* ---------- roster pieces ---------- */
+.cb {
+  display: inline-block; width: 16px; height: 16px; border-radius: 3px;
+  border: 1.5px solid var(--cell-stroke); background: transparent;
+  position: relative; flex: none; vertical-align: middle;
+}
+.cb.y { background: var(--chk-bright); }
+.cb.a { background: var(--chk-dim); }
+.cb.c { background: var(--cyan); }
+.cb.d { background: var(--done); }
+.cb.pg { border-color: var(--pg-done); }
+.cb.pr { border-color: var(--pg-done); background: var(--pg-res); }
+.cb.pd { border-color: var(--pg-done); background: var(--pg-done); }
+.cb.d::after, .cb.pd::after, .cb.cd::after {
+  content: ""; position: absolute; left: 4px; top: 1px; width: 4px; height: 8px;
+  border: solid #fff; border-width: 0 2px 2px 0; transform: rotate(45deg);
+}
+.cb.cd { background: var(--cyan); }
+.cb.cd::after { border-color: #000; }
+
+.pill {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 22px; height: 16px; border-radius: 3px; font-weight: 700; font-size: 13px;
+  line-height: 1; flex: none; background: var(--c); color: var(--t, #fff);
+}
+.pill.wide { width: auto; padding: 3px 8px; font-size: 0.78rem; font-family: var(--mono); letter-spacing: 0.03em; }
+
+.nm { font-weight: 400; }
+.nm.p1 { color: var(--potty); }
+.nm.p2 { color: var(--potty); font-weight: 800; }
+.nm.dp { background: var(--deprio); padding: 0 4px; border-radius: 3px; }
+
+.roster {
+  background: var(--surface); border: 1px solid var(--line); border-radius: 10px;
+  overflow-x: auto;
+}
+.rrow {
+  display: grid; grid-template-columns: 30px 64px 16px 16px 16px 38px 26px minmax(80px, 1fr) auto;
+  align-items: center; column-gap: 8px; padding: 7px 12px; border-top: 1px solid var(--line);
+  font-size: 0.9rem; min-width: 460px;
+}
+.rrow:first-child { border-top: 0; }
+.rrow.head {
+  font-family: var(--mono); font-size: 0.66rem; font-weight: 700; letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--muted); background: var(--surface-2);
+}
+.rrow .rank { font-family: var(--mono); font-weight: 700; color: var(--accent); font-variant-numeric: tabular-nums; }
+.rrow .yd { font-size: 0.72rem; color: var(--muted); white-space: nowrap; }
+.rrow .kn { font-family: var(--mono); font-size: 0.78rem; }
+.rrow .why { font-size: 0.78rem; color: var(--muted); text-align: right; }
+.rrow.dim > * { opacity: 0.55; }
+.rdiv {
+  padding: 6px 12px; font-family: var(--mono); font-size: 0.68rem; font-weight: 700;
+  letter-spacing: 0.08em; text-transform: uppercase; color: var(--fg);
+  border-top: 1px solid var(--line); display: flex; align-items: center; gap: 8px; min-width: 460px;
+  background: var(--surface-2);
+}
+.rdiv i { width: 10px; height: 10px; border-radius: 2px; background: var(--sw); border: 1px solid var(--cell-stroke); }
+
+/* ---------- legend ---------- */
+.legend { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 10px; }
+.lg {
+  display: grid; grid-template-columns: 30px 1fr; gap: 10px; align-items: start;
+  background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 12px;
+}
+.lg .cb { margin-top: 3px; width: 20px; height: 20px; }
+.lg .cb.d::after, .lg .cb.pd::after, .lg .cb.cd::after { left: 6px; top: 2px; width: 5px; height: 10px; }
+.lg b { display: block; }
+.lg span.small { font-size: 0.88rem; color: var(--muted); }
+.lg .demo { margin-top: 3px; font-size: 1rem; }
+
+/* ---------- grade ladder ---------- */
+.grades { display: flex; flex-wrap: wrap; gap: 6px; align-items: stretch; }
+.grade {
+  display: grid; gap: 4px; justify-items: center; padding: 10px 8px; min-width: 64px;
+  background: var(--surface); border: 1px solid var(--line); border-radius: 8px; flex: 1;
+}
+.grade .pill { width: 34px; height: 22px; font-size: 15px; }
+.grade small { font-family: var(--mono); font-size: 0.66rem; color: var(--muted); }
+.pair {
+  display: flex; gap: 6px; padding: 6px; border-radius: 10px; flex: 2;
+  border: 2px dashed var(--accent); position: relative;
+}
+.pair .grade { border-color: transparent; background: var(--surface-2); }
+.pair-label {
+  position: absolute; top: -10px; left: 10px; background: var(--bg); padding: 0 6px;
+  font-family: var(--mono); font-size: 0.62rem; font-weight: 700; letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--accent);
+}
+
+/* ---------- the list, top to bottom ---------- */
+.zone-title {
+  display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-top: 8px;
+}
+.zone-title h3 { font-size: 1.25rem; }
+.ladder { display: grid; gap: 10px; counter-reset: sec; }
+.sec {
+  display: grid; grid-template-columns: 54px minmax(0, 1fr); gap: 0;
+  background: var(--surface); border: 1px solid var(--line); border-radius: 10px; overflow: hidden;
+}
+.sec .swatch {
+  background: var(--sw); display: grid; place-items: start center; padding-top: 14px;
+  font-family: var(--mono); font-weight: 700; font-size: 1.05rem; color: var(--swt, #111);
+  border-right: 1px solid var(--line);
+}
+.sec.dimmed { opacity: 0.82; }
+.sec.dimmed .swatch { background-image: repeating-linear-gradient(135deg, transparent 0 6px, rgba(0,0,0,0.12) 6px 12px); }
+.sec .body { padding: 14px 16px; display: grid; gap: 8px; min-width: 0; }
+.sec .cells { display: flex; gap: 5px; align-items: center; flex-wrap: wrap; }
+.sec .cells .sep { width: 10px; }
+.sec .cells .lbl { font-family: var(--mono); font-size: 0.66rem; color: var(--muted); letter-spacing: 0.05em; }
+.sec ul { margin: 0; padding-left: 1.1em; display: grid; gap: 4px; font-size: 0.95rem; }
+.sec .order {
+  display: flex; flex-wrap: wrap; gap: 6px; align-items: center; font-size: 0.85rem;
+}
+.chip {
+  display: inline-flex; align-items: center; gap: 5px; padding: 3px 8px 3px 5px;
+  background: var(--surface-2); border-radius: 999px; font-size: 0.82rem; white-space: nowrap;
+}
+.arrow { color: var(--muted); font-family: var(--mono); }
+.note-wo2 {
+  border-left: 3px solid var(--accent); padding: 4px 0 4px 10px; font-size: 0.92rem;
+}
+.note-wo2 b { color: var(--accent); }
+
+/* ---------- three questions ---------- */
+.q3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 10px; }
+.q {
+  background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 16px;
+  display: grid; gap: 8px; align-content: start;
+}
+.q .n {
+  font-family: var(--display); font-weight: 800; font-size: 2rem; line-height: 1; color: var(--accent);
+}
+
+/* ---------- tie-break ladders ---------- */
+.tb-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 14px; }
+.tb {
+  background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 16px;
+  display: grid; gap: 10px; align-content: start;
+}
+.tb ol { margin: 0; padding: 0; list-style: none; display: grid; gap: 6px; counter-reset: tb; }
+.tb li {
+  counter-increment: tb; display: grid; grid-template-columns: 26px minmax(0, 1fr); gap: 8px;
+  align-items: start; padding: 8px 10px; border-radius: 8px; background: var(--surface-2);
+}
+.tb li::before {
+  content: counter(tb); font-family: var(--mono); font-weight: 700; color: var(--accent);
+}
+.tb li .eg { display: block; font-size: 0.84rem; color: var(--muted); }
+.tb li.wo2only { outline: 2px dashed var(--accent); outline-offset: -2px; }
+.tb li.inert { opacity: 0.6; }
+
+/* ---------- compact roster ---------- */
+.compact .rrow { grid-template-columns: 22px 54px 16px 16px 16px 26px minmax(70px, 1fr) auto; min-width: 0; padding: 6px 10px; }
+.compact .rdiv { min-width: 0; }
+
+/* ---------- signals ---------- */
+.sig { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px; }
+.sigcard {
+  border-radius: 10px; border: 1px solid var(--line); background: var(--surface); overflow: hidden;
+  display: grid;
+}
+.sigcard .hd {
+  padding: 12px 14px; background: var(--sw); color: #111; display: flex; align-items: center; gap: 10px;
+  font-family: var(--display); font-weight: 800; font-size: 1.05rem;
+}
+.sigcard .hd .cb { border-color: #444; background: var(--sw); }
+.sigcard .bd { padding: 12px 14px; display: grid; gap: 8px; font-size: 0.93rem; }
+.sigcard ul { margin: 0; padding-left: 1.1em; display: grid; gap: 4px; }
+
+/* ---------- faq ---------- */
+details {
+  background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 0 16px;
+}
+details + details { margin-top: 8px; }
+summary {
+  cursor: pointer; padding-block: 14px; font-family: var(--display); font-weight: 600; font-size: 1.05rem;
+  list-style: none; display: flex; justify-content: space-between; gap: 12px;
+}
+summary::-webkit-details-marker { display: none; }
+summary::after { content: "+"; font-family: var(--mono); color: var(--accent); font-weight: 700; }
+details[open] summary::after { content: "–"; }
+details .ans { padding-bottom: 16px; display: grid; gap: 8px; }
+summary:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+
+.callout {
+  background: var(--band); color: #111; border-radius: 10px; padding: 18px 20px; display: grid; gap: 8px;
+}
+.callout h3 { color: #111; }
+.checklist { margin: 0; padding-left: 1.2em; display: grid; gap: 6px; }
+footer { padding-block: 32px 48px; border-top: 1px solid var(--line); font-size: 0.85rem; color: var(--muted); }
+
+@media (max-width: 520px) {
+  .sec { grid-template-columns: 38px minmax(0, 1fr); }
+  .sec .swatch { font-size: 0.9rem; }
+  .grade { min-width: 54px; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  details[open] .ans { animation: drop 160ms ease-out; }
+  @keyframes drop { from { transform: translateY(-4px); opacity: 0.6; } to { transform: none; opacity: 1; } }
+}
+</style>
+<style>
+/* Base reset (the hosted preview supplied this; standalone it lives here). */
+:root { padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
+body { margin: 0; }
+img { max-width: 100%; }
+[hidden] { display: none !important; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+  <div class="stripe" aria-hidden="true">
+    <span style="background:#f501a4"></span><span style="background:#00c853"></span><span style="background:#00bcd4"></span>
+    <span style="background:#1565c0"></span><span style="background:#1565c0;opacity:.75"></span>
+    <span style="background:#ffd700"></span><span style="background:#ffd700;opacity:.75"></span>
+    <span style="background:#d32f2f"></span><span style="background:#424242"></span>
+  </div>
+  <div class="eyebrow">Roster guide · Sort menu</div>
+  <h1>Walk Order Field Guide</h1>
+  <p class="lede">WALK ORDER is the roster sort that decides which dog sits at the top of a walker's list, and the next one, all the way down. This guide explains every rule in the words walkers use at the kennel: cell colors, grades, potty dogs, priority and yesterday's activity.</p>
+
+  <div class="short">
+    <div class="eyebrow">The short version</div>
+    <ol>
+      <li><b>The list is personal.</b> It's built around the grade of whoever is looking at it. Dogs you can walk come first; dogs above your grade sink to the bottom, faded.</li>
+      <li><b>Fewest outings first.</b> A dog that hasn't been out today always sits above one that has. A dog with one outing sits above one with two.</li>
+      <li><b>Bright yellow beats amber beats calm.</b> Within each outing count, cell urgency decides which section a dog lands in.</li>
+      <li><b>Inside a section, hardest grade first.</b> The toughest dog you're cleared for leads, so it gets walked while experienced walkers are on shift.</li>
+      <li><b>Grade pairs before the first outing.</b> For dogs that haven't been out yet, <b>Blue-</b> counts the same as <b>Blue</b>, and <b>Gold-</b> counts the same as <b>Gold</b>. Potty, priority and yesterday's activity decide the order within the pair, so a minus dog that needs out more goes first.</li>
+    </ol>
+  </div>
+</header>
+
+<!-- ============================================================ -->
+<section class="block" id="row">
+  <div class="eyebrow">Reading a roster row</div>
+  <h2>Every color on the row means something</h2>
+  <p>WALK ORDER reads exactly what walkers see on a row: the three checkboxes, the grade pill, and how the dog's name is drawn. Nothing hidden. If you can read the row, you can predict where the dog sorts.</p>
+
+  <div class="roster" role="img" aria-label="Sample roster row with labelled columns">
+    <div class="rrow head"><span>#</span><span>Yesterday</span><span>W1</span><span>W2</span><span>PG</span><span>Kennel</span><span>Grade</span><span>Name</span><span></span></div>
+    <div class="rrow"><span class="rank">1</span><span class="yd">1 walk</span><i class="cb y"></i><i class="cb"></i><i class="cb pg"></i><span class="kn">B07</span><span class="pill" style="--c:#1565c0">&nbsp;</span><span class="nm p2">Moose</span><span class="why">bold potty</span></div>
+  </div>
+
+  <div class="legend">
+    <div class="lg"><i class="cb y"></i><div><b>Bright yellow</b><span class="small">Most urgent. On W1: hasn't been out and needs to go now. On W2: due for a second walk.</span></div></div>
+    <div class="lg"><i class="cb a"></i><div><b>Amber</b><span class="small">Urgent, one step below bright yellow. Most dogs still waiting on a first walk show at least amber.</span></div></div>
+    <div class="lg"><i class="cb c"></i><div><b>Cyan, W1 only</b><span class="small">Reserved for training. The trainer takes this dog for its first outing.</span></div></div>
+    <div class="lg"><i class="cb pr"></i><div><b>Lime, PG only</b><span class="small">Reserved for playgroup, not attended yet.</span></div></div>
+    <div class="lg"><i class="cb pd"></i><div><b>Green with check, PG</b><span class="small">Went to playgroup. Counts as an outing.</span></div></div>
+    <div class="lg"><i class="cb d"></i><div><b>Grey with check</b><span class="small">Walk done. A check cancels whatever color the cell had before it.</span></div></div>
+    <div class="lg"><i class="cb"></i><div><b>Empty</b><span class="small">Nothing pressing on that cell right now.</span></div></div>
+    <div class="lg"><span class="demo nm p2">Ab</span><div><b>Bold purple name</b><span class="small">Bold potty dog. Needs out most of all.</span></div></div>
+    <div class="lg"><span class="demo nm p1">Ab</span><div><b>Purple name</b><span class="small">Regular potty dog.</span></div></div>
+    <div class="lg"><span class="demo nm dp">Ab</span><div><b>Grey behind name</b><span class="small">Deprioritized: priority −1, −2 or −3. At −3 the dog page also shows LIMITED ACTIVITY - SEE NOTES.</span></div></div>
+    <div class="lg"><span class="demo mono" style="font-size:.85rem">—</span><div><b>Yesterday column</b><span class="small">"—" means no outing was recorded for the dog yesterday. Otherwise it shows 1 walk, 2 walks, playgroup or surgery yesterday.</span></div></div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<section class="block" id="grades">
+  <div class="eyebrow">Grades</div>
+  <h2>Easiest to hardest, and the two pairs</h2>
+  <p>Walkers can walk any dog at or below their own grade. Within a section, WALK ORDER puts the hardest grade a walker is cleared for at the top. For dogs that <b>haven't been out yet</b>, the two dashed pairs below count as one grade.</p>
+
+  <div class="grades">
+    <div class="grade"><span class="pill" style="--c:#f501a4">&nbsp;</span><b>Pink</b><small>easiest</small></div>
+    <div class="grade"><span class="pill" style="--c:#00c853;--t:#111">&nbsp;</span><b>Green</b><small>2</small></div>
+    <div class="grade"><span class="pill" style="--c:#00bcd4">&nbsp;</span><b>Aqua</b><small>3</small></div>
+    <div class="pair"><span class="pair-label">One grade before the first outing</span>
+      <div class="grade"><span class="pill" style="--c:#1565c0">–</span><b>Blue-</b><small>4</small></div>
+      <div class="grade"><span class="pill" style="--c:#1565c0">&nbsp;</span><b>Blue</b><small>5</small></div>
+    </div>
+    <div class="pair"><span class="pair-label">One grade before the first outing</span>
+      <div class="grade"><span class="pill" style="--c:#ffd700;--t:#111">–</span><b>Gold-</b><small>6</small></div>
+      <div class="grade"><span class="pill" style="--c:#ffd700;--t:#111">&nbsp;</span><b>Gold</b><small>7</small></div>
+    </div>
+    <div class="grade"><span class="pill" style="--c:#d32f2f">&nbsp;</span><b>Red</b><small>8</small></div>
+    <div class="grade"><span class="pill" style="--c:#424242">&nbsp;</span><b>Black</b><small>hardest</small></div>
+  </div>
+  <p class="muted">Pink is a dog grade only; walkers are never graded Pink. A Green walker can walk Pink dogs.</p>
+</section>
+
+<!-- ============================================================ -->
+<section class="block" id="questions">
+  <div class="eyebrow">How a dog finds its spot</div>
+  <h2>Three questions, in order</h2>
+  <p>For every dog, WALK ORDER asks the same three questions. The first one decides the section. The second and third decide the spot inside it. A later question only matters when two dogs give the same answer to every earlier one.</p>
+  <div class="q3">
+    <div class="q"><span class="n">1</span><h3>Which section?</h3><p>Can this walker walk the dog? How many outings has it had today? How urgent are its cells? The sections are listed in the next part of this guide.</p></div>
+    <div class="q"><span class="n">2</span><h3>Which grade?</h3><p>Hardest grade first. For dogs that haven't been out, Blue- and Blue tie, and Gold- and Gold tie. For dogs that have been out, every grade stands on its own.</p></div>
+    <div class="q"><span class="n">3</span><h3>Which tie-breaker?</h3><p>First the dog's exact cell combination, then potty, priority, how long since its last outing, and how busy yesterday was. The full ladders are further down.</p></div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<section class="block" id="list">
+  <div class="eyebrow">The list, top to bottom</div>
+  <h2>Twelve sections, always in this order</h2>
+  <p>Every dog on the roster lands in exactly one of these sections. A section with no dogs in it simply doesn't show. Sections never interleave: every dog in section 3 sits above every dog in section 4.</p>
+
+  <div class="zone-title"><span class="tag hot">You can walk</span><h3>Dogs at or below your grade</h3></div>
+  <div class="ladder">
+
+    <div class="sec" style="--sw:var(--chk-bright)">
+      <div class="swatch">1</div>
+      <div class="body">
+        <h3>Hasn't been out · W1 bright yellow</h3>
+        <div class="cells"><span class="lbl">W1 W2 PG</span><span class="sep"></span><i class="cb y"></i><i class="cb"></i><i class="cb pg"></i></div>
+        <p>The most urgent dogs on the roster. No walk, no playgroup, and the sheet has flagged W1 bright yellow.</p>
+        <p class="note-wo2"><b>Grade pairs:</b> Blue- and Blue share one spot in the grade order, as do Gold- and Gold. A Blue- bold potty dog goes ahead of a plain Blue dog.</p>
+      </div>
+    </div>
+
+    <div class="sec" style="--sw:var(--chk-dim)">
+      <div class="swatch">2</div>
+      <div class="body">
+        <h3>Hasn't been out · W1 amber</h3>
+        <div class="cells"><span class="lbl">W1 W2 PG</span><span class="sep"></span><i class="cb a"></i><i class="cb"></i><i class="cb pg"></i></div>
+        <p>Still waiting on a first walk, not reserved for anything, and not yet at bright yellow. Usually the largest section of the morning.</p>
+        <p class="note-wo2"><b>Grade pairs:</b> same pairing as section 1. This is where it shows most, because there are so many amber dogs.</p>
+      </div>
+    </div>
+
+    <div class="sec" style="--sw:var(--pg-res)">
+      <div class="swatch">3</div>
+      <div class="body">
+        <h3>Hasn't been out · nothing urgent</h3>
+        <p>Dogs with no outing yet whose W1 isn't yellow or amber. Mostly dogs already booked for playgroup or training, plus dogs that had surgery yesterday. Inside each grade, they go in this order:</p>
+        <div class="order">
+          <span class="chip"><i class="cb"></i><i class="cb"></i><i class="cb pg"></i> all empty</span><span class="arrow">→</span>
+          <span class="chip"><i class="cb"></i><i class="cb"></i><i class="cb pr"></i> PG reserved</span><span class="arrow">→</span>
+          <span class="chip"><i class="cb c"></i><i class="cb"></i><i class="cb pg"></i> training reserved</span><span class="arrow">→</span>
+          <span class="chip"><i class="cb c"></i><i class="cb"></i><i class="cb pr"></i> both reserved</span>
+        </div>
+        <p class="note-wo2"><b>Grade pairs:</b> pairing applies here too. Inside a pair, an all-empty Blue- dog goes ahead of a PG-reserved Blue dog, because the cell combination is checked before the minus.</p>
+      </div>
+    </div>
+
+    <div class="sec" style="--sw:var(--chk-bright)">
+      <div class="swatch">4</div>
+      <div class="body">
+        <h3>One walk done · W2 bright yellow</h3>
+        <div class="cells"><span class="lbl">W1 W2 PG</span><span class="sep"></span><i class="cb d"></i><i class="cb y"></i><i class="cb pg"></i></div>
+        <p>First walk done, and the second walk is now due. The yellow has moved over from W1 to W2.</p>
+      </div>
+    </div>
+
+    <div class="sec" style="--sw:var(--chk-dim)">
+      <div class="swatch">5</div>
+      <div class="body">
+        <h3>One walk done · W2 amber</h3>
+        <div class="cells"><span class="lbl">W1 W2 PG</span><span class="sep"></span><i class="cb d"></i><i class="cb a"></i><i class="cb pg"></i></div>
+        <p>First walk done, second walk coming due.</p>
+      </div>
+    </div>
+
+    <div class="sec" style="--sw:#d9d9d9">
+      <div class="swatch">6</div>
+      <div class="body">
+        <h3>One outing · nothing urgent</h3>
+        <p>One walk or one playgroup and nothing calling for a second yet. A playgroup booking takes these dogs out of sections 4 and 5, even with W2 lit, because they already have an outing lined up. Inside each grade:</p>
+        <div class="order">
+          <span class="chip"><i class="cb d"></i><i class="cb"></i><i class="cb pg"></i> W1 done</span><span class="arrow">→</span>
+          <span class="chip"><i class="cb d"></i><i class="cb y"></i><i class="cb pr"></i> + PG reserved, W2 yellow</span><span class="arrow">→</span>
+          <span class="chip"><i class="cb d"></i><i class="cb a"></i><i class="cb pr"></i> + PG reserved, W2 amber</span><span class="arrow">→</span>
+          <span class="chip"><i class="cb d"></i><i class="cb"></i><i class="cb pr"></i> + PG reserved</span><span class="arrow">→</span>
+          <span class="chip"><i class="cb"></i><i class="cb"></i><i class="cb pd"></i> PG only</span><span class="arrow">→</span>
+          <span class="chip"><i class="cb c"></i><i class="cb"></i><i class="cb pd"></i> PG, training still booked</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="sec" style="--sw:#9e9e9e">
+      <div class="swatch">7</div>
+      <div class="body">
+        <h3>Two or three outings</h3>
+        <p>The dogs who've had the most today. Inside each grade:</p>
+        <div class="order">
+          <span class="chip"><i class="cb d"></i><i class="cb y"></i><i class="cb pd"></i> W2 yellow</span><span class="arrow">→</span>
+          <span class="chip"><i class="cb d"></i><i class="cb a"></i><i class="cb pd"></i> W2 amber</span><span class="arrow">→</span>
+          <span class="chip"><i class="cb d"></i><i class="cb d"></i><i class="cb pg"></i> two walks</span><span class="arrow">→</span>
+          <span class="chip"><i class="cb d"></i><i class="cb d"></i><i class="cb pr"></i> two walks, PG booked</span><span class="arrow">→</span>
+          <span class="chip"><i class="cb d"></i><i class="cb"></i><i class="cb pd"></i> walk + PG</span><span class="arrow">→</span>
+          <span class="chip"><i class="cb d"></i><i class="cb d"></i><i class="cb pd"></i> all three</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="sec" style="--sw:var(--surface-2);--swt:var(--muted)">
+      <div class="swatch">8</div>
+      <div class="body">
+        <h3>Anything else you can walk</h3>
+        <p>A safety net. Today it's always empty. If the roster ever gains a new kind of cell combination, those dogs show up here, still above every dog you can't walk.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="zone-title"><span class="tag">Faded rows</span><h3>Dogs above your grade</h3></div>
+  <p class="muted">These rows are drawn faded so walkers can see them without mistaking them for their own. They follow the same idea: not-out-yet first, urgent first.</p>
+  <div class="ladder">
+    <div class="sec dimmed" style="--sw:var(--chk-bright)">
+      <div class="swatch">9</div>
+      <div class="body"><h3>Above grade · hasn't been out · W1 bright yellow</h3>
+        <div class="cells"><i class="cb y"></i><i class="cb"></i><i class="cb pg"></i></div>
+        <p>Good for a lead to scan: these are urgent dogs that need a higher-graded walker.</p>
+        <p class="note-wo2"><b>Grade pairs:</b> pairs apply.</p></div>
+    </div>
+    <div class="sec dimmed" style="--sw:var(--chk-dim)">
+      <div class="swatch">10</div>
+      <div class="body"><h3>Above grade · hasn't been out · W1 amber</h3>
+        <div class="cells"><i class="cb a"></i><i class="cb"></i><i class="cb pg"></i></div>
+        <p class="note-wo2"><b>Grade pairs:</b> pairs apply.</p></div>
+    </div>
+    <div class="sec dimmed" style="--sw:var(--pg-res)">
+      <div class="swatch">11</div>
+      <div class="body"><h3>Above grade · hasn't been out · nothing urgent</h3>
+        <p>Same inner order as section 3.</p>
+        <p class="note-wo2"><b>Grade pairs:</b> pairs apply.</p></div>
+    </div>
+    <div class="sec dimmed" style="--sw:#9e9e9e">
+      <div class="swatch">12</div>
+      <div class="body"><h3>Above grade · everything else</h3>
+        <p>Every above-grade dog that's had an outing. Hardest grade first. Within a grade, one-walk dogs with a lit W2 (yellow, then amber) lead, then the other one-outing dogs, then dogs with two or three outings.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<section class="block" id="tiebreaks">
+  <div class="eyebrow">Inside a section</div>
+  <h2>The tie-breaker ladders</h2>
+  <p>Once two dogs share a section, a grade (or a grade pair), and a cell combination, WALK ORDER walks down a ladder. The first rung where they differ decides it. Dogs that haven't been out use a different ladder from dogs that have.</p>
+
+  <div class="tb-grid">
+    <div class="tb">
+      <div class="eyebrow">Sections 1, 2, 3 · 9, 10, 11</div>
+      <h3>Hasn't been out yet</h3>
+      <ol>
+        <li><div><b>Bold potty dogs</b><span class="eg">Bold purple name.</span></div></li>
+        <li><div><b>Nothing recorded yesterday</b><span class="eg">Yesterday column shows "—", and priority isn't negative.</span></div></li>
+        <li><div><b>Priority 1</b></div></li>
+        <li><div><b>Deprioritized, nothing recorded yesterday</b><span class="eg">Grey behind the name and "—" for yesterday. Ranks low on most days, but no outing yesterday lifts it here.</span></div></li>
+        <li><div><b>Regular potty dogs</b><span class="eg">Purple name, not bold.</span></div></li>
+        <li><div><b>Higher priority number</b><span class="eg">2, then 1, then blank, then −1, −2, −3.</span></div></li>
+        <li><div><b>Quieter yesterday</b><span class="eg">1 walk → playgroup → 2 walks → surgery yesterday.</span></div></li>
+        <li class="wo2only"><div><b>True grade within a pair</b><span class="eg">If a pair is still tied after everything above, Blue goes before Blue-, and Gold before Gold-.</span></div></li>
+        <li><div><b>Daily shuffle</b><span class="eg">Dogs equal on everything get a fresh order each morning. It's the same order on every phone, and it resets at midnight. It never mixes Blue with Blue- or Gold with Gold-.</span></div></li>
+      </ol>
+    </div>
+
+    <div class="tb">
+      <div class="eyebrow">Sections 4 – 8 · 12</div>
+      <h3>Has been out today</h3>
+      <ol>
+        <li><div><b>Bold potty dogs</b><span class="eg">Bold purple name.</span></div></li>
+        <li><div><b>Priority 1</b></div></li>
+        <li><div><b>Regular potty dogs</b><span class="eg">Purple name, not bold.</span></div></li>
+        <li><div><b>Higher priority number</b><span class="eg">2, then 1, then blank, then −1, −2, −3.</span></div></li>
+        <li><div><b>Longest since last outing</b><span class="eg">The dog whose most recent walk or playgroup was earliest goes first.</span></div></li>
+        <li><div><b>Quieter yesterday</b><span class="eg">— → 1 walk → playgroup → 2 walks → surgery yesterday.</span></div></li>
+      </ol>
+      <p class="muted" style="font-size:.9rem">No shuffle here. Dogs that tie on every rung keep the order they have on the sheet. Grade pairs don't apply here: Blue sits above Blue-, and Gold above Gold-.</p>
+    </div>
+  </div>
+
+  <div class="short">
+    <div class="eyebrow">Which rungs actually matter where</div>
+    <p>Some rungs can't come up in some sections, because the same thing that would trigger them also turns the cell bright yellow.</p>
+    <ul style="margin:0;padding-left:1.1em;display:grid;gap:6px">
+      <li><b>Bright yellow sections (1, 9):</b> every rung is live. These are exactly the dogs that are bold potty, have nothing from yesterday, or are priority 1, so the ladder sorts them by which reason applies.</li>
+      <li><b>Amber sections (2, 10):</b> the top four rungs are effectively never in play, since a dog that matched any of them would be bright yellow. In practice amber dogs order by <b>regular potty → priority number → quieter yesterday</b>, then true grade within a pair, then the shuffle.</li>
+      <li><b>Nothing-urgent sections (3, 11):</b> reserved and post-surgery dogs. The cell combination order shown above usually decides it before the ladder is needed.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<section class="block" id="pairs">
+  <div class="eyebrow">Grade pairs in action</div>
+  <h2>How Blue- and Gold- dogs are placed</h2>
+  <p>Until a dog's first outing, a minus grade counts the same as the full grade. A Blue- dog that hasn't been out isn't stuck below every Blue dog in its section. If it needs out more, it goes first. After the first outing, the minus counts again and Blue sits above Blue-.</p>
+
+  <p><b>Example:</b> a Gold walker's amber section, mid-morning. Six dogs, none out yet, all W1 amber.</p>
+
+  <div class="roster compact" id="pairEx" style="max-width:520px"></div>
+
+  <div class="stack">
+    <p><b>Mango</b> (Gold-, purple name) goes ahead of <b>Biscuit</b> (Gold). They count as the same grade, and Mango is a regular potty dog while Biscuit isn't.</p>
+    <p><b>Pepper</b> (Blue-) goes ahead of <b>Tank</b> (Blue) and <b>Ranger</b> (Blue). None of the three is a potty dog, and Pepper and Tank have no priority set, which puts them above Ranger's −1. Between Pepper and Tank, Pepper had the quieter yesterday: 1 walk against Tank's playgroup.</p>
+    <p><b>Juno</b> (Aqua) comes last. Aqua isn't part of a pair, and it's the easiest grade in this section.</p>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<section class="block" id="signals">
+  <div class="eyebrow">Where the colors come from</div>
+  <h2>When cells turn yellow and amber</h2>
+  <p>The urgency colors come straight from the roster sheet's own coloring rules. The app follows the sheet. If the two ever disagree, the sheet is right. Here is what turns each cell on.</p>
+
+  <div class="sig">
+    <div class="sigcard" style="--sw:var(--chk-bright)">
+      <div class="hd"><i class="cb y"></i>W1 bright yellow</div>
+      <div class="bd">
+        <p>The dog hasn't been walked or to playgroup today, isn't booked for playgroup or training, and didn't have surgery yesterday. Then <b>any one</b> of these:</p>
+        <ul>
+          <li>Nothing recorded for it yesterday</li>
+          <li>Bold potty dog</li>
+          <li>Priority 1</li>
+          <li>Priority 2, once the "still waiting" count drops below 5</li>
+          <li>Regular potty dog, once the "still waiting" count drops below 5</li>
+        </ul>
+        <p class="muted">The "still waiting" count is the sheet's own tally of high-need dogs that haven't been out yet. It mostly counts dogs from the list above.</p>
+        <p class="muted">Deprioritized dogs (grey behind the name) only go bright yellow when nothing was recorded for them yesterday or they're bold potty.</p>
+      </div>
+    </div>
+
+    <div class="sigcard" style="--sw:var(--chk-dim)">
+      <div class="hd"><i class="cb a"></i>W1 amber</div>
+      <div class="bd">
+        <p>Every dog that hasn't been out, isn't booked for playgroup or training, and didn't have surgery yesterday, but doesn't meet a bright yellow condition.</p>
+        <p class="muted">A dog only gets a W1 color once its kennel and breed are on the sheet.</p>
+      </div>
+    </div>
+
+    <div class="sigcard" style="--sw:var(--chk-bright)">
+      <div class="hd"><i class="cb y"></i>W2 bright yellow</div>
+      <div class="bd">
+        <p>W1 is done and W2 isn't. No more than <b>15</b> dogs on the roster are still waiting for their first walk. Then either:</p>
+        <ul>
+          <li>Bold potty dog, <b>5+ hours</b> since its first walk</li>
+          <li>Priority above 0, <b>6+ hours</b> since its first walk</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="sigcard" style="--sw:var(--chk-dim)">
+      <div class="hd"><i class="cb a"></i>W2 amber</div>
+      <div class="bd">
+        <p>W1 is done and W2 isn't, and either:</p>
+        <ul>
+          <li>Any potty dog, <b>7+ hours</b> since its first walk, with <b>10 or fewer</b> dogs still waiting for a first walk</li>
+          <li>First walk was <b>before 10 AM</b>, with <b>fewer than 10</b> dogs still waiting for a first walk</li>
+        </ul>
+        <p class="muted">The W2 count of dogs waiting for a first walk leaves out AR kennels.</p>
+      </div>
+    </div>
+
+    <div class="sigcard" style="--sw:var(--cyan)">
+      <div class="hd"><i class="cb c"></i>W1 cyan</div>
+      <div class="bd"><p>Booked for training and W1 not done yet. Once W1 is checked, the reservation counts as used.</p></div>
+    </div>
+
+    <div class="sigcard" style="--sw:var(--pg-res)">
+      <div class="hd"><i class="cb pr"></i>PG lime</div>
+      <div class="bd"><p>Booked for playgroup and not attended yet. It's independent of W1: the booking stays until the dog actually goes to playgroup.</p></div>
+    </div>
+  </div>
+
+  <div class="short">
+    <div class="eyebrow">Two rules that explain most surprises</div>
+    <ul style="margin:0;padding-left:1.1em;display:grid;gap:6px">
+      <li><b>Yellow and amber ride on the next walk to do.</b> While W1 is open, the color sits on W1. Once W1 is checked, it can only appear on W2.</li>
+      <li><b>A check wipes the cell's old color.</b> Checking W1 on a cyan dog ends the training booking. A playgroup check ends the PG booking.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<section class="block" id="example">
+  <div class="eyebrow">Worked example</div>
+  <h2>A Gold walker's list at 3:30 PM</h2>
+  <p>A small roster of fifteen dogs, sorted by WALK ORDER for a walker graded Gold. Red and Black dogs are above that walker's grade, so they're faded and sit at the bottom. Section numbers match the list above.</p>
+  <div class="roster" id="full"></div>
+  <div class="stack">
+    <p><b>Moose</b> leads section 1 over <b>Juniper</b>. Blue and Blue- share a grade spot here, so it comes down to the ladder, and Moose is bold potty.</p>
+    <p><b>Diesel</b> is bright yellow but sits near the bottom. Red is above Gold, so this walker can't take him. A Red or Black walker would see Diesel near the top of their own list.</p>
+    <p><b>Penny</b> is Pink, the easiest grade, but she still goes ahead of Gold- <b>Bear</b>. Her W2 is amber, which puts her in section 5, and Bear has nothing pressing in section 6. Sections come before grade.</p>
+    <p><b>Rocket</b> has nothing from yesterday, which would usually make him bright yellow. He's booked for playgroup, so he waits in section 3 instead.</p>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<section class="block" id="faq">
+  <div class="eyebrow">Questions walkers will ask</div>
+  <h2>Admin FAQ</h2>
+
+  <details>
+    <summary>Why is a Blue- dog above a Blue dog?</summary>
+    <div class="ans"><p>That's the WALK ORDER rule. Before a dog's first outing, Blue- and Blue are the same grade for ordering purposes. The Blue- dog won on potty, priority, or a quieter yesterday. Once both dogs have been out, Blue goes back above Blue-.</p></div>
+  </details>
+  <details>
+    <summary>Why did a dog jump up or down while I was looking?</summary>
+    <div class="ans"><p>The list re-checks every minute and after every checkbox. W2 colors depend on the clock (hours since W1) and on how many dogs are still waiting, so they turn on by themselves. Another walker checking a box anywhere on the roster can also shift the "still waiting" counts and light up cells on dogs nobody touched.</p></div>
+  </details>
+  <details>
+    <summary>Why does my list look different from another walker's?</summary>
+    <div class="ans"><p>The list is built around each viewer's grade. A Blue walker's top dog may be a Gold walker's sixth, because the Gold walker's list starts with Gold dogs. Above-grade dogs also differ: what's faded for one walker is fully walkable for another.</p></div>
+  </details>
+  <details>
+    <summary>Why isn't the same dog first every morning?</summary>
+    <div class="ans"><p>The daily shuffle. When dogs are genuinely equal on everything (same section, grade, cells, potty, priority and yesterday) they'd otherwise sit in sheet order, so the same dog would lead every day. The shuffle re-deals them at midnight. Every phone sees the same deal on the same day, so two walkers comparing lists will agree.</p></div>
+  </details>
+  <details>
+    <summary>A dog with a bright yellow W2 is sitting low. Why?</summary>
+    <div class="ans"><p>Check its PG cell. A dog with W1 done and a lime playgroup booking stays in the calm one-outing section (6) even when its W2 is lit, because an outing is already lined up for it. If the booking falls through, uncheck the reservation and the dog moves up to section 4.</p></div>
+  </details>
+  <details>
+    <summary>A deprioritized dog suddenly jumped near the top. Is that right?</summary>
+    <div class="ans"><p>Yes. Priority below zero normally pushes a dog down, but a dog with nothing recorded yesterday still goes bright yellow, and among dogs that haven't been out it ranks right after priority 1. Low priority is meant to lower a dog in the everyday order, not to leave it in its kennel two days running.</p></div>
+  </details>
+  <details>
+    <summary>A surgery dog isn't showing yellow or amber at all.</summary>
+    <div class="ans"><p>Expected. A dog with "surgery yesterday" never gets a W1 urgency color. It sits in the "nothing urgent" section (3), and its quiet yesterday score puts it at the end of any tie. Its dog page shows the "Recent surgery - NO RUNNING" flag.</p></div>
+  </details>
+  <details>
+    <summary>The order on my phone doesn't match this guide.</summary>
+    <div class="ans"><p>Right after an app update, a phone that already had the app open can keep running the old version. Fully close and reopen the app. If it still doesn't match, note the dog and the time and pass it along.</p></div>
+  </details>
+</section>
+
+
+<footer>
+  Walk Order Field Guide · Dog Walker Assistant. Cell colors follow the live roster sheet's coloring rules; if a cell here and the sheet ever disagree, the sheet wins.
+</footer>
+</div>
+
+<script>
+(function () {
+  var G = {
+    'Pink':  ['#f501a4', '#fff', ' '],  'Green': ['#00c853', '#111', ' '],
+    'Aqua':  ['#00bcd4', '#fff', ' '],  'Blue-': ['#1565c0', '#fff', '–'],
+    'Blue':  ['#1565c0', '#fff', ' '],  'Gold-': ['#ffd700', '#111', '–'],
+    'Gold':  ['#ffd700', '#111', ' '],  'Red':   ['#d32f2f', '#fff', ' '],
+    'Black': ['#424242', '#fff', ' ']
+  };
+  function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function cell(c) { return '<i class="cb ' + (c || '') + '"></i>'; }
+  function row(d, i, compact) {
+    var g = G[d.g];
+    var pill = '<span class="pill" style="--c:' + g[0] + ';--t:' + g[1] + '">' + (g[2] === ' ' ? '&nbsp;' : g[2]) + '</span>';
+    var nm = '<span class="nm ' + (d.n || '') + '">' + esc(d.name) + '</span>';
+    var parts = ['<span class="rank">' + i + '</span>', '<span class="yd">' + esc(d.y) + '</span>',
+      cell(d.w1), cell(d.w2), cell(d.pg || 'pg')];
+    if (!compact) parts.push('<span class="kn">' + esc(d.k) + '</span>');
+    parts.push(pill, nm, '<span class="why">' + esc(d.why || '') + '</span>');
+    return '<div class="rrow' + (d.dim ? ' dim' : '') + '">' + parts.join('') + '</div>';
+  }
+  function head(compact) {
+    var cols = ['#', 'Yesterday', 'W1', 'W2', 'PG'];
+    if (!compact) cols.push('Kennel');
+    cols.push('Grade', 'Name', '');
+    return '<div class="rrow head">' + cols.map(function (c) { return '<span>' + c + '</span>'; }).join('') + '</div>';
+  }
+  function divider(label, sw) { return '<div class="rdiv"><i style="--sw:' + sw + '"></i>' + esc(label) + '</div>'; }
+  function render(el, items, compact) {
+    var n = 0, html = head(compact);
+    items.forEach(function (it) { html += it.div ? divider(it.div, it.sw) : row(it, ++n, compact); });
+    document.getElementById(el).innerHTML = html;
+  }
+
+  // Grade pairs: Gold walker, amber section, mid-morning.
+  var amber = {
+    biscuit: { name: 'Biscuit', g: 'Gold',  y: '2 walks',   w1: 'a', why: '' },
+    mango:   { name: 'Mango',   g: 'Gold-', y: '1 walk',    w1: 'a', n: 'p1', why: 'potty' },
+    tank:    { name: 'Tank',    g: 'Blue',  y: 'playgroup', w1: 'a', why: '' },
+    ranger:  { name: 'Ranger',  g: 'Blue',  y: '1 walk',    w1: 'a', n: 'dp', why: 'priority −1' },
+    pepper:  { name: 'Pepper',  g: 'Blue-', y: '1 walk',    w1: 'a', why: '' },
+    juno:    { name: 'Juno',    g: 'Aqua',  y: '1 walk',    w1: 'a', why: '' }
+  };
+  render('pairEx', [amber.mango, amber.biscuit, amber.pepper, amber.tank, amber.ranger, amber.juno], true);
+
+  // Full worked example: Gold walker, 3:30 PM.
+  render('full', [
+    { div: '1 · Hasn’t been out · W1 bright yellow', sw: 'var(--chk-bright)' },
+    { name: 'Moose',   g: 'Blue',  k: 'B07', y: '1 walk',  w1: 'y', n: 'p2', why: 'bold potty' },
+    { name: 'Juniper', g: 'Blue-', k: 'C02', y: '—',       w1: 'y', why: 'nothing yesterday' },
+    { name: 'Hazel',   g: 'Aqua',  k: 'A11', y: '2 walks', w1: 'y', why: 'priority 1' },
+    { div: '2 · Hasn’t been out · W1 amber', sw: 'var(--chk-dim)' },
+    { name: 'Mango',   g: 'Gold-', k: 'D04', y: '1 walk',    w1: 'a', n: 'p1', why: 'potty' },
+    { name: 'Biscuit', g: 'Gold',  k: 'D09', y: '2 walks',   w1: 'a' },
+    { name: 'Pepper',  g: 'Blue-', k: 'B12', y: '1 walk',    w1: 'a', why: 'quieter yesterday' },
+    { name: 'Tank',    g: 'Blue',  k: 'B03', y: 'playgroup', w1: 'a' },
+    { div: '3 · Hasn’t been out · nothing urgent', sw: 'var(--pg-res)' },
+    { name: 'Rocket',  g: 'Gold',  k: 'D01', y: '—',       w1: '', pg: 'pr', why: 'PG booked' },
+    { name: 'Olive',   g: 'Green', k: 'A06', y: '1 walk',  w1: 'c', why: 'training' },
+    { div: '4 · One walk done · W2 bright yellow', sw: 'var(--chk-bright)' },
+    { name: 'Luna',    g: 'Blue',  k: 'C08', y: '1 walk',  w1: 'd', w2: 'y', n: 'p2', why: 'W1 8:10' },
+    { div: '5 · One walk done · W2 amber', sw: 'var(--chk-dim)' },
+    { name: 'Penny',   g: 'Pink',  k: 'A02', y: '2 walks', w1: 'd', w2: 'a', n: 'p1', why: 'W1 8:15' },
+    { div: '6 · One outing · nothing urgent', sw: '#d9d9d9' },
+    { name: 'Bear',    g: 'Gold-', k: 'D06', y: '1 walk',  w1: 'd', why: 'W1 10:45' },
+    { div: '7 · Two or three outings', sw: '#9e9e9e' },
+    { name: 'Ziggy',   g: 'Gold',  k: 'D11', y: '1 walk',  w1: 'd', pg: 'pd', why: 'W1 + PG' },
+    { div: '9 · Above grade · hasn’t been out · W1 bright yellow', sw: 'var(--chk-bright)' },
+    { name: 'Diesel',  g: 'Red',   k: 'E03', y: '—',       w1: 'y', dim: true, why: 'Red walker+' },
+    { div: '12 · Above grade · everything else', sw: '#9e9e9e' },
+    { name: 'Shadow',  g: 'Black', k: 'E07', y: '2 walks', w1: 'd', dim: true, why: 'Black walker' }
+  ], false);
+})();
+</script>
+</body>
+</html>
