@@ -14,6 +14,10 @@ For a full walkthrough — signing in, the roster, color grades, logging walks,
 the WALK ORDER sort, the walk timer, and resources — see the
 **[Walker Guide](WALKER.md)**.
 
+For how the **WALK ORDER 2** sort decides which dog comes next — cell colors,
+grades, list sections, and tie-breakers — see the
+**[Walk Order 2 Field Guide](walk-order-2.html)**.
+
 ## Open the app
 
 Go to **[dwa.kirbsauce.com](https://dwa.kirbsauce.com)** and sign in with your

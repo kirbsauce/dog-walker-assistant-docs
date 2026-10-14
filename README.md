@@ -7,6 +7,9 @@ served via GitHub Pages at **[docs.kirbsauce.com](https://docs.kirbsauce.com)**.
 
 - [`index.md`](index.md) — site home / overview.
 - [`WALKER.md`](WALKER.md) — Walker Guide.
+- [`walk-order-2.html`](walk-order-2.html) — Walk Order 2 Field Guide. A
+  standalone page (no front matter), so Jekyll serves it as-is rather than
+  through the site layout.
 
 (The Admin Guide is no longer public — it now lives in-app, gated to admin
 accounts, in the `dog-walker-assistant-app` repo: `src/screens/AdminDocs.jsx`.)
