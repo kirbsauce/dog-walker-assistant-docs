@@ -225,6 +225,7 @@ details {
   background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 0 16px;
 }
 details + details { margin-top: 8px; }
+.faq-h { font-size: 1.05rem; margin-top: 8px; color: var(--muted); }
 summary {
   cursor: pointer; padding-block: 14px; font-family: var(--display); font-weight: 600; font-size: 1.05rem;
   list-style: none; display: flex; justify-content: space-between; gap: 12px;
@@ -493,18 +494,24 @@ img { max-width: 100%; }
 <section class="block" id="faq">
   <h2>Common questions</h2>
 
-  <details>
-    <summary>Why did a dog jump up or down while I was looking?</summary>
-    <div class="ans"><p>The list re-checks every minute and whenever anyone logs a walk or playgroup. W2 colors depend on the clock (hours since W1) and on how many dogs are still waiting, so they turn on by themselves. Another walker logging a walk anywhere on the roster can also shift the "still waiting" counts and raise the urgency of checkboxes on dogs nobody touched.</p></div>
-  </details>
+  <h3 class="faq-h">Why is my list like this?</h3>
+  <div>
   <details>
     <summary>Why does my list look different from another walker's?</summary>
     <div class="ans"><p>The list is built around your color. A Blue walker's top dog may be a Gold walker's sixth, because the Gold walker's list starts with Gold dogs. Dogs above your color also differ: what's dimmed for one walker is fully walkable for another.</p></div>
   </details>
   <details>
-    <summary>Why isn't the same dog first every morning?</summary>
-    <div class="ans"><p>The daily shuffle. When dogs are genuinely equal on everything (same group, color, state, potty, priority and yesterday) they'd otherwise sit in roster order, so the same dog would lead every day. The shuffle re-deals them at midnight. Every phone sees the same deal on the same day, so two walkers comparing lists will agree.</p></div>
+    <summary>Why are some dogs dimmed?</summary>
+    <div class="ans"><p>They're above your color, so you can't walk them. They sit at the bottom of your list (G9 – G12) so you can still see them. A walker with a harder color sees them as regular rows, often near the top.</p></div>
   </details>
+  <details>
+    <summary>Why isn't the same dog first every morning?</summary>
+    <div class="ans"><p>The daily shuffle. Among dogs with no activity yet that are equal on everything (same group, color, state, potty, priority and activity yesterday), the shuffle re-deals the order at midnight, so the same dog doesn't lead every day. Every phone sees the same deal on the same day, so two walkers comparing lists will agree. Once dogs have had activity, ties keep their roster order.</p></div>
+  </details>
+  </div>
+
+  <h3 class="faq-h">Why is this dog here?</h3>
+  <div>
   <details>
     <summary>A dog with a high-urgency W2 is sitting low. Why?</summary>
     <div class="ans"><p>Two common reasons:</p>
@@ -515,20 +522,29 @@ img { max-width: 100%; }
   </details>
   <details>
     <summary>A deprioritized dog suddenly jumped near the top. Is that right?</summary>
-    <div class="ans"><p>Yes. Priority below zero normally pushes a dog down, but a dog with no activity yesterday still turns high urgency, and among dogs with no activity yet it ranks right after priority 1. Low priority is meant to lower a dog in the everyday order, not to leave it in its kennel two days running.</p></div>
-  </details>
-  <details>
-    <summary>A surgery dog is always low urgency.</summary>
-    <div class="ans"><p>Expected. A dog with "surgery yesterday" never gets a high- or medium-urgency W1. It sits in G3, and its activity-yesterday score (surgery counts as 5) puts it at the end of any tie. Its dog page shows the "Recent surgery - NO RUNNING" flag.</p></div>
+    <div class="ans"><p>Yes. Being deprioritized normally pushes a dog down, but a dog with no activity yesterday still turns high urgency, and among dogs with no activity yet it ranks right after priority 1. Deprioritizing is meant to lower a dog in the everyday order, not to leave it in its kennel two days running.</p></div>
   </details>
   <details>
     <summary>Why is a Blue- dog above a Blue dog?</summary>
-    <div class="ans"><p>Before a dog's first activity, Blue- and Blue are <a href="#bundling">bundled</a> into one color, so the Blue- dog won on its state, potty, priority or less activity yesterday. Once both dogs have had activity, Blue goes back above Blue-.</p></div>
+    <div class="ans"><p>Before a dog's first activity, Blue- and Blue are <a href="#bundling">bundled</a> into one color, so the Blue- dog won on its state, potty, priority or amount of activity yesterday. Once both dogs have had activity, Blue goes back above Blue-.</p></div>
+  </details>
+  <details>
+    <summary>Why is a surgery dog always low urgency?</summary>
+    <div class="ans"><p>A dog with "surgery yesterday" never gets a high- or medium-urgency W1, so until its first activity it sits in G3. Surgery yesterday counts as the most activity, so it goes last in any tie. Its dog page shows the "Recent surgery - NO RUNNING" flag.</p></div>
+  </details>
+  </div>
+
+  <h3 class="faq-h">Why did it change?</h3>
+  <div>
+  <details>
+    <summary>Why did a dog jump up or down while I was looking?</summary>
+    <div class="ans"><p>The list re-checks every minute and whenever anyone logs a walk or playgroup. W2 urgency depends on the clock (hours since W1) and on how many dogs are still waiting, so it rises on its own. Another walker logging a walk anywhere on the roster can also shift the "still waiting" counts and raise the urgency of checkboxes on dogs nobody touched.</p></div>
   </details>
   <details>
     <summary>The order on my phone doesn't match this guide.</summary>
     <div class="ans"><p>Right after an app update, a phone that already had the app open can keep running the old version. Fully close and reopen the app. If it still doesn't match, note the dog and the time and pass it along.</p></div>
   </details>
+  </div>
 </section>
 
 
