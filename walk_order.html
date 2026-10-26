@@ -459,7 +459,7 @@ img { max-width: 100%; }
       <tr><th scope="row" class="sid">5</th><td class="tbn"><b>Deprioritized, no activity yesterday</b></td><td class="sub">Grey behind the name and "—" in the Y column.</td></tr>
       <tr><th scope="row" class="sid">6</th><td class="tbn"><b>Regular potty dog</b></td><td class="sub">Purple name.</td></tr>
       <tr><th scope="row" class="sid">7</th><td class="tbn"><b>Higher priority number</b></td><td class="sub">2, then 1, then blank, then −1, −2, −3.</td></tr>
-      <tr><th scope="row" class="sid">8</th><td class="tbn"><b>Quieter yesterday</b></td><td class="sub">1 walk → playgroup → 2 walks → surgery yesterday.</td></tr>
+      <tr><th scope="row" class="sid">8</th><td class="tbn"><b>Amount of activity yesterday</b></td><td class="sub">Lowest first: — 0 · 1 walk 1 · playgroup 1.5 · 2 walks 2 · surgery yesterday 5.</td></tr>
       <tr><th scope="row" class="sid">9</th><td class="tbn"><b>True color in a bundle</b></td><td class="sub">Blue before Blue-, Gold before Gold-.</td></tr>
       <tr><th scope="row" class="sid">10</th><td class="tbn"><b>Daily shuffle</b></td><td class="sub">A fresh order each morning, the same on every phone.</td></tr>
       <tr class="band"><th colspan="3" scope="rowgroup">Has had activity <span class="bandnote">G4 – G8 · G12 · no shuffle: dogs tied on everything keep roster order</span></th></tr>
@@ -469,7 +469,7 @@ img { max-width: 100%; }
       <tr><th scope="row" class="sid">4</th><td class="tbn"><b>Regular potty dog</b></td><td class="sub">Purple name.</td></tr>
       <tr><th scope="row" class="sid">5</th><td class="tbn"><b>Higher priority number</b></td><td class="sub">2, then 1, then blank, then −1, −2, −3.</td></tr>
       <tr><th scope="row" class="sid">6</th><td class="tbn"><b>Longest since last activity</b></td><td class="sub">The dog whose most recent walk or playgroup was earliest goes first.</td></tr>
-      <tr><th scope="row" class="sid">7</th><td class="tbn"><b>Quieter yesterday</b></td><td class="sub">— → 1 walk → playgroup → 2 walks → surgery yesterday.</td></tr>
+      <tr><th scope="row" class="sid">7</th><td class="tbn"><b>Amount of activity yesterday</b></td><td class="sub">Lowest first: — 0 · 1 walk 1 · playgroup 1.5 · 2 walks 2 · surgery yesterday 5.</td></tr>
     </tbody>
   </table>
   </div>
@@ -479,7 +479,7 @@ img { max-width: 100%; }
     <p>Some tiebreakers can't come up in some groups, because the same thing that would trigger them also makes W1 high urgency.</p>
     <ul style="margin:0;padding-left:1.1em;display:grid;gap:6px">
       <li><b>High-urgency groups (G1, G9):</b> every tiebreaker is live. These are exactly the dogs that are bold potty, had no activity yesterday, or are priority 1, so the tiebreakers sort them by which reason applies.</li>
-      <li><b>Medium-urgency groups (G2, G10):</b> the top four tiebreakers are effectively never in play, since a dog that matched any of them would be high urgency. In practice these dogs order by <b>regular potty → priority number → quieter yesterday</b>, then true color in a bundle, then the shuffle.</li>
+      <li><b>Medium-urgency groups (G2, G10):</b> the top four tiebreakers are effectively never in play, since a dog that matched any of them would be high urgency. In practice these dogs order by <b>regular potty → priority number → amount of activity yesterday</b>, then true color in a bundle, then the shuffle.</li>
       <li><b>Low-urgency or reserved groups (G3, G11):</b> reserved and post-surgery dogs. The state order usually decides it before the tiebreakers are needed.</li>
     </ul>
   </div>
@@ -490,7 +490,7 @@ img { max-width: 100%; }
 
   <div class="stack">
     <p><b>Mango</b> (Gold-) and <b>Biscuit</b> (Gold) lead: Gold is the hardest color here, and Gold- is bundled with it. Inside the bundle, Mango is a regular potty dog and Biscuit isn't.</p>
-    <p><b>Pepper</b> (Blue-), <b>Tank</b> and <b>Ranger</b> (both Blue) share the Blue bundle. None is a potty dog, and Pepper and Tank have no priority set, which puts them above Ranger's −1. Between Pepper and Tank, Pepper had the quieter yesterday: 1 walk against Tank's playgroup.</p>
+    <p><b>Pepper</b> (Blue-), <b>Tank</b> and <b>Ranger</b> (both Blue) share the Blue bundle. None is a potty dog, and Pepper and Tank have no priority set, which puts them above Ranger's −1. Between Pepper and Tank, Pepper had less activity yesterday: 1 walk against Tank's playgroup.</p>
     <p><b>Juno</b> (Aqua) comes last. It's the easiest color in this group, so no tiebreaker can lift it above the Blue dogs.</p>
   </div>
 </section>
@@ -535,11 +535,11 @@ img { max-width: 100%; }
   </details>
   <details>
     <summary>A surgery dog is always low urgency.</summary>
-    <div class="ans"><p>Expected. A dog with "surgery yesterday" never gets a high- or medium-urgency W1. It sits in G3, and its quiet-yesterday score puts it at the end of any tie. Its dog page shows the "Recent surgery - NO RUNNING" flag.</p></div>
+    <div class="ans"><p>Expected. A dog with "surgery yesterday" never gets a high- or medium-urgency W1. It sits in G3, and its activity-yesterday score (surgery counts as 5) puts it at the end of any tie. Its dog page shows the "Recent surgery - NO RUNNING" flag.</p></div>
   </details>
   <details>
     <summary>Why is a Blue- dog above a Blue dog?</summary>
-    <div class="ans"><p>Before a dog's first activity, Blue- and Blue are <a href="#bundling">bundled</a> into one color, so the Blue- dog won on its state, potty, priority or a quieter yesterday. Once both dogs have had activity, Blue goes back above Blue-.</p></div>
+    <div class="ans"><p>Before a dog's first activity, Blue- and Blue are <a href="#bundling">bundled</a> into one color, so the Blue- dog won on its state, potty, priority or less activity yesterday. Once both dogs have had activity, Blue goes back above Blue-.</p></div>
   </details>
   <details>
     <summary>The order on my phone doesn't match this guide.</summary>
@@ -593,7 +593,7 @@ img { max-width: 100%; }
     mango:   { name: 'Mango',   g: 'Gold-', y: '1 walk',    w1: 'a', n: 'p1', why: 'potty' },
     tank:    { name: 'Tank',    g: 'Blue',  y: 'playgroup', w1: 'a', why: '' },
     ranger:  { name: 'Ranger',  g: 'Blue',  y: '1 walk',    w1: 'a', n: 'dp', why: 'priority −1' },
-    pepper:  { name: 'Pepper',  g: 'Blue-', y: '1 walk',    w1: 'a', why: 'quieter yesterday' },
+    pepper:  { name: 'Pepper',  g: 'Blue-', y: '1 walk',    w1: 'a', why: 'less activity yesterday' },
     juno:    { name: 'Juno',    g: 'Aqua',  y: '1 walk',    w1: 'a', why: '' }
   };
   render('tbEx', [amber.mango, amber.biscuit, amber.pepper, amber.tank, amber.ranger, amber.juno], true);
@@ -607,7 +607,7 @@ img { max-width: 100%; }
     { div: 'G2 · No activity yet · W1 medium urgency', sw: 'var(--chk-dim)' },
     { name: 'Mango',   g: 'Gold-', k: 'D04', y: '1 walk',    w1: 'a', n: 'p1', why: 'potty' },
     { name: 'Biscuit', g: 'Gold',  k: 'D09', y: '2 walks',   w1: 'a' },
-    { name: 'Pepper',  g: 'Blue-', k: 'B12', y: '1 walk',    w1: 'a', why: 'quieter yesterday' },
+    { name: 'Pepper',  g: 'Blue-', k: 'B12', y: '1 walk',    w1: 'a', why: 'less activity yesterday' },
     { name: 'Tank',    g: 'Blue',  k: 'B03', y: 'playgroup', w1: 'a' },
     { div: 'G3 · No activity yet · low urgency or reserved', sw: 'var(--pg-res)' },
     { name: 'Rocket',  g: 'Gold',  k: 'D01', y: '—',       w1: '', pg: 'pr', why: 'PG reserved' },
