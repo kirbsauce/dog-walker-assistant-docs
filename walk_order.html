@@ -195,15 +195,19 @@ header.top { padding-block: 36px 28px; display: grid; gap: 16px; }
 .key li .cb { margin-top: 3px; }
 .key li span { color: var(--muted); }
 
-/* ---------- states ---------- */
-.sband { display: grid; gap: 8px; }
-.states { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 8px; }
-.st {
-  display: grid; grid-template-columns: 38px auto minmax(0, 1fr); gap: 10px; align-items: center;
-  background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 8px 12px; font-size: 0.92rem;
+/* ---------- states table ---------- */
+.stable-wrap { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
+.stable { width: 100%; border-collapse: collapse; font-size: 0.93rem; }
+.stable th, .stable td { text-align: left; vertical-align: top; padding: 9px 12px; border-top: 1px solid var(--line); }
+.stable thead th {
+  border-top: 0; background: var(--surface-2); font-family: var(--mono); font-size: 0.66rem;
+  font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); white-space: nowrap;
 }
-.st .sid { font-family: var(--mono); font-weight: 700; color: var(--accent); }
-.st .ck { display: flex; gap: 4px; }
+.stable tr.band th { background: var(--surface-2); font-family: var(--display); font-size: 0.95rem; font-weight: 600; }
+.stable .sid { font-family: var(--mono); font-weight: 700; color: var(--accent); white-space: nowrap; width: 1%; }
+.stable .ck { white-space: nowrap; width: 1%; }
+.stable .ck .cb { margin-right: 3px; }
+@media (max-width: 520px) { .stable th, .stable td { padding: 8px; } }
 
 /* ---------- the list, top to bottom ---------- */
 .zone-title {
@@ -378,59 +382,47 @@ img { max-width: 100%; }
 <!-- ============================================================ -->
 <section class="block" id="states">
   <div class="eyebrow">States</div>
-  <h2>Every checkbox combination a dog can be in</h2>
-  <p>A dog's <b>state</b> is the exact combination of its three checkboxes: W1, W2 and PG. WALK ORDER reads exactly what you see on the row. If you can read the checkboxes, you know the state.</p>
+  <h2>The 20 states</h2>
+  <p>A dog's <b>state</b> is the exact combination of its W1, W2 and PG checkboxes. Every dog is in exactly one. The numbers are names, not a ranking.</p>
 
-  <div class="roster" role="img" aria-label="Sample roster row with labelled columns">
-    <div class="rrow head"><span>Y</span><span>#</span><span>1</span><span>2</span><span>P</span><span>KNL</span><span>CLR</span><span>Name</span><span></span></div>
-    <div class="rrow"><span class="yd">1 walk</span><span class="rank">1</span><i class="cb y"></i><i class="cb"></i><i class="cb pg"></i><span class="kn">B07</span><span class="pill" style="--c:#1565c0">&nbsp;</span><span class="nm p2">Moose</span><span class="why">bold potty</span></div>
+  <div class="stable-wrap">
+  <table class="stable">
+    <thead><tr><th scope="col">State</th><th scope="col">W1 W2 PG</th><th scope="col">What it means</th></tr></thead>
+    <tbody>
+      <tr class="band"><th colspan="3" scope="rowgroup">No activity yet</th></tr>
+      <tr><th scope="row" class="sid">S1</th><td class="ck"><i class="cb y"></i><i class="cb"></i><i class="cb pg"></i></td><td>No walk or playgroup yet today and nothing reserved, and one of the <a href="#signals">W1 yellow conditions</a> applies (bold potty, priority 1, no activity yesterday, and so on).</td></tr>
+      <tr><th scope="row" class="sid">S2</th><td class="ck"><i class="cb a"></i><i class="cb"></i><i class="cb pg"></i></td><td>No walk or playgroup yet today and nothing reserved, but no yellow condition applies. Amber is the default for every dog waiting on its first activity.</td></tr>
+      <tr><th scope="row" class="sid">S3</th><td class="ck"><i class="cb"></i><i class="cb"></i><i class="cb pg"></i></td><td>No walk or playgroup yet today and nothing reserved, but W1 gets no color: the dog had surgery yesterday, or its kennel or breed isn't on the sheet yet.</td></tr>
+      <tr><th scope="row" class="sid">S4</th><td class="ck"><i class="cb"></i><i class="cb"></i><i class="cb pr"></i></td><td>No activity yet, reserved for playgroup. The reservation keeps W1 from turning yellow or amber.</td></tr>
+      <tr><th scope="row" class="sid">S5</th><td class="ck"><i class="cb c"></i><i class="cb"></i><i class="cb pg"></i></td><td>No activity yet, reserved for training. The trainer takes this dog for its first walk.</td></tr>
+      <tr><th scope="row" class="sid">S6</th><td class="ck"><i class="cb c"></i><i class="cb"></i><i class="cb pr"></i></td><td>No activity yet, reserved for both training and playgroup.</td></tr>
+      <tr class="band"><th colspan="3" scope="rowgroup">One activity</th></tr>
+      <tr><th scope="row" class="sid">S7</th><td class="ck"><i class="cb d"></i><i class="cb y"></i><i class="cb pg"></i></td><td>First walk logged, and a <a href="#signals">W2 yellow rule</a> says the second walk is due. No playgroup reserved or attended.</td></tr>
+      <tr><th scope="row" class="sid">S8</th><td class="ck"><i class="cb d"></i><i class="cb a"></i><i class="cb pg"></i></td><td>First walk logged, and a W2 amber rule says the second walk is coming due. No playgroup reserved or attended.</td></tr>
+      <tr><th scope="row" class="sid">S9</th><td class="ck"><i class="cb d"></i><i class="cb"></i><i class="cb pg"></i></td><td>First walk logged, and the second walk isn't due yet. No playgroup reserved or attended.</td></tr>
+      <tr><th scope="row" class="sid">S10</th><td class="ck"><i class="cb d"></i><i class="cb y"></i><i class="cb pr"></i></td><td>First walk logged and W2 yellow, but the dog is reserved for playgroup, so its next activity is already lined up.</td></tr>
+      <tr><th scope="row" class="sid">S11</th><td class="ck"><i class="cb d"></i><i class="cb a"></i><i class="cb pr"></i></td><td>First walk logged and W2 amber, but the dog is reserved for playgroup.</td></tr>
+      <tr><th scope="row" class="sid">S12</th><td class="ck"><i class="cb d"></i><i class="cb"></i><i class="cb pr"></i></td><td>First walk logged, second walk not due yet, and the dog is reserved for playgroup.</td></tr>
+      <tr><th scope="row" class="sid">S13</th><td class="ck"><i class="cb"></i><i class="cb"></i><i class="cb pd"></i></td><td>Went to playgroup, no walk yet. W1 has no color because playgroup already counts as the dog's first activity, and W2 only colors once W1 is checked.</td></tr>
+      <tr><th scope="row" class="sid">S14</th><td class="ck"><i class="cb c"></i><i class="cb"></i><i class="cb pd"></i></td><td>Went to playgroup, no walk yet, and still reserved for training (W1 cyan).</td></tr>
+      <tr class="band"><th colspan="3" scope="rowgroup">Two activities</th></tr>
+      <tr><th scope="row" class="sid">S15</th><td class="ck"><i class="cb d"></i><i class="cb y"></i><i class="cb pd"></i></td><td>First walk logged and went to playgroup, and a W2 yellow rule says the second walk is due.</td></tr>
+      <tr><th scope="row" class="sid">S16</th><td class="ck"><i class="cb d"></i><i class="cb a"></i><i class="cb pd"></i></td><td>First walk logged and went to playgroup, and a W2 amber rule says the second walk is coming due.</td></tr>
+      <tr><th scope="row" class="sid">S17</th><td class="ck"><i class="cb d"></i><i class="cb d"></i><i class="cb pg"></i></td><td>Both walks logged. No playgroup reserved or attended.</td></tr>
+      <tr><th scope="row" class="sid">S18</th><td class="ck"><i class="cb d"></i><i class="cb d"></i><i class="cb pr"></i></td><td>Both walks logged, and reserved for playgroup but not attended yet.</td></tr>
+      <tr><th scope="row" class="sid">S19</th><td class="ck"><i class="cb d"></i><i class="cb"></i><i class="cb pd"></i></td><td>First walk logged and went to playgroup, and the second walk isn't due.</td></tr>
+      <tr class="band"><th colspan="3" scope="rowgroup">Three activities</th></tr>
+      <tr><th scope="row" class="sid">S20</th><td class="ck"><i class="cb d"></i><i class="cb d"></i><i class="cb pd"></i></td><td>Both walks logged and went to playgroup. Nothing left to do today.</td></tr>
+    </tbody>
+  </table>
   </div>
 
   <div class="short">
-    <div class="eyebrow">Two rules that explain most surprises</div>
+    <div class="eyebrow">Why only these 20</div>
     <ul style="margin:0;padding-left:1.1em;display:grid;gap:6px">
       <li><b>Yellow and amber ride on the next walk to do.</b> While W1 is open, the color sits on W1. Once W1 is checked, it can only appear on W2.</li>
       <li><b>Checking a checkbox wipes its old color.</b> Checking W1 on a cyan dog ends the training reservation. Checking PG ends the playgroup reservation.</li>
     </ul>
-  </div>
-
-  <p>Those rules leave exactly 20 states. The numbers are just names for reference; they aren't a ranking.</p>
-
-  <div class="sband"><h3>No activity yet</h3>
-    <div class="states">
-      <div class="st"><span class="sid">S1</span><span class="ck"><i class="cb y"></i><i class="cb"></i><i class="cb pg"></i></span><span>W1 yellow</span></div>
-      <div class="st"><span class="sid">S2</span><span class="ck"><i class="cb a"></i><i class="cb"></i><i class="cb pg"></i></span><span>W1 amber</span></div>
-      <div class="st"><span class="sid">S3</span><span class="ck"><i class="cb"></i><i class="cb"></i><i class="cb pg"></i></span><span>No colors (e.g. surgery yesterday)</span></div>
-      <div class="st"><span class="sid">S4</span><span class="ck"><i class="cb"></i><i class="cb"></i><i class="cb pr"></i></span><span>PG reserved</span></div>
-      <div class="st"><span class="sid">S5</span><span class="ck"><i class="cb c"></i><i class="cb"></i><i class="cb pg"></i></span><span>Training reserved</span></div>
-      <div class="st"><span class="sid">S6</span><span class="ck"><i class="cb c"></i><i class="cb"></i><i class="cb pr"></i></span><span>PG and training reserved</span></div>
-    </div>
-  </div>
-  <div class="sband"><h3>One activity</h3>
-    <div class="states">
-      <div class="st"><span class="sid">S7</span><span class="ck"><i class="cb d"></i><i class="cb y"></i><i class="cb pg"></i></span><span>W1 checked, W2 yellow</span></div>
-      <div class="st"><span class="sid">S8</span><span class="ck"><i class="cb d"></i><i class="cb a"></i><i class="cb pg"></i></span><span>W1 checked, W2 amber</span></div>
-      <div class="st"><span class="sid">S9</span><span class="ck"><i class="cb d"></i><i class="cb"></i><i class="cb pg"></i></span><span>W1 checked, W2 not urgent</span></div>
-      <div class="st"><span class="sid">S10</span><span class="ck"><i class="cb d"></i><i class="cb y"></i><i class="cb pr"></i></span><span>W1 checked, W2 yellow, PG reserved</span></div>
-      <div class="st"><span class="sid">S11</span><span class="ck"><i class="cb d"></i><i class="cb a"></i><i class="cb pr"></i></span><span>W1 checked, W2 amber, PG reserved</span></div>
-      <div class="st"><span class="sid">S12</span><span class="ck"><i class="cb d"></i><i class="cb"></i><i class="cb pr"></i></span><span>W1 checked, PG reserved</span></div>
-      <div class="st"><span class="sid">S13</span><span class="ck"><i class="cb"></i><i class="cb"></i><i class="cb pd"></i></span><span>PG checked only</span></div>
-      <div class="st"><span class="sid">S14</span><span class="ck"><i class="cb c"></i><i class="cb"></i><i class="cb pd"></i></span><span>PG checked, training still reserved</span></div>
-    </div>
-  </div>
-  <div class="sband"><h3>Two activities</h3>
-    <div class="states">
-      <div class="st"><span class="sid">S15</span><span class="ck"><i class="cb d"></i><i class="cb y"></i><i class="cb pd"></i></span><span>W1 and PG checked, W2 yellow</span></div>
-      <div class="st"><span class="sid">S16</span><span class="ck"><i class="cb d"></i><i class="cb a"></i><i class="cb pd"></i></span><span>W1 and PG checked, W2 amber</span></div>
-      <div class="st"><span class="sid">S17</span><span class="ck"><i class="cb d"></i><i class="cb d"></i><i class="cb pg"></i></span><span>W1 and W2 checked</span></div>
-      <div class="st"><span class="sid">S18</span><span class="ck"><i class="cb d"></i><i class="cb d"></i><i class="cb pr"></i></span><span>W1 and W2 checked, PG reserved</span></div>
-      <div class="st"><span class="sid">S19</span><span class="ck"><i class="cb d"></i><i class="cb"></i><i class="cb pd"></i></span><span>W1 and PG checked, W2 not urgent</span></div>
-    </div>
-  </div>
-  <div class="sband"><h3>Three activities</h3>
-    <div class="states">
-      <div class="st"><span class="sid">S20</span><span class="ck"><i class="cb d"></i><i class="cb d"></i><i class="cb pd"></i></span><span>All three checked</span></div>
-    </div>
   </div>
 </section>
 
