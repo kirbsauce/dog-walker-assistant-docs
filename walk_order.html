@@ -187,9 +187,6 @@ header.top { padding-block: 36px 28px; display: grid; gap: 16px; }
 .key li { display: grid; grid-template-columns: 16px auto minmax(0, 1fr); gap: 10px; align-items: start; font-size: 0.95rem; }
 .key li .cb { margin-top: 3px; }
 .key li span { color: var(--muted); }
-.key.ykey { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px 24px; }
-.key.ykey li { grid-template-columns: 22px auto; }
-.key.ykey .demo { color: var(--fg); font-weight: 700; }
 
 /* ---------- states table ---------- */
 .stable-wrap { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
@@ -301,15 +298,6 @@ img { max-width: 100%; }
     <li><i class="cb d"></i><b>Grey, checked</b><span>Walk logged.</span></li>
   </ul>
   </div>
-
-  <p>The <b>Y column</b> shows yesterday's activity.</p>
-  <ul class="key ykey">
-    <li><span class="demo mono">—</span><b>None</b><span></span></li>
-    <li><span class="demo mono">✓</span><b>One walk</b><span></span></li>
-    <li><span class="demo mono">✓✓</span><b>Two walks</b><span></span></li>
-    <li><span class="demo mono">P</span><b>Playgroup</b><span></span></li>
-    <li><span class="demo mono">S</span><b>Surgery</b><span></span></li>
-  </ul>
 </section>
 
 <!-- ============================================================ -->
