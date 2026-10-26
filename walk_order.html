@@ -479,13 +479,26 @@ img { max-width: 100%; }
 <section class="block" id="example">
   <div class="eyebrow">Worked example</div>
   <h2>A Gold walker's list at 3:30 PM</h2>
-  <p>A small roster of fifteen dogs, sorted by WALK ORDER for a Gold walker. Red and Black dogs are above that walker's color, so they're dimmed and sit at the bottom. Group numbers match the list above.</p>
+  <p>A small roster of fifteen dogs, sorted by WALK ORDER for a Gold walker. Red and Black dogs are above that walker's color, so they're dimmed and sit at the bottom. Group and state numbers match the tables above.</p>
   <div class="roster" id="full"></div>
-  <div class="stack">
-    <p><b>Moose</b> (Blue) leads G1 over <b>Juniper</b> (Blue-). Blue and Blue- are bundled before the first activity, so the final-order rules decide, and Moose is bold potty. <b>Hazel</b> (Aqua) follows on color.</p>
-    <p><b>Diesel</b> is high urgency but sits near the bottom. Red is above Gold, so this walker can't take him. A Red or Black walker would see Diesel near the top of their own list.</p>
-    <p><b>Penny</b> is Pink, the easiest color, but she still goes ahead of Gold- <b>Bear</b>. Her W2 is medium urgency, which puts her in G5, and Bear is low urgency in G6. Groups come before color.</p>
-    <p><b>Rocket</b> had no activity yesterday, which would usually make him high urgency. He's reserved for playgroup, so he waits in G3 instead.</p>
+  <div class="stable-wrap">
+  <table class="stable">
+    <thead><tr><th scope="col">Dog</th><th scope="col">Why it's here</th></tr></thead>
+    <tbody>
+      <tr><th scope="row" class="tbn">Moose</th><td>Leads G1. Blue and Blue- are bundled before the first activity, and Moose is bold potty, so he goes ahead of Blue- Juniper.</td></tr>
+      <tr><th scope="row" class="tbn">Hazel</th><td>Last in G1. Aqua is the easiest color here, so no final-order rule can lift her.</td></tr>
+      <tr><th scope="row" class="tbn">Mango</th><td>Leads G2. Gold- is bundled with Gold, and Mango is a regular potty dog while Biscuit isn't.</td></tr>
+      <tr><th scope="row" class="tbn">Pepper</th><td>Ahead of Tank in the Blue bundle: less activity yesterday (1 walk against Tank's playgroup).</td></tr>
+      <tr><th scope="row" class="tbn">Rocket</th><td>No activity yesterday would make him high urgency, but his playgroup reservation puts him in G3.</td></tr>
+      <tr><th scope="row" class="tbn">Olive</th><td>Below Rocket in G3 because of color (Green against Gold). Color is decided before state order.</td></tr>
+      <tr><th scope="row" class="tbn">Luna</th><td>G4. W1 was at 8:10, so by 3:30 her W2 is high urgency: bold potty, 5+ hours since W1.</td></tr>
+      <tr><th scope="row" class="tbn">Penny</th><td>Pink, the easiest color, but her medium-urgency W2 puts her in G5, above Gold- Bear in G6. Groups come before color.</td></tr>
+      <tr><th scope="row" class="tbn">Bear</th><td>G6. W1 was at 10:45 and he isn't a potty dog, so his W2 is still low urgency.</td></tr>
+      <tr><th scope="row" class="tbn">Ziggy</th><td>Two activities (W1 and playgroup), so G7.</td></tr>
+      <tr><th scope="row" class="tbn">Diesel</th><td>High urgency, but Red is above Gold, so he's in G9, dimmed. A Red or Black walker would see him near the top.</td></tr>
+      <tr><th scope="row" class="tbn">Shadow</th><td>Black and has had activity, so G12, the bottom of the list.</td></tr>
+    </tbody>
+  </table>
   </div>
 </section>
 
@@ -581,29 +594,29 @@ img { max-width: 100%; }
   // Full worked example: Gold walker, 3:30 PM.
   render('full', [
     { div: 'G1 · No activity yet · W1 high urgency', sw: 'var(--chk-bright)' },
-    { name: 'Moose',   g: 'Blue',  k: 'B07', y: '1 walk',  w1: 'y', n: 'p2', why: 'bold potty' },
-    { name: 'Juniper', g: 'Blue-', k: 'C02', y: '—',       w1: 'y', why: 'no activity yesterday' },
-    { name: 'Hazel',   g: 'Aqua',  k: 'A11', y: '2 walks', w1: 'y', why: 'priority 1' },
+    { name: 'Moose',   g: 'Blue',  k: 'B07', y: '1 walk',  w1: 'y', n: 'p2', why: 'S1 · bold potty' },
+    { name: 'Juniper', g: 'Blue-', k: 'C02', y: '—',       w1: 'y', why: 'S1 · no activity yesterday' },
+    { name: 'Hazel',   g: 'Aqua',  k: 'A11', y: '2 walks', w1: 'y', why: 'S1 · priority 1' },
     { div: 'G2 · No activity yet · W1 medium urgency', sw: 'var(--chk-dim)' },
-    { name: 'Mango',   g: 'Gold-', k: 'D04', y: '1 walk',    w1: 'a', n: 'p1', why: 'potty' },
-    { name: 'Biscuit', g: 'Gold',  k: 'D09', y: '2 walks',   w1: 'a' },
-    { name: 'Pepper',  g: 'Blue-', k: 'B12', y: '1 walk',    w1: 'a', why: 'less activity yesterday' },
-    { name: 'Tank',    g: 'Blue',  k: 'B03', y: 'playgroup', w1: 'a' },
+    { name: 'Mango',   g: 'Gold-', k: 'D04', y: '1 walk',    w1: 'a', n: 'p1', why: 'S2 · potty' },
+    { name: 'Biscuit', g: 'Gold',  k: 'D09', y: '2 walks',   w1: 'a', why: 'S2' },
+    { name: 'Pepper',  g: 'Blue-', k: 'B12', y: '1 walk',    w1: 'a', why: 'S2 · less activity yesterday' },
+    { name: 'Tank',    g: 'Blue',  k: 'B03', y: 'playgroup', w1: 'a', why: 'S2' },
     { div: 'G3 · No activity yet · low urgency or reserved', sw: 'var(--pg-res)' },
-    { name: 'Rocket',  g: 'Gold',  k: 'D01', y: '—',       w1: '', pg: 'pr', why: 'PG reserved' },
-    { name: 'Olive',   g: 'Green', k: 'A06', y: '1 walk',  w1: 'c', why: 'training' },
+    { name: 'Rocket',  g: 'Gold',  k: 'D01', y: '—',       w1: '', pg: 'pr', why: 'S4 · PG reserved' },
+    { name: 'Olive',   g: 'Green', k: 'A06', y: '1 walk',  w1: 'c', why: 'S5 · training' },
     { div: 'G4 · W1 checked · W2 high urgency', sw: 'var(--chk-bright)' },
-    { name: 'Luna',    g: 'Blue',  k: 'C08', y: '1 walk',  w1: 'd', w2: 'y', n: 'p2', why: 'W1 8:10' },
+    { name: 'Luna',    g: 'Blue',  k: 'C08', y: '1 walk',  w1: 'd', w2: 'y', n: 'p2', why: 'S7 · W1 8:10' },
     { div: 'G5 · W1 checked · W2 medium urgency', sw: 'var(--chk-dim)' },
-    { name: 'Penny',   g: 'Pink',  k: 'A02', y: '2 walks', w1: 'd', w2: 'a', n: 'p1', why: 'W1 8:15' },
+    { name: 'Penny',   g: 'Pink',  k: 'A02', y: '2 walks', w1: 'd', w2: 'a', n: 'p1', why: 'S8 · W1 8:15' },
     { div: 'G6 · One activity · low urgency or PG reserved', sw: '#d9d9d9' },
-    { name: 'Bear',    g: 'Gold-', k: 'D06', y: '1 walk',  w1: 'd', why: 'W1 10:45' },
+    { name: 'Bear',    g: 'Gold-', k: 'D06', y: '1 walk',  w1: 'd', why: 'S9 · W1 10:45' },
     { div: 'G7 · Two or three activities', sw: '#9e9e9e' },
-    { name: 'Ziggy',   g: 'Gold',  k: 'D11', y: '1 walk',  w1: 'd', pg: 'pd', why: 'W1 + PG' },
+    { name: 'Ziggy',   g: 'Gold',  k: 'D11', y: '1 walk',  w1: 'd', pg: 'pd', why: 'S19 · W1 + PG' },
     { div: 'G9 · Above your color · no activity yet · W1 high urgency', sw: 'var(--chk-bright)' },
-    { name: 'Diesel',  g: 'Red',   k: 'E03', y: '—',       w1: 'y', dim: true, why: 'Red walker+' },
+    { name: 'Diesel',  g: 'Red',   k: 'E03', y: '—',       w1: 'y', dim: true, why: 'S1 · needs Red+' },
     { div: 'G12 · Above your color · everything else', sw: '#9e9e9e' },
-    { name: 'Shadow',  g: 'Black', k: 'E07', y: '2 walks', w1: 'd', dim: true, why: 'Black walker' }
+    { name: 'Shadow',  g: 'Black', k: 'E07', y: '2 walks', w1: 'd', dim: true, why: 'S9 · needs Black' }
   ], false);
 })();
 </script>
