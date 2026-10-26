@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="How the WALK ORDER roster sort decides which dog comes next: groups, colors, states and tiebreakers.">
+<meta name="description" content="How the WALK ORDER roster sort decides which dog comes next: groups, colors, states and final order.">
 <link rel="icon" type="image/svg+xml" href="images/paw-logo.svg">
 <title>Walk Order Field Guide</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -279,7 +279,7 @@ img { max-width: 100%; }
   <div class="q3">
     <div class="q"><span class="n">1</span><h3>Which group?</h3><p>Can you walk the dog? How much activity has it had today? How urgent are its checkboxes: high, medium or low? Every dog in a higher group sits above every dog in a lower one.</p></div>
     <div class="q"><span class="n">2</span><h3>Which color?</h3><p>Inside a group, hardest dog color first. The toughest dog you can walk leads, so it gets walked while experienced walkers are on shift. Before a dog's first activity, Blue- and Gold- are bundled with Blue and Gold.</p></div>
-    <div class="q"><span class="n">3</span><h3>Which tiebreaker?</h3><p>Among dogs in the same group and color: first the dog's state, then potty, priority, how long since its last activity, and yesterday's activity.</p></div>
+    <div class="q"><span class="n">3</span><h3>Final order</h3><p>Among dogs in the same group and color: first the dog's state, then potty, priority, how long since its last activity, and yesterday's activity.</p></div>
   </div>
 </section>
 
@@ -427,20 +427,20 @@ img { max-width: 100%; }
   <p>Before a dog's first activity, Blue- and Blue count as one color, and so do Gold- and Gold. A minus dog that needs out more isn't stuck below every full-color dog.</p>
   <ul style="margin:0;padding-left:1.1em;display:grid;gap:6px;max-width:68ch">
     <li><b>Only before the first activity.</b> In G1 – G3 and G9 – G11, Blue- counts as the same color as Blue, and Gold- the same as Gold. Once a dog has had activity, Blue sits above Blue- again.</li>
-    <li><b>The state and tiebreakers decide inside a bundle.</b> A Blue- bold potty dog goes ahead of a plain Blue dog.</li>
-    <li><b>True color comes last.</b> If two dogs in a bundle tie on every tiebreaker, Blue goes before Blue-, and Gold before Gold-, before the daily shuffle. The shuffle never mixes them.</li>
+    <li><b>The state and final-order rules decide inside a bundle.</b> A Blue- bold potty dog goes ahead of a plain Blue dog.</li>
+    <li><b>True color comes last.</b> If two dogs in a bundle tie on every other rule, Blue goes before Blue-, and Gold before Gold-, before the daily shuffle. The shuffle never mixes them.</li>
   </ul>
 </section>
 
 <!-- ============================================================ -->
-<section class="block" id="tiebreakers">
+<section class="block" id="final-order">
   <div class="eyebrow">Step 3</div>
-  <h2>The tiebreakers</h2>
-  <p>When two dogs share a group and a color, WALK ORDER goes down the list for their group. The first tiebreaker where they differ decides it.</p>
+  <h2>Final order</h2>
+  <p>When two dogs share a group and a color, WALK ORDER goes down the final-order rules for their group. The first rule where they differ decides it.</p>
 
   <div class="stable-wrap">
   <table class="stable">
-    <thead><tr><th scope="col">#</th><th scope="col">Tiebreaker</th><th scope="col">Details</th></tr></thead>
+    <thead><tr><th scope="col">#</th><th scope="col">Rule</th><th scope="col">Details</th></tr></thead>
     <tbody>
       <tr class="band"><th colspan="3" scope="rowgroup">No activity yet <span class="bandnote">G1 – G3 · G9 – G11</span></th></tr>
       <tr><th scope="row" class="sid">1</th><td class="tbn"><b>State</b></td><td class="sub">In the order the group lists them.</td></tr>
@@ -472,7 +472,7 @@ img { max-width: 100%; }
   <div class="stack">
     <p><b>Mango</b> (Gold-) and <b>Biscuit</b> (Gold) lead: Gold is the hardest color here, and Gold- is bundled with it. Inside the bundle, Mango is a regular potty dog and Biscuit isn't.</p>
     <p><b>Pepper</b> (Blue-), <b>Tank</b> and <b>Ranger</b> (both Blue) share the Blue bundle. None is a potty dog, and Pepper and Tank have no priority set, which puts them above Ranger's −1. Between Pepper and Tank, Pepper had less activity yesterday: 1 walk against Tank's playgroup.</p>
-    <p><b>Juno</b> (Aqua) comes last. It's the easiest color in this group, so no tiebreaker can lift it above the Blue dogs.</p>
+    <p><b>Juno</b> (Aqua) comes last. It's the easiest color in this group, so no final-order rule can lift it above the Blue dogs.</p>
   </div>
 </section>
 
@@ -483,7 +483,7 @@ img { max-width: 100%; }
   <p>A small roster of fifteen dogs, sorted by WALK ORDER for a Gold walker. Red and Black dogs are above that walker's color, so they're dimmed and sit at the bottom. Group numbers match the list above.</p>
   <div class="roster" id="full"></div>
   <div class="stack">
-    <p><b>Moose</b> (Blue) leads G1 over <b>Juniper</b> (Blue-). Blue and Blue- are bundled before the first activity, so tiebreakers decide, and Moose is bold potty. <b>Hazel</b> (Aqua) follows on color.</p>
+    <p><b>Moose</b> (Blue) leads G1 over <b>Juniper</b> (Blue-). Blue and Blue- are bundled before the first activity, so the final-order rules decide, and Moose is bold potty. <b>Hazel</b> (Aqua) follows on color.</p>
     <p><b>Diesel</b> is high urgency but sits near the bottom. Red is above Gold, so this walker can't take him. A Red or Black walker would see Diesel near the top of their own list.</p>
     <p><b>Penny</b> is Pink, the easiest color, but she still goes ahead of Gold- <b>Bear</b>. Her W2 is medium urgency, which puts her in G5, and Bear is low urgency in G6. Groups come before color.</p>
     <p><b>Rocket</b> had no activity yesterday, which would usually make him high urgency. He's reserved for playgroup, so he waits in G3 instead.</p>
@@ -568,7 +568,7 @@ img { max-width: 100%; }
     document.getElementById(el).innerHTML = html;
   }
 
-  // Tiebreakers: Gold walker, medium-urgency group (G2), mid-morning.
+  // Final order: Gold walker, medium-urgency group (G2), mid-morning.
   var amber = {
     biscuit: { name: 'Biscuit', g: 'Gold',  y: '2 walks',   w1: 'a', why: '' },
     mango:   { name: 'Mango',   g: 'Gold-', y: '1 walk',    w1: 'a', n: 'p1', why: 'potty' },
