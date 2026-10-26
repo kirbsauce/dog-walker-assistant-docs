@@ -207,7 +207,8 @@ header.top { padding-block: 36px 28px; display: grid; gap: 16px; }
 .stable td ul { margin: 4px 0 0; padding-left: 1.1em; display: grid; gap: 2px; }
 .stable td .lead { color: var(--muted); }
 .stable .sts { font-family: var(--mono); font-size: 0.82rem; }
-.stable td .sub { color: var(--muted); font-size: 0.85rem; }
+.stable .tbn { white-space: nowrap; }
+.stable td.sub, .stable td .sub { color: var(--muted); font-size: 0.85rem; }
 .stable .bandnote { font-family: var(--body); font-weight: 400; font-size: 0.85rem; color: var(--muted); margin-left: 8px; }
 @media (max-width: 520px) { .stable th, .stable td { padding: 8px; } }
 
@@ -448,27 +449,27 @@ img { max-width: 100%; }
 
   <div class="stable-wrap">
   <table class="stable">
-    <thead><tr><th scope="col">#</th><th scope="col">Tiebreaker</th></tr></thead>
+    <thead><tr><th scope="col">#</th><th scope="col">Tiebreaker</th><th scope="col">Details</th></tr></thead>
     <tbody>
-      <tr class="band"><th colspan="2" scope="rowgroup">No activity yet <span class="bandnote">G1 – G3 · G9 – G11</span></th></tr>
-      <tr><th scope="row" class="sid">1</th><td><b>State</b><br><span class="sub">In the order the group lists them.</span></td></tr>
-      <tr><th scope="row" class="sid">2</th><td><b>Bold potty dog</b><br><span class="sub">Bold purple name.</span></td></tr>
-      <tr><th scope="row" class="sid">3</th><td><b>No activity yesterday</b><br><span class="sub">"—" in the Y column, and not deprioritized.</span></td></tr>
-      <tr><th scope="row" class="sid">4</th><td><b>Priority 1</b></td></tr>
-      <tr><th scope="row" class="sid">5</th><td><b>Deprioritized, no activity yesterday</b><br><span class="sub">Grey behind the name and "—" in the Y column.</span></td></tr>
-      <tr><th scope="row" class="sid">6</th><td><b>Regular potty dog</b><br><span class="sub">Purple name.</span></td></tr>
-      <tr><th scope="row" class="sid">7</th><td><b>Higher priority number</b><br><span class="sub">2, then 1, then blank, then −1, −2, −3.</span></td></tr>
-      <tr><th scope="row" class="sid">8</th><td><b>Quieter yesterday</b><br><span class="sub">1 walk → playgroup → 2 walks → surgery yesterday.</span></td></tr>
-      <tr><th scope="row" class="sid">9</th><td><b>True color in a bundle</b><br><span class="sub">Blue before Blue-, Gold before Gold-.</span></td></tr>
-      <tr><th scope="row" class="sid">10</th><td><b>Daily shuffle</b><br><span class="sub">A fresh order each morning, the same on every phone.</span></td></tr>
-      <tr class="band"><th colspan="2" scope="rowgroup">Has had activity <span class="bandnote">G4 – G8 · G12 · no shuffle: dogs tied on everything keep roster order</span></th></tr>
-      <tr><th scope="row" class="sid">1</th><td><b>State</b><br><span class="sub">In the order the group lists them.</span></td></tr>
-      <tr><th scope="row" class="sid">2</th><td><b>Bold potty dog</b><br><span class="sub">Bold purple name.</span></td></tr>
-      <tr><th scope="row" class="sid">3</th><td><b>Priority 1</b></td></tr>
-      <tr><th scope="row" class="sid">4</th><td><b>Regular potty dog</b><br><span class="sub">Purple name.</span></td></tr>
-      <tr><th scope="row" class="sid">5</th><td><b>Higher priority number</b><br><span class="sub">2, then 1, then blank, then −1, −2, −3.</span></td></tr>
-      <tr><th scope="row" class="sid">6</th><td><b>Longest since last activity</b><br><span class="sub">The dog whose most recent walk or playgroup was earliest goes first.</span></td></tr>
-      <tr><th scope="row" class="sid">7</th><td><b>Quieter yesterday</b><br><span class="sub">— → 1 walk → playgroup → 2 walks → surgery yesterday.</span></td></tr>
+      <tr class="band"><th colspan="3" scope="rowgroup">No activity yet <span class="bandnote">G1 – G3 · G9 – G11</span></th></tr>
+      <tr><th scope="row" class="sid">1</th><td class="tbn"><b>State</b></td><td class="sub">In the order the group lists them.</td></tr>
+      <tr><th scope="row" class="sid">2</th><td class="tbn"><b>Bold potty dog</b></td><td class="sub">Bold purple name.</td></tr>
+      <tr><th scope="row" class="sid">3</th><td class="tbn"><b>No activity yesterday</b></td><td class="sub">"—" in the Y column, and not deprioritized.</td></tr>
+      <tr><th scope="row" class="sid">4</th><td class="tbn"><b>Priority 1</b></td><td class="sub"></td></tr>
+      <tr><th scope="row" class="sid">5</th><td class="tbn"><b>Deprioritized, no activity yesterday</b></td><td class="sub">Grey behind the name and "—" in the Y column.</td></tr>
+      <tr><th scope="row" class="sid">6</th><td class="tbn"><b>Regular potty dog</b></td><td class="sub">Purple name.</td></tr>
+      <tr><th scope="row" class="sid">7</th><td class="tbn"><b>Higher priority number</b></td><td class="sub">2, then 1, then blank, then −1, −2, −3.</td></tr>
+      <tr><th scope="row" class="sid">8</th><td class="tbn"><b>Quieter yesterday</b></td><td class="sub">1 walk → playgroup → 2 walks → surgery yesterday.</td></tr>
+      <tr><th scope="row" class="sid">9</th><td class="tbn"><b>True color in a bundle</b></td><td class="sub">Blue before Blue-, Gold before Gold-.</td></tr>
+      <tr><th scope="row" class="sid">10</th><td class="tbn"><b>Daily shuffle</b></td><td class="sub">A fresh order each morning, the same on every phone.</td></tr>
+      <tr class="band"><th colspan="3" scope="rowgroup">Has had activity <span class="bandnote">G4 – G8 · G12 · no shuffle: dogs tied on everything keep roster order</span></th></tr>
+      <tr><th scope="row" class="sid">1</th><td class="tbn"><b>State</b></td><td class="sub">In the order the group lists them.</td></tr>
+      <tr><th scope="row" class="sid">2</th><td class="tbn"><b>Bold potty dog</b></td><td class="sub">Bold purple name.</td></tr>
+      <tr><th scope="row" class="sid">3</th><td class="tbn"><b>Priority 1</b></td><td class="sub"></td></tr>
+      <tr><th scope="row" class="sid">4</th><td class="tbn"><b>Regular potty dog</b></td><td class="sub">Purple name.</td></tr>
+      <tr><th scope="row" class="sid">5</th><td class="tbn"><b>Higher priority number</b></td><td class="sub">2, then 1, then blank, then −1, −2, −3.</td></tr>
+      <tr><th scope="row" class="sid">6</th><td class="tbn"><b>Longest since last activity</b></td><td class="sub">The dog whose most recent walk or playgroup was earliest goes first.</td></tr>
+      <tr><th scope="row" class="sid">7</th><td class="tbn"><b>Quieter yesterday</b></td><td class="sub">— → 1 walk → playgroup → 2 walks → surgery yesterday.</td></tr>
     </tbody>
   </table>
   </div>
