@@ -356,6 +356,35 @@ img { max-width: 100%; }
 </section>
 
 <!-- ============================================================ -->
+<section class="block" id="signals">
+  <div class="eyebrow">Where the checkbox colors come from</div>
+  <h2>When W1 and W2 turn high or medium urgency</h2>
+  <p>The colors come straight from the roster sheet's own coloring rules. The app follows the sheet. If the two ever disagree, the sheet is right. W1 and W2 follow different rules.</p>
+
+  <div class="stable-wrap">
+  <table class="stable">
+    <thead><tr><th scope="col">Checkbox</th><th scope="col">Urgency</th><th scope="col">Turns on when</th></tr></thead>
+    <tbody>
+      <tr class="band"><th colspan="3" scope="rowgroup">W1 <span class="bandnote">Only while the dog has no activity yet</span></th></tr>
+      <tr><td class="ck"><i class="cb y"></i></td><th scope="row" class="lvl">High</th><td><span class="lead">Any one of:</span><ul><li>No activity recorded yesterday</li><li>Bold potty dog</li><li>Priority 1</li><li>Priority 2, once the "still waiting" count drops below 5</li><li>Regular potty dog, once the "still waiting" count drops below 5</li></ul></td></tr>
+      <tr><td class="ck"><i class="cb a"></i></td><th scope="row" class="lvl">Medium</th><td>Every other dog waiting on its first activity</td></tr>
+      <tr><td class="ck"><i class="cb"></i></td><th scope="row" class="lvl">Low</th><td>Reserved for playgroup, or had surgery yesterday. (Training reservations show cyan.)</td></tr>
+      <tr class="band"><th colspan="3" scope="rowgroup">W2 <span class="bandnote">Only once W1 is checked</span></th></tr>
+      <tr><td class="ck"><i class="cb y"></i></td><th scope="row" class="lvl">High</th><td><span class="lead">With 15 or fewer dogs still waiting for a first walk, any one of:</span><ul><li>Bold potty dog, 5+ hours since W1</li><li>Priority above 0, 6+ hours since W1</li></ul></td></tr>
+      <tr><td class="ck"><i class="cb a"></i></td><th scope="row" class="lvl">Medium</th><td><span class="lead">Any one of:</span><ul><li>Any potty dog, 7+ hours since W1, with 10 or fewer dogs still waiting for a first walk</li><li>W1 was before 10 AM, with fewer than 10 dogs still waiting for a first walk</li></ul></td></tr>
+      <tr><td class="ck"><i class="cb"></i></td><th scope="row" class="lvl">Low</th><td>Everything else</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <ul class="muted" style="margin:0;padding-left:1.1em;display:grid;gap:4px;font-size:.92rem;max-width:68ch">
+    <li><b>"Still waiting" count (W1):</b> the sheet's own tally of high-need dogs with no activity yet. It mostly counts dogs from the W1 high-urgency list.</li>
+    <li><b>Dogs still waiting for a first walk (W2):</b> a different count, of every dog with no activity yet, leaving out AR kennels.</li>
+    <li><b>Reservations block W1, not W2.</b> A dog reserved for playgroup or training never gets W1 high or medium urgency, but its W2 still can.</li>
+    <li><b>Deprioritized dogs</b> (grey behind the name) only turn W1 high urgency when they had no activity yesterday or they're bold potty.</li>
+  </ul>
+</section>
+
+<!-- ============================================================ -->
 <section class="block" id="states">
   <div class="eyebrow">States</div>
   <h2>The 20 states</h2>
@@ -392,35 +421,6 @@ img { max-width: 100%; }
     </tbody>
   </table>
   </div>
-</section>
-
-<!-- ============================================================ -->
-<section class="block" id="signals">
-  <div class="eyebrow">Where the checkbox colors come from</div>
-  <h2>When W1 and W2 turn high or medium urgency</h2>
-  <p>The colors come straight from the roster sheet's own coloring rules. The app follows the sheet. If the two ever disagree, the sheet is right. W1 and W2 follow different rules.</p>
-
-  <div class="stable-wrap">
-  <table class="stable">
-    <thead><tr><th scope="col">Checkbox</th><th scope="col">Urgency</th><th scope="col">Turns on when</th></tr></thead>
-    <tbody>
-      <tr class="band"><th colspan="3" scope="rowgroup">W1 <span class="bandnote">Only while the dog has no activity yet</span></th></tr>
-      <tr><td class="ck"><i class="cb y"></i></td><th scope="row" class="lvl">High</th><td><span class="lead">Any one of:</span><ul><li>No activity recorded yesterday</li><li>Bold potty dog</li><li>Priority 1</li><li>Priority 2, once the "still waiting" count drops below 5</li><li>Regular potty dog, once the "still waiting" count drops below 5</li></ul></td></tr>
-      <tr><td class="ck"><i class="cb a"></i></td><th scope="row" class="lvl">Medium</th><td>Every other dog waiting on its first activity</td></tr>
-      <tr><td class="ck"><i class="cb"></i></td><th scope="row" class="lvl">Low</th><td>Reserved for playgroup, or had surgery yesterday. (Training reservations show cyan.)</td></tr>
-      <tr class="band"><th colspan="3" scope="rowgroup">W2 <span class="bandnote">Only once W1 is checked</span></th></tr>
-      <tr><td class="ck"><i class="cb y"></i></td><th scope="row" class="lvl">High</th><td><span class="lead">With 15 or fewer dogs still waiting for a first walk, any one of:</span><ul><li>Bold potty dog, 5+ hours since W1</li><li>Priority above 0, 6+ hours since W1</li></ul></td></tr>
-      <tr><td class="ck"><i class="cb a"></i></td><th scope="row" class="lvl">Medium</th><td><span class="lead">Any one of:</span><ul><li>Any potty dog, 7+ hours since W1, with 10 or fewer dogs still waiting for a first walk</li><li>W1 was before 10 AM, with fewer than 10 dogs still waiting for a first walk</li></ul></td></tr>
-      <tr><td class="ck"><i class="cb"></i></td><th scope="row" class="lvl">Low</th><td>Everything else</td></tr>
-    </tbody>
-  </table>
-  </div>
-  <ul class="muted" style="margin:0;padding-left:1.1em;display:grid;gap:4px;font-size:.92rem;max-width:68ch">
-    <li><b>"Still waiting" count (W1):</b> the sheet's own tally of high-need dogs with no activity yet. It mostly counts dogs from the W1 high-urgency list.</li>
-    <li><b>Dogs still waiting for a first walk (W2):</b> a different count, of every dog with no activity yet, leaving out AR kennels.</li>
-    <li><b>Reservations block W1, not W2.</b> A dog reserved for playgroup or training never gets W1 high or medium urgency, but its W2 still can.</li>
-    <li><b>Deprioritized dogs</b> (grey behind the name) only turn W1 high urgency when they had no activity yesterday or they're bold potty.</li>
-  </ul>
 </section>
 
 <!-- ============================================================ -->
