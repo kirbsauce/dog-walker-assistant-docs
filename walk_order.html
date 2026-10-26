@@ -187,6 +187,9 @@ header.top { padding-block: 36px 28px; display: grid; gap: 16px; }
 .key li { display: grid; grid-template-columns: 16px auto minmax(0, 1fr); gap: 10px; align-items: start; font-size: 0.95rem; }
 .key li .cb { margin-top: 3px; }
 .key li span { color: var(--muted); }
+.key.ykey { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px 24px; }
+.key.ykey li { grid-template-columns: 22px auto; }
+.key.ykey .demo { color: var(--fg); font-weight: 700; }
 
 /* ---------- states table ---------- */
 .stable-wrap { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
@@ -275,16 +278,16 @@ img { max-width: 100%; }
   <h2>Three questions, in order</h2>
   <p>For every dog, WALK ORDER asks the same three questions. A later question only matters when two dogs give the same answer to every earlier one.</p>
   <div class="q3">
-    <div class="q"><span class="n">1</span><h3>Which group?</h3><p>Can you walk the dog? How much activity has it had today? How urgent are its checkboxes: high, medium or low? Every dog in a higher group sits above every dog in a lower one.</p></div>
+    <div class="q"><span class="n">1</span><h3>Which group?</h3><p>Can you walk the dog? How much activity has it had today? How urgent are its checkboxes: high, medium or low? Every dog in an earlier group sits above every dog in a later one.</p></div>
     <div class="q"><span class="n">2</span><h3>Which color?</h3><p>Inside a group, hardest dog color first. The toughest dog you can walk leads, so it gets walked while experienced walkers are on shift. Before a dog's first activity, Blue- and Gold- are bundled with Blue and Gold.</p></div>
-    <div class="q"><span class="n">3</span><h3>Final order</h3><p>Among dogs in the same group, color and state: priority, potty, how long since its last activity, and yesterday's activity.</p></div>
+    <div class="q"><span class="n">3</span><h3>Final order</h3><p>Among dogs in the same group, color and state: priority, potty, how long since its last activity, and amount of activity yesterday.</p></div>
   </div>
 </section>
 
 <!-- ============================================================ -->
 <section class="block" id="key">
   <div class="eyebrow">Checkbox colors</div>
-  <p>Every roster row has three checkboxes: W1, W2 and PG (labelled 1, 2 and P on the roster). Their colors drive everything below.</p>
+  <p>Every roster row has three checkboxes: W1, W2 and PG (labelled 1, 2 and P on the roster). Their colors drive everything below. A walk or a playgroup visit counts as <b>activity</b>.</p>
   <div class="key">
   <ul>
     <li><i class="cb y"></i><b>Yellow</b><span>High urgency.</span></li>
@@ -298,6 +301,15 @@ img { max-width: 100%; }
     <li><i class="cb d"></i><b>Grey, checked</b><span>Walk logged.</span></li>
   </ul>
   </div>
+
+  <p>The <b>Y column</b> shows yesterday's activity.</p>
+  <ul class="key ykey">
+    <li><span class="demo mono">—</span><b>None</b><span></span></li>
+    <li><span class="demo mono">✓</span><b>One walk</b><span></span></li>
+    <li><span class="demo mono">✓✓</span><b>Two walks</b><span></span></li>
+    <li><span class="demo mono">P</span><b>Playgroup</b><span></span></li>
+    <li><span class="demo mono">S</span><b>Surgery</b><span></span></li>
+  </ul>
 </section>
 
 <!-- ============================================================ -->
@@ -311,19 +323,19 @@ img { max-width: 100%; }
     <thead><tr><th scope="col">Checkbox</th><th scope="col">Urgency</th><th scope="col">Turns on when</th></tr></thead>
     <tbody>
       <tr class="band"><th colspan="3" scope="rowgroup">W1 <span class="bandnote">Only while the dog has no activity yet</span></th></tr>
-      <tr><td class="ck"><i class="cb y"></i></td><th scope="row" class="lvl">High</th><td><span class="lead">Any one of:</span><ul><li>No activity recorded yesterday</li><li>Bold potty dog</li><li>Priority 1</li><li>Priority 2, once the "still waiting" count drops below 5</li><li>Regular potty dog, once the "still waiting" count drops below 5</li></ul></td></tr>
+      <tr><td class="ck"><i class="cb y"></i></td><th scope="row" class="lvl">High</th><td><span class="lead">Any one of:</span><ul><li>No activity yesterday</li><li>Bold potty dog</li><li>Priority 1</li><li>Priority 2, once the high-urgency count drops below 5</li><li>Regular potty dog, once the high-urgency count drops below 5</li></ul></td></tr>
       <tr><td class="ck"><i class="cb a"></i></td><th scope="row" class="lvl">Medium</th><td>Every other dog waiting on its first activity</td></tr>
       <tr><td class="ck"><i class="cb"></i></td><th scope="row" class="lvl">Low</th><td>Reserved for playgroup, or "S" (surgery) in the Y column. (Training reservations show cyan.)</td></tr>
       <tr class="band"><th colspan="3" scope="rowgroup">W2 <span class="bandnote">Only once W1 is checked</span></th></tr>
-      <tr><td class="ck"><i class="cb y"></i></td><th scope="row" class="lvl">High</th><td><span class="lead">With 15 or fewer dogs still waiting for a first walk, any one of:</span><ul><li>Bold potty dog, 5+ hours since W1</li><li>Priority above 0, 6+ hours since W1</li></ul></td></tr>
-      <tr><td class="ck"><i class="cb a"></i></td><th scope="row" class="lvl">Medium</th><td><span class="lead">Any one of:</span><ul><li>Any potty dog, 7+ hours since W1, with 10 or fewer dogs still waiting for a first walk</li><li>W1 was before 10 AM, with fewer than 10 dogs still waiting for a first walk</li></ul></td></tr>
+      <tr><td class="ck"><i class="cb y"></i></td><th scope="row" class="lvl">High</th><td><span class="lead">With a no-activity count of 15 or fewer, any one of:</span><ul><li>Bold potty dog, 5+ hours since W1</li><li>Priority above 0, 6+ hours since W1</li></ul></td></tr>
+      <tr><td class="ck"><i class="cb a"></i></td><th scope="row" class="lvl">Medium</th><td><span class="lead">Any one of:</span><ul><li>Any potty dog, 7+ hours since W1, with a no-activity count of 10 or fewer</li><li>W1 was before 10 AM, with a no-activity count under 10</li></ul></td></tr>
       <tr><td class="ck"><i class="cb"></i></td><th scope="row" class="lvl">Low</th><td>Everything else</td></tr>
     </tbody>
   </table>
   </div>
   <ul class="muted" style="margin:0;padding-left:1.1em;display:grid;gap:4px;font-size:.92rem;max-width:68ch">
-    <li><b>"Still waiting" count (W1):</b> a tally of high-need dogs with no activity yet. It mostly counts dogs from the W1 high-urgency list.</li>
-    <li><b>Dogs still waiting for a first walk (W2):</b> a different count, of every dog with no activity yet, leaving out AR kennels.</li>
+    <li><b>High-urgency count (W1):</b> dogs with no activity yet that mostly meet a W1 high-urgency trigger.</li>
+    <li><b>No-activity count (W2):</b> every dog with no activity yet, leaving out AR kennels.</li>
     <li><b>Reservations block W1, not W2.</b> A dog reserved for playgroup or training never gets W1 high or medium urgency, but its W2 still can.</li>
     <li><b>Deprioritized dogs</b> (grey behind the name) only turn W1 high urgency when they had no activity yesterday or they're bold potty.</li>
   </ul>
@@ -383,7 +395,7 @@ img { max-width: 100%; }
       <tr class="band"><th colspan="3" scope="rowgroup">You can walk <span class="bandnote">Dogs at or below your color</span></th></tr>
       <tr><th scope="row" class="sid">G1</th><td>No activity yet · W1 high urgency</td><td class="sts">S1</td></tr>
       <tr><th scope="row" class="sid">G2</th><td>No activity yet · W1 medium urgency</td><td class="sts">S2</td></tr>
-      <tr><th scope="row" class="sid">G3</th><td>No activity yet · low urgency or reserved</td><td class="sts">S3 → S4 → S5 → S6</td></tr>
+      <tr><th scope="row" class="sid">G3</th><td>No activity yet · W1 low urgency or reserved</td><td class="sts">S3 → S4 → S5 → S6</td></tr>
       <tr><th scope="row" class="sid">G4</th><td>W1 checked · W2 high urgency</td><td class="sts">S7</td></tr>
       <tr><th scope="row" class="sid">G5</th><td>W1 checked · W2 medium urgency</td><td class="sts">S8</td></tr>
       <tr><th scope="row" class="sid">G6</th><td>One activity · low urgency or PG reserved<br><span class="sub">A playgroup reservation keeps a dog here even when W2 is high or medium urgency.</span></td><td class="sts">S9 → S10 → S11 → S12 → S13 → S14</td></tr>
@@ -392,7 +404,7 @@ img { max-width: 100%; }
       <tr class="band"><th colspan="3" scope="rowgroup">Above your color <span class="bandnote">Rows are dimmed</span></th></tr>
       <tr><th scope="row" class="sid">G9</th><td>No activity yet · W1 high urgency</td><td class="sts">S1</td></tr>
       <tr><th scope="row" class="sid">G10</th><td>No activity yet · W1 medium urgency</td><td class="sts">S2</td></tr>
-      <tr><th scope="row" class="sid">G11</th><td>No activity yet · low urgency or reserved</td><td class="sts">S3 → S4 → S5 → S6</td></tr>
+      <tr><th scope="row" class="sid">G11</th><td>No activity yet · W1 low urgency or reserved</td><td class="sts">S3 → S4 → S5 → S6</td></tr>
       <tr><th scope="row" class="sid">G12</th><td>Everything else</td><td class="sts">S7 → S8 → … → S20</td></tr>
     </tbody>
   </table>
@@ -529,8 +541,8 @@ img { max-width: 100%; }
     <div class="ans"><p>Before a dog's first activity, Blue- and Blue are <a href="#bundling">bundled</a> into one color, so the Blue- dog won on its state, potty, priority or amount of activity yesterday. Once both dogs have had activity, Blue goes back above Blue-.</p></div>
   </details>
   <details>
-    <summary>Why is a dog with "S" in the Y column always low urgency?</summary>
-    <div class="ans"><p>"S" in the Y column marks a surgery. Leads add it when they suspect a dog has had surgery, to lower its urgency. The dog never gets a high- or medium-urgency W1, so until its first activity it sits in G3, and it goes last in any tie.</p><p>This is separate from a red " - S" at the end of the dog's name, which shows "Recent surgery - NO RUNNING" on its dog page. That flag doesn't change WALK ORDER.</p></div>
+    <summary>Why is a dog with "S" in the Y column low urgency?</summary>
+    <div class="ans"><p>"S" in the Y column marks a surgery. Leads add it when they suspect a dog has had surgery, to lower its urgency. Its W1 never turns high or medium urgency, so until its first activity it sits in G3, and it goes last in any tie. After its first walk, W2 follows the normal rules.</p><p>This is separate from a red " - S" at the end of the dog's name, which shows "Recent surgery - NO RUNNING" on its dog page. That flag doesn't change WALK ORDER.</p></div>
   </details>
   </div>
 
@@ -538,7 +550,7 @@ img { max-width: 100%; }
   <div>
   <details>
     <summary>Why did a dog jump up or down while I was looking?</summary>
-    <div class="ans"><p>The list re-checks every minute and whenever anyone logs a walk or playgroup. W2 urgency depends on the clock (hours since W1) and on how many dogs are still waiting, so it rises on its own. Another walker logging a walk anywhere on the roster can also shift the "still waiting" counts and raise the urgency of checkboxes on dogs nobody touched.</p></div>
+    <div class="ans"><p>The list re-checks every minute and whenever anyone logs a walk or playgroup. W2 urgency depends on the clock (hours since W1) and on the no-activity count, so it rises on its own. Another walker logging a walk anywhere on the roster can also shift the high-urgency and no-activity counts and raise the urgency of checkboxes on dogs nobody touched.</p></div>
   </details>
   <details>
     <summary>The order on my phone doesn't match this guide.</summary>
@@ -598,7 +610,7 @@ img { max-width: 100%; }
     { name: 'Biscuit', g: 'Gold',  k: 'D09', y: '✓✓',   w1: 'a', why: 'S2' },
     { name: 'Pepper',  g: 'Blue-', k: 'B12', y: '✓',    w1: 'a', why: 'S2 · less activity yesterday' },
     { name: 'Tank',    g: 'Blue',  k: 'B03', y: 'P', w1: 'a', why: 'S2' },
-    { div: 'G3 · No activity yet · low urgency or reserved', sw: 'var(--pg-res)' },
+    { div: 'G3 · No activity yet · W1 low urgency or reserved', sw: 'var(--pg-res)' },
     { name: 'Rocket',  g: 'Gold',  k: 'D01', y: '—',       w1: '', pg: 'pr', why: 'S4 · PG reserved' },
     { name: 'Olive',   g: 'Green', k: 'A06', y: '✓',  w1: 'c', why: 'S5 · training' },
     { div: 'G4 · W1 checked · W2 high urgency', sw: 'var(--chk-bright)' },
@@ -610,9 +622,9 @@ img { max-width: 100%; }
     { div: 'G7 · Two or three activities', sw: '#9e9e9e' },
     { name: 'Ziggy',   g: 'Gold',  k: 'D11', y: '✓',  w1: 'd', pg: 'pd', why: 'S19 · W1 + PG' },
     { div: 'G9 · Above your color · no activity yet · W1 high urgency', sw: 'var(--chk-bright)' },
-    { name: 'Diesel',  g: 'Red',   k: 'E03', y: '—',       w1: 'y', dim: true, why: 'S1 · needs Red+' },
+    { name: 'Diesel',  g: 'Red',   k: 'E03', y: '—',       w1: 'y', dim: true, why: 'S1 · Red or Black walker' },
     { div: 'G12 · Above your color · everything else', sw: '#9e9e9e' },
-    { name: 'Shadow',  g: 'Black', k: 'E07', y: '✓✓', w1: 'd', dim: true, why: 'S9 · needs Black' }
+    { name: 'Shadow',  g: 'Black', k: 'E07', y: '✓✓', w1: 'd', dim: true, why: 'S9 · Black walker' }
   ]);
 })();
 </script>
