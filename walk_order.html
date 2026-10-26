@@ -219,9 +219,6 @@ header.top { padding-block: 36px 28px; display: grid; gap: 16px; }
   font-family: var(--display); font-weight: 800; font-size: 2rem; line-height: 1; color: var(--accent);
 }
 
-/* ---------- compact roster ---------- */
-.compact .rrow { grid-template-columns: 54px 22px 16px 16px 16px 26px minmax(70px, 1fr) auto; min-width: 0; padding: 6px 10px; }
-.compact .rdiv { min-width: 0; }
 
 /* ---------- faq ---------- */
 details {
@@ -463,16 +460,6 @@ img { max-width: 100%; }
     </tbody>
   </table>
   </div>
-
-  <p><b>Example:</b> a Gold walker's medium-urgency group (G2), mid-morning. Six dogs, no activity yet, all W1 medium urgency.</p>
-
-  <div class="roster compact" id="tbEx" style="max-width:520px"></div>
-
-  <div class="stack">
-    <p><b>Mango</b> (Gold-) and <b>Biscuit</b> (Gold) lead: Gold is the hardest color here, and Gold- is bundled with it. Inside the bundle, Mango is a regular potty dog and Biscuit isn't.</p>
-    <p><b>Pepper</b> (Blue-), <b>Tank</b> and <b>Ranger</b> (both Blue) share the Blue bundle. None is a potty dog, and Pepper and Tank have no priority set, which puts them above Ranger's −1. Between Pepper and Tank, Pepper had less activity yesterday: 1 walk against Tank's playgroup.</p>
-    <p><b>Juno</b> (Aqua) comes last. It's the easiest color in this group, so no final-order rule can lift it above the Blue dogs.</p>
-  </div>
 </section>
 
 <!-- ============================================================ -->
@@ -561,39 +548,28 @@ img { max-width: 100%; }
   };
   function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
   function cell(c) { return '<i class="cb ' + (c || '') + '"></i>'; }
-  function row(d, i, compact) {
+  function row(d, i) {
     var g = G[d.g];
     var pill = '<span class="pill" style="--c:' + g[0] + ';--t:' + g[1] + '">' + (g[2] === ' ' ? '&nbsp;' : g[2]) + '</span>';
     var nm = '<span class="nm ' + (d.n || '') + '">' + esc(d.name) + '</span>';
     var parts = ['<span class="yd">' + esc(d.y) + '</span>', '<span class="rank">' + i + '</span>',
       cell(d.w1), cell(d.w2), cell(d.pg || 'pg')];
-    if (!compact) parts.push('<span class="kn">' + esc(d.k) + '</span>');
+    parts.push('<span class="kn">' + esc(d.k) + '</span>');
     parts.push(pill, nm, '<span class="why">' + esc(d.why || '') + '</span>');
     return '<div class="rrow' + (d.dim ? ' dim' : '') + '">' + parts.join('') + '</div>';
   }
-  function head(compact) {
+  function head() {
     var cols = ['Y', '#', '1', '2', 'P'];
-    if (!compact) cols.push('KNL');
+    cols.push('KNL');
     cols.push('CLR', 'Name', '');
     return '<div class="rrow head">' + cols.map(function (c) { return '<span>' + c + '</span>'; }).join('') + '</div>';
   }
   function divider(label, sw) { return '<div class="rdiv"><i style="--sw:' + sw + '"></i>' + esc(label) + '</div>'; }
-  function render(el, items, compact) {
-    var n = 0, html = head(compact);
-    items.forEach(function (it) { html += it.div ? divider(it.div, it.sw) : row(it, ++n, compact); });
+  function render(el, items) {
+    var n = 0, html = head();
+    items.forEach(function (it) { html += it.div ? divider(it.div, it.sw) : row(it, ++n); });
     document.getElementById(el).innerHTML = html;
   }
-
-  // Final order: Gold walker, medium-urgency group (G2), mid-morning.
-  var amber = {
-    biscuit: { name: 'Biscuit', g: 'Gold',  y: '2 walks',   w1: 'a', why: '' },
-    mango:   { name: 'Mango',   g: 'Gold-', y: '1 walk',    w1: 'a', n: 'p1', why: 'potty' },
-    tank:    { name: 'Tank',    g: 'Blue',  y: 'playgroup', w1: 'a', why: '' },
-    ranger:  { name: 'Ranger',  g: 'Blue',  y: '1 walk',    w1: 'a', n: 'dp', why: 'priority −1' },
-    pepper:  { name: 'Pepper',  g: 'Blue-', y: '1 walk',    w1: 'a', why: 'less activity yesterday' },
-    juno:    { name: 'Juno',    g: 'Aqua',  y: '1 walk',    w1: 'a', why: '' }
-  };
-  render('tbEx', [amber.mango, amber.biscuit, amber.pepper, amber.tank, amber.ranger, amber.juno], true);
 
   // Full worked example: Gold walker, 3:30 PM.
   render('full', [
@@ -621,7 +597,7 @@ img { max-width: 100%; }
     { name: 'Diesel',  g: 'Red',   k: 'E03', y: '—',       w1: 'y', dim: true, why: 'S1 · needs Red+' },
     { div: 'G12 · Above your color · everything else', sw: '#9e9e9e' },
     { name: 'Shadow',  g: 'Black', k: 'E07', y: '2 walks', w1: 'd', dim: true, why: 'S9 · needs Black' }
-  ], false);
+  ]);
 })();
 </script>
 </body>
