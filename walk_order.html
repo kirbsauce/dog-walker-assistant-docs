@@ -209,7 +209,7 @@ header.top { padding-block: 36px 28px; display: grid; gap: 16px; }
 }
 .sec .swatch {
   background: var(--sw); display: grid; place-items: start center; padding-top: 14px;
-  font-family: var(--mono); font-weight: 700; font-size: 1.05rem; color: var(--swt, #111);
+  font-family: var(--mono); font-weight: 700; font-size: 0.95rem; color: var(--swt, #111);
   border-right: 1px solid var(--line);
 }
 .sec.dimmed { opacity: 0.82; }
@@ -486,13 +486,13 @@ img { max-width: 100%; }
 <section class="block" id="groups">
   <div class="eyebrow">Step 1</div>
   <h2>Twelve groups, always in this order</h2>
-  <p>Each group is a set of states, split by whether you can walk the dog. Every dog lands in exactly one group. A group with no dogs in it simply doesn't show. Groups never interleave: every dog in group 3 sits above every dog in group 4.</p>
+  <p>Each group is a set of states, split by whether you can walk the dog. Every dog lands in exactly one group. A group with no dogs in it simply doesn't show. Groups never interleave: every dog in G3 sits above every dog in G4.</p>
 
   <div class="zone-title"><span class="tag hot">You can walk</span><h3>Dogs at or below your color</h3></div>
   <div class="ladder">
 
     <div class="sec" style="--sw:var(--chk-bright)">
-      <div class="swatch">1</div>
+      <div class="swatch">G1</div>
       <div class="body">
         <h3>No activity yet · W1 yellow</h3>
         <div class="order"><span class="chip"><i class="cb y"></i><i class="cb"></i><i class="cb pg"></i> S1</span></div>
@@ -501,7 +501,7 @@ img { max-width: 100%; }
     </div>
 
     <div class="sec" style="--sw:var(--chk-dim)">
-      <div class="swatch">2</div>
+      <div class="swatch">G2</div>
       <div class="body">
         <h3>No activity yet · W1 amber</h3>
         <div class="order"><span class="chip"><i class="cb a"></i><i class="cb"></i><i class="cb pg"></i> S2</span></div>
@@ -510,7 +510,7 @@ img { max-width: 100%; }
     </div>
 
     <div class="sec" style="--sw:var(--pg-res)">
-      <div class="swatch">3</div>
+      <div class="swatch">G3</div>
       <div class="body">
         <h3>No activity yet · not urgent</h3>
         <p>Mostly dogs already reserved for playgroup or training, plus dogs that had surgery yesterday. Inside each color, states go in this order:</p>
@@ -524,7 +524,7 @@ img { max-width: 100%; }
     </div>
 
     <div class="sec" style="--sw:var(--chk-bright)">
-      <div class="swatch">4</div>
+      <div class="swatch">G4</div>
       <div class="body">
         <h3>W1 checked · W2 yellow</h3>
         <div class="order"><span class="chip"><i class="cb d"></i><i class="cb y"></i><i class="cb pg"></i> S7</span></div>
@@ -533,7 +533,7 @@ img { max-width: 100%; }
     </div>
 
     <div class="sec" style="--sw:var(--chk-dim)">
-      <div class="swatch">5</div>
+      <div class="swatch">G5</div>
       <div class="body">
         <h3>W1 checked · W2 amber</h3>
         <div class="order"><span class="chip"><i class="cb d"></i><i class="cb a"></i><i class="cb pg"></i> S8</span></div>
@@ -542,7 +542,7 @@ img { max-width: 100%; }
     </div>
 
     <div class="sec" style="--sw:#d9d9d9">
-      <div class="swatch">6</div>
+      <div class="swatch">G6</div>
       <div class="body">
         <h3>One activity · not urgent</h3>
         <p>One walk or one playgroup and nothing calling for a second yet. A playgroup reservation keeps a dog here even with W2 yellow or amber (S10, S11), because it already has activity lined up. Inside each color:</p>
@@ -558,7 +558,7 @@ img { max-width: 100%; }
     </div>
 
     <div class="sec" style="--sw:#9e9e9e">
-      <div class="swatch">7</div>
+      <div class="swatch">G7</div>
       <div class="body">
         <h3>Two or three activities</h3>
         <p>The dogs who've had the most today. Inside each color:</p>
@@ -574,7 +574,7 @@ img { max-width: 100%; }
     </div>
 
     <div class="sec" style="--sw:var(--surface-2);--swt:var(--muted)">
-      <div class="swatch">8</div>
+      <div class="swatch">G8</div>
       <div class="body">
         <h3>Anything else you can walk</h3>
         <p>A safety net. Today it's always empty. If a new state is ever added, those dogs show up here, still above every dog you can't walk.</p>
@@ -586,23 +586,23 @@ img { max-width: 100%; }
   <p class="muted">These rows are drawn dimmed so you can see them without mistaking them for your own. They follow the same idea: no activity yet first, urgent first.</p>
   <div class="ladder">
     <div class="sec dimmed" style="--sw:var(--chk-bright)">
-      <div class="swatch">9</div>
+      <div class="swatch">G9</div>
       <div class="body"><h3>Above your color · no activity yet · W1 yellow</h3>
         <div class="order"><span class="chip"><i class="cb y"></i><i class="cb"></i><i class="cb pg"></i> S1</span></div>
         <p>Urgent dogs that need a walker with a harder color.</p></div>
     </div>
     <div class="sec dimmed" style="--sw:var(--chk-dim)">
-      <div class="swatch">10</div>
+      <div class="swatch">G10</div>
       <div class="body"><h3>Above your color · no activity yet · W1 amber</h3>
         <div class="order"><span class="chip"><i class="cb a"></i><i class="cb"></i><i class="cb pg"></i> S2</span></div></div>
     </div>
     <div class="sec dimmed" style="--sw:var(--pg-res)">
-      <div class="swatch">11</div>
+      <div class="swatch">G11</div>
       <div class="body"><h3>Above your color · no activity yet · not urgent</h3>
-        <p>S3 → S6, same order as group 3.</p></div>
+        <p>S3 → S6, same order as G3.</p></div>
     </div>
     <div class="sec dimmed" style="--sw:#9e9e9e">
-      <div class="swatch">12</div>
+      <div class="swatch">G12</div>
       <div class="body"><h3>Above your color · everything else</h3>
         <p>Every dog above your color that's had some activity (S7 – S20), hardest color first. Within a color, states go S7, S8, then on through S20.</p></div>
     </div>
@@ -632,7 +632,7 @@ img { max-width: 100%; }
   </div>
 
   <ul style="margin:0;padding-left:1.1em;display:grid;gap:6px;max-width:68ch">
-    <li><b>Only before the first activity.</b> In groups 1 – 3 and 9 – 11, Blue- counts as the same color as Blue, and Gold- the same as Gold. Once a dog has had activity, Blue sits above Blue- again.</li>
+    <li><b>Only before the first activity.</b> In G1 – G3 and G9 – G11, Blue- counts as the same color as Blue, and Gold- the same as Gold. Once a dog has had activity, Blue sits above Blue- again.</li>
     <li><b>The state and tiebreakers decide inside a bundle.</b> A Blue- bold potty dog goes ahead of a plain Blue dog.</li>
     <li><b>True color comes last.</b> If two dogs in a bundle tie on every tiebreaker, Blue goes before Blue-, and Gold before Gold-, before the daily shuffle. The shuffle never mixes them.</li>
   </ul>
@@ -653,7 +653,7 @@ img { max-width: 100%; }
 
   <div class="tb-grid">
     <div class="tb">
-      <div class="eyebrow">Groups 1, 2, 3 · 9, 10, 11</div>
+      <div class="eyebrow">G1 – G3 · G9 – G11</div>
       <h3>No activity yet</h3>
       <ol>
         <li><div><b>Bold potty dogs</b><span class="eg">Bold purple name.</span></div></li>
@@ -669,7 +669,7 @@ img { max-width: 100%; }
     </div>
 
     <div class="tb">
-      <div class="eyebrow">Groups 4 – 8 · 12</div>
+      <div class="eyebrow">G4 – G8 · G12</div>
       <h3>Has had activity today</h3>
       <ol>
         <li><div><b>Bold potty dogs</b><span class="eg">Bold purple name.</span></div></li>
@@ -687,9 +687,9 @@ img { max-width: 100%; }
     <div class="eyebrow">Which tiebreakers actually matter where</div>
     <p>Some tiebreakers can't come up in some groups, because the same thing that would trigger them also turns W1 yellow.</p>
     <ul style="margin:0;padding-left:1.1em;display:grid;gap:6px">
-      <li><b>Yellow groups (1, 9):</b> every tiebreaker is live. These are exactly the dogs that are bold potty, had no activity yesterday, or are priority 1, so the tiebreakers sort them by which reason applies.</li>
-      <li><b>Amber groups (2, 10):</b> the top four tiebreakers are effectively never in play, since a dog that matched any of them would be yellow. In practice amber dogs order by <b>regular potty → priority number → quieter yesterday</b>, then the shuffle.</li>
-      <li><b>Not-urgent groups (3, 11):</b> reserved and post-surgery dogs. The state order usually decides it before the tiebreakers are needed.</li>
+      <li><b>Yellow groups (G1, G9):</b> every tiebreaker is live. These are exactly the dogs that are bold potty, had no activity yesterday, or are priority 1, so the tiebreakers sort them by which reason applies.</li>
+      <li><b>Amber groups (G2, G10):</b> the top four tiebreakers are effectively never in play, since a dog that matched any of them would be yellow. In practice amber dogs order by <b>regular potty → priority number → quieter yesterday</b>, then the shuffle.</li>
+      <li><b>Not-urgent groups (G3, G11):</b> reserved and post-surgery dogs. The state order usually decides it before the tiebreakers are needed.</li>
     </ul>
   </div>
 
@@ -711,10 +711,10 @@ img { max-width: 100%; }
   <p>A small roster of fifteen dogs, sorted by WALK ORDER for a Gold walker. Red and Black dogs are above that walker's color, so they're dimmed and sit at the bottom. Group numbers match the list above.</p>
   <div class="roster" id="full"></div>
   <div class="stack">
-    <p><b>Moose</b> leads group 1. Blue is the hardest color in it, so <b>Juniper</b> (Blue-) and <b>Hazel</b> (Aqua) follow in color order, even though all three are yellow for different reasons.</p>
+    <p><b>Moose</b> leads G1. Blue is the hardest color in it, so <b>Juniper</b> (Blue-) and <b>Hazel</b> (Aqua) follow in color order, even though all three are yellow for different reasons.</p>
     <p><b>Diesel</b> is yellow but sits near the bottom. Red is above Gold, so this walker can't take him. A Red or Black walker would see Diesel near the top of their own list.</p>
-    <p><b>Penny</b> is Pink, the easiest color, but she still goes ahead of Gold- <b>Bear</b>. Her W2 is amber, which puts her in group 5, and Bear is not urgent in group 6. Groups come before color.</p>
-    <p><b>Rocket</b> had no activity yesterday, which would usually make him yellow. He's reserved for playgroup, so he waits in group 3 instead.</p>
+    <p><b>Penny</b> is Pink, the easiest color, but she still goes ahead of Gold- <b>Bear</b>. Her W2 is amber, which puts her in G5, and Bear is not urgent in G6. Groups come before color.</p>
+    <p><b>Rocket</b> had no activity yesterday, which would usually make him yellow. He's reserved for playgroup, so he waits in G3 instead.</p>
   </div>
 </section>
 
@@ -736,7 +736,7 @@ img { max-width: 100%; }
   </details>
   <details>
     <summary>A dog with a yellow W2 is sitting low. Why?</summary>
-    <div class="ans"><p>Check its PG checkbox. A dog with W1 checked and a lime playgroup reservation (S10, S11) stays in the not-urgent one-activity group (6) even when its W2 is yellow or amber, because activity is already lined up for it. If the reservation falls through, remove it and the dog moves up to group 4 or 5.</p></div>
+    <div class="ans"><p>Check its PG checkbox. A dog with W1 checked and a lime playgroup reservation (S10, S11) stays in the not-urgent one-activity group, G6, even when its W2 is yellow or amber, because activity is already lined up for it. If the reservation falls through, remove it and the dog moves up to G4 or G5.</p></div>
   </details>
   <details>
     <summary>A deprioritized dog suddenly jumped near the top. Is that right?</summary>
@@ -744,7 +744,7 @@ img { max-width: 100%; }
   </details>
   <details>
     <summary>A surgery dog isn't showing yellow or amber at all.</summary>
-    <div class="ans"><p>Expected. A dog with "surgery yesterday" never gets a W1 color. It sits in the not-urgent group (3), and its quiet-yesterday score puts it at the end of any tie. Its dog page shows the "Recent surgery - NO RUNNING" flag.</p></div>
+    <div class="ans"><p>Expected. A dog with "surgery yesterday" never gets a W1 color. It sits in the not-urgent group, G3, and its quiet-yesterday score puts it at the end of any tie. Its dog page shows the "Recent surgery - NO RUNNING" flag.</p></div>
   </details>
   <details>
     <summary>Why is a Blue- dog above a Blue dog?</summary>
@@ -809,29 +809,29 @@ img { max-width: 100%; }
 
   // Full worked example: Gold walker, 3:30 PM.
   render('full', [
-    { div: '1 · No activity yet · W1 yellow', sw: 'var(--chk-bright)' },
+    { div: 'G1 · No activity yet · W1 yellow', sw: 'var(--chk-bright)' },
     { name: 'Moose',   g: 'Blue',  k: 'B07', y: '1 walk',  w1: 'y', n: 'p2', why: 'bold potty' },
     { name: 'Juniper', g: 'Blue-', k: 'C02', y: '—',       w1: 'y', why: 'no activity yesterday' },
     { name: 'Hazel',   g: 'Aqua',  k: 'A11', y: '2 walks', w1: 'y', why: 'priority 1' },
-    { div: '2 · No activity yet · W1 amber', sw: 'var(--chk-dim)' },
+    { div: 'G2 · No activity yet · W1 amber', sw: 'var(--chk-dim)' },
     { name: 'Mango',   g: 'Gold',  k: 'D04', y: '1 walk',    w1: 'a', n: 'p1', why: 'potty' },
     { name: 'Biscuit', g: 'Gold',  k: 'D09', y: '2 walks',   w1: 'a' },
     { name: 'Pepper',  g: 'Blue',  k: 'B12', y: '1 walk',    w1: 'a', why: 'quieter yesterday' },
     { name: 'Tank',    g: 'Blue',  k: 'B03', y: 'playgroup', w1: 'a' },
-    { div: '3 · No activity yet · not urgent', sw: 'var(--pg-res)' },
+    { div: 'G3 · No activity yet · not urgent', sw: 'var(--pg-res)' },
     { name: 'Rocket',  g: 'Gold',  k: 'D01', y: '—',       w1: '', pg: 'pr', why: 'PG reserved' },
     { name: 'Olive',   g: 'Green', k: 'A06', y: '1 walk',  w1: 'c', why: 'training' },
-    { div: '4 · W1 checked · W2 yellow', sw: 'var(--chk-bright)' },
+    { div: 'G4 · W1 checked · W2 yellow', sw: 'var(--chk-bright)' },
     { name: 'Luna',    g: 'Blue',  k: 'C08', y: '1 walk',  w1: 'd', w2: 'y', n: 'p2', why: 'W1 8:10' },
-    { div: '5 · W1 checked · W2 amber', sw: 'var(--chk-dim)' },
+    { div: 'G5 · W1 checked · W2 amber', sw: 'var(--chk-dim)' },
     { name: 'Penny',   g: 'Pink',  k: 'A02', y: '2 walks', w1: 'd', w2: 'a', n: 'p1', why: 'W1 8:15' },
-    { div: '6 · One activity · not urgent', sw: '#d9d9d9' },
+    { div: 'G6 · One activity · not urgent', sw: '#d9d9d9' },
     { name: 'Bear',    g: 'Gold-', k: 'D06', y: '1 walk',  w1: 'd', why: 'W1 10:45' },
-    { div: '7 · Two or three activities', sw: '#9e9e9e' },
+    { div: 'G7 · Two or three activities', sw: '#9e9e9e' },
     { name: 'Ziggy',   g: 'Gold',  k: 'D11', y: '1 walk',  w1: 'd', pg: 'pd', why: 'W1 + PG' },
-    { div: '9 · Above your color · no activity yet · W1 yellow', sw: 'var(--chk-bright)' },
+    { div: 'G9 · Above your color · no activity yet · W1 yellow', sw: 'var(--chk-bright)' },
     { name: 'Diesel',  g: 'Red',   k: 'E03', y: '—',       w1: 'y', dim: true, why: 'Red walker+' },
-    { div: '12 · Above your color · everything else', sw: '#9e9e9e' },
+    { div: 'G12 · Above your color · everything else', sw: '#9e9e9e' },
     { name: 'Shadow',  g: 'Black', k: 'E07', y: '2 walks', w1: 'd', dim: true, why: 'Black walker' }
   ], false);
 })();
