@@ -73,8 +73,8 @@ sort (WALK ORDER by default). Each row shows, left to right:
   (see [Checkbox colors](#checkbox-colors)).
 - **KNL** — the kennel to find the dog in (e.g. `AC03`).
 - **CLR** — the dog's color (see [Colors](#colors)).
-- **NAME** — the dog's name. A grey background means the dog can be
-  deprioritized for a walk if necessary. This might apply to puppies, small
+- **NAME** — the dog's name. A grey background means the dog has been
+  deprioritized for walks. This might apply to puppies, small
   dogs, medical cases, and dogs already on the staff walk list.
 - **W1 · W2 · PG** — the time each activity was logged, or a check once done.
 - **⋮** — a kebab menu, shown if you're flagged as a **trainer** and/or
