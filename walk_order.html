@@ -8,7 +8,7 @@
 <title>Walk Order Field Guide</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@500;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&display=swap">
 <style>
 /* Layout: a single reading column shaped like the roster itself — groups
    stack top to bottom in the same order the dogs do, each one marked by the
@@ -34,9 +34,10 @@
   --deprio: #cccccc;
   --cell-stroke: #888888;
 
-  --display: "Bricolage Grotesque", "Avenir Next", "Segoe UI", system-ui, sans-serif;
-  --body: "Atkinson Hyperlegible", "Segoe UI", system-ui, sans-serif;
-  --mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  /* Outfit, the app's font, for everything */
+  --display: "Outfit", system-ui, sans-serif;
+  --body: "Outfit", system-ui, sans-serif;
+  --mono: "Outfit", system-ui, sans-serif;
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
@@ -56,7 +57,7 @@
 * { box-sizing: border-box; }
 body {
   background: var(--bg); color: var(--fg);
-  font-family: var(--body); font-size: 16px; line-height: 1.55;
+  font-family: var(--body); font-size: 16px; font-weight: 300; line-height: 1.55;
 }
 .wrap {
   max-width: 920px; margin: 0 auto;
