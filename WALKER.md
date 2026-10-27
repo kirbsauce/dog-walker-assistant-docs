@@ -1,6 +1,6 @@
 ---
 title: Walker Guide
-description: A tour of Dog Walker Assistant for shelter walkers — signing in, the roster, color grades, logging walks, sorting, and the walk timer.
+description: A tour of Dog Walker Assistant for shelter walkers — signing in, the roster, colors, logging walks, sorting, and the walk timer.
 ---
 
 # Walker Guide
@@ -14,8 +14,8 @@ A tour of the app for shelter walkers.
 - [Add To Your Home Screen](#add-to-your-home-screen)
 - [The Roster Screen](#the-roster-screen)
 - [The Dog Detail Page](#the-dog-detail-page)
-- [Color Grades](#color-grades)
-- [Cell Colors](#cell-colors)
+- [Colors](#colors)
+- [Checkbox Colors](#checkbox-colors)
 - [The WALK ORDER Sort](#the-walk-order-sort)
 - [Filters](#filters)
 - [The Search Screen](#the-search-screen)
@@ -66,13 +66,13 @@ full-screen, just like a native app.
 The roster lists every walkable dog in the kennel today, ordered by the current
 sort (WALK ORDER by default). Each row shows, left to right:
 
-- **Y** — yesterday's activity at a glance (walked once, twice, playgroup, or
-  nothing / recent surgery).
-- **1 · 2 · P** — status icons for Walk 1, Walk 2, and Playgroup. A filled,
-  checked icon means done; an outline means pending. Color highlights flag what's
-  urgent or reserved (see [Cell colors](#cell-colors)).
+- **Y** — yesterday's activity at a glance (walked once, twice, playgroup,
+  nothing, or **S** for surgery).
+- **1 · 2 · P** — checkboxes for Walk 1, Walk 2 and Playgroup. A checked box
+  means done; an empty one means pending. Colors flag what's urgent or reserved
+  (see [Checkbox colors](#checkbox-colors)).
 - **KNL** — the kennel to find the dog in (e.g. `AC03`).
-- **CLR** — the dog's color grade (see [Color grades](#color-grades)).
+- **CLR** — the dog's color (see [Colors](#colors)).
 - **NAME** — the dog's name.
 - **W1 · W2 · PG** — the time each activity was logged, or a check once done.
 - **⋮** — a kebab menu, shown if you're flagged as a **trainer** and/or
@@ -102,7 +102,7 @@ The photo sits on the left, with the dog's details stacked beside it:
 - **Photo** — tap it to view full-screen.
 - **Kennel** (e.g. `AC03`) — tap it to jump straight to the **Kennel Map**,
   centered on that dog's room.
-- **Color** — the dog's color grade (see [Color grades](#color-grades)).
+- **Color** — the dog's color (see [Colors](#colors)).
 - **ID** — tap it to copy the animal ID to your clipboard; the button flashes
   **Copied!** for a moment to confirm.
 - **Breed** — when the dog's record has one.
@@ -142,8 +142,8 @@ buttons:
 - **Reserved for Training** (cyan) — the **Log Walk 1** button also gets a
   cyan border. Unlike other button styling, this doesn't clear once Walk 1
   is logged — it stays cyan until the training reservation itself is
-  removed, the same behavior the roster's Walk 1 icon has (see [Cell
-  Colors](#cell-colors)).
+  removed, the same behavior the roster's Walk 1 checkbox has (see [Checkbox
+  colors](#checkbox-colors)).
 
 #### Activity notes
 
@@ -187,7 +187,7 @@ other systems:
 - **Verify Kennel** — cross-checks the dog's kennel against Pet Compass and
   flags it if they don't match.
 
-## Color grades
+## Colors
 
 Every dog wears a color from easiest to hardest:
 
@@ -201,24 +201,25 @@ Every dog wears a color from easiest to hardest:
 > <span class="swatch" style="background:#d32f2f"></span>Red →
 > <span class="swatch" style="background:#424242"></span>Black
 
-Your own color grade (shown in **Settings → WALKER PROFILE**, set by an admin) is
-the **hardest** color you're cleared to walk. You can walk any dog **at or below**
-your grade. Dogs above your grade appear dimmed and drop to the bottom of the
+Your color (shown in **Settings → WALKER PROFILE**, set by an admin) is the
+**hardest** color you're cleared to walk. You can walk any dog **at or below**
+your color. Dogs above your color appear dimmed and drop to the bottom of the
 list when a view-based sort like WALK ORDER is active.
 
 Dogs flagged for special handling always display as **Red**, regardless of
-their usual color grade — treat these with the same caution as any other Red
+their usual color — treat these with the same caution as any other Red
 dog.
 
-## Cell colors
+## Checkbox colors
 
-The status-icon highlights on the roster tell you what's pending:
+The checkbox colors on the roster tell you what's pending:
 
-- <strong style="color:#ffff00">Yellow</strong> /
-  <strong style="color:#e3bd3e">amber</strong> on a walk icon — that walk
-  slot is urgent.
-- <strong style="color:#00c853">Green</strong> on Playgroup — the dog is
-  reserved for playgroup but hasn't attended.
+- On Walk 1 and Walk 2: <strong style="color:#ffff00">yellow</strong> is high
+  urgency, <strong style="color:#e3bd3e">amber</strong> is medium urgency, and no
+  color is low urgency.
+- <strong style="color:#c5f219">Lime</strong> on Playgroup — the dog is
+  reserved for playgroup but hasn't attended. Once it attends, the checkbox
+  turns <strong style="color:#00c853">green</strong> with a check.
 - <strong style="color:#00bcd4">Cyan</strong> on Walk 1 — the dog is reserved
   for training. Unlike the other highlights, this one doesn't clear once
   Walk 1 is logged — it stays cyan (with a checkmark drawn on top) until the
@@ -230,14 +231,16 @@ above).
 
 ## The WALK ORDER sort
 
-The default **WALK ORDER** sort puts the hardest color you can walk at the top.
-Within a color, dogs run urgent (yellow) → amber → neutral → reserved → done.
-Dogs above your color grade fall to the bottom, dimmed.
+The default **WALK ORDER** sort works in three steps: **find group** (dogs you
+can walk come first, then by how much activity a dog has had today and how
+urgent its checkboxes are), **order by color** (hardest color you can walk
+first), and **set final order** (potty, priority and yesterday's activity decide
+the rest). Dogs above your color fall to the bottom, dimmed.
 
 ![Screenshot: SORT BY overlay with WALK ORDER selected](images/walker-sort-overlay.png)
 
 *This example is what an **Aqua**-level walker sees — which dogs sit at the top,
-and which dim out, depends on your own color grade.*
+and which dim out, depends on your own color.*
 
 Open the **SORT BY** overlay from the sort icon in the header to pick another
 sort. View-based sorts like WALK ORDER are **one-way** orderings — the
@@ -252,13 +255,13 @@ else. If nobody's currently reserved, it shows **"No dogs currently reserved
 for playgroup"** instead.
 
 Both WALK ORDER and PLAYGROUP are available to every role, including guests —
-since a guest account has no color grade of its own, it's treated as **Gold**
+since a guest account has no color of its own, it's treated as **Gold**
 for grouping/dimming purposes in either sort.
 
 ## Filters
 
 Tap the filter icon next to the sort icon to narrow the roster. **COLORS**
-lets you multi-select color grades and either show only those (**ONLY**) or
+lets you multi-select colors and either show only those (**ONLY**) or
 hide them (**NOT**). Filters such as **Playgroup (reserved)** and **Training
 (reserved)** each have
 a checkbox to turn that filter on, plus an **ONLY** / **NOT** toggle for
@@ -401,8 +404,8 @@ A few things that surprise people:
   separately, so a dog in behavior modification doesn't have to be on the
   roster at all — and nothing on this page is pulled from their roster entry
   even when they have one.
-- **There's no color-grade limit here.** Unlike walking, the list shows every
-  dog in behavior modification regardless of your grade, and doesn't dim
+- **There's no color limit here.** Unlike walking, the list shows every
+  dog in behavior modification regardless of your color, and doesn't dim
   anything.
 - **The roster gives no sign a dog is in behavior modification.** This page is
   the only place that shows.
@@ -450,11 +453,11 @@ Days run across as columns; the three daily shifts stack down the side, numbered
 cell holds three little bars — one per handler color, **Green**, **Blue**,
 **Gold** — and each bar fills in proportion to how full that color's slots are:
 an empty bar means no one's signed up for that color yet, a full bar means it's
-fully booked. Handler colors line up with the walk [color grades](#color-grades)
+fully booked. Handler colors line up with the walk [colors](#colors)
 — a **Blue** handler slot is for walkers cleared up to Blue, and so on.
 
 **Tap any cell** for that shift's detail. Under each handler color you'll see
-who's signed up — each name with their own [color grade](#color-grades) pill —
+who's signed up — each name with their own [color](#colors) pill —
 along with how many are **signed up out of the total** slots and how many are
 still **open**. A sign-up the app can't match to a DWA account shows as
 **User** followed by a number, sorted to the bottom of its color.
@@ -478,7 +481,7 @@ first.
 Each row shows:
 
 - **WALKER** — their name, first name over surname.
-- **COLOR** — that walker's own color grade, not any dog's.
+- **COLOR** — that walker's own color, not any dog's.
 - **FIRST** — the first W1/W2/PG they logged today.
 - **LAST** — the most recent one.
 - **LAST DOG** — the dog behind that last entry, with how long ago underneath
@@ -505,8 +508,8 @@ LOGGED YET TODAY**.
 
 Open **Settings** from the nav menu. Walker-facing options:
 
-- **WALKER PROFILE** — your color level (read-only, set by an admin). Hidden
-  for **guest** accounts, which have no color grade of their own.
+- **WALKER PROFILE** — your color (read-only, set by an admin). Hidden
+  for **guest** accounts, which have no color of their own.
 - **APPEARANCE** — **Theme** (dark / light), **Font size**,
   **[Action buttons](#action-buttons)** (nav at top or bottom, for one-handed
   use), and the **[Timer](#the-walk-timer)** toggle.
@@ -556,5 +559,5 @@ an instant update to every connected device. If your phone was backgrounded
 it re-syncs the moment you bring the app back to the foreground. Still stale?
 Pull to refresh.
 
-**Why is a dog dimmed?** Its color grade is higher than yours. You can still open
+**Why is a dog dimmed?** Its color is above yours. You can still open
 it, but it's not on your walk list today.
