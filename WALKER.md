@@ -73,7 +73,7 @@ sort (WALK ORDER by default). Each row shows, left to right:
   (see [Checkbox colors](#checkbox-colors)).
 - **KNL** — the kennel to find the dog in (e.g. `AC03`).
 - **CLR** — the dog's color (see [Colors](#colors)).
-- **NAME** — the dog's name. A grey background means the dog has been
+- **NAME** — the dog's name. A gray background means the dog has been
   deprioritized for walks. This might apply to puppies, small
   dogs, medical cases, and dogs already on the staff walk list.
 - **W1 · W2 · PG** — the time each activity was logged, or a check once done.
@@ -121,7 +121,7 @@ The photo sits on the left, with the dog's details stacked beside it:
 At the top of the page you'll see three buttons:
 
 - **Log Walk 1** / **Log Walk 2** — separate buttons for each walk. Walk 2
-  stays greyed out until Walk 1 is logged. Once logged, a button turns green
+  stays grayed out until Walk 1 is logged. Once logged, a button turns green
   and shows the time it happened, e.g. **`8:47am`**.
 - **Log PG** — logs playgroup attendance, with the same green-with-time
   treatment once logged.
@@ -397,7 +397,7 @@ It works like the list under the walk buttons on a dog's detail page.
 Sessions are logged in order and cleared in reverse. You can't log the second
 until the first is logged, or the third until the second is. Likewise, you
 can't clear the first while the second is still logged, or the second while
-the third is. A button that isn't available yet is greyed out. And as with
+the third is. A button that isn't available yet is grayed out. And as with
 walks, clearing a session you logged more than 30 minutes ago needs an admin.
 
 A few things that surprise people:
