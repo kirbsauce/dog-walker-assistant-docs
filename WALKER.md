@@ -514,7 +514,8 @@ Open **Settings** from the nav menu. Walker-facing options:
   for **guest** accounts, which have no color of their own.
 - **APPEARANCE** — **Theme** (dark / light), **Font size**,
   **[Action buttons](#action-buttons)** (nav at top or bottom, for one-handed
-  use), and the **[Timer](#the-walk-timer)** toggle.
+  use), **[Menu long-press](#menu-long-press)** (a shortcut on the menu
+  button), and the **[Timer](#the-walk-timer)** toggle.
 - **NOTIFICATIONS** — **Push notifications** shows your device's current
   permission as read-only status text: **ENABLED**, **NOT YET ENABLED**, or
   **BLOCKED — ENABLE IN DEVICE SETTINGS**. That row has no toggle — enabling or
@@ -530,7 +531,7 @@ Open **Settings** from the nav menu. Walker-facing options:
   playgroup of a shift, a prompt offers to send you to the Bloomerang kiosk to
   check in. Turn it off here.
 
-Two of those APPEARANCE options change enough about how the app behaves to be
+Three of those APPEARANCE options change enough about how the app behaves to be
 worth their own walkthrough:
 
 ### The walk timer
@@ -548,6 +549,18 @@ buttons (back, refresh, menu, and so on) between **TOP** (the normal header) and
 **BOTTOM** — a bar docked near the bottom of the screen instead. If you're
 navigating the app one-handed, BOTTOM keeps those buttons within thumb reach
 instead of making you stretch to the top of the screen.
+
+### Menu long-press
+
+**Settings → APPEARANCE → Menu long-press** turns pressing and holding the menu
+button on the roster into a shortcut straight to one page. A normal tap still
+opens the menu as usual. Pick from:
+
+- **Off** (the default) — holding does nothing extra.
+- **Behavior Modification**, **Kennel Map**, **My Log**, **Playgroup**,
+  **Shift Calendar**, or **Walker Activity**.
+
+The choice is saved on your device only, so set it on each phone you use.
 
 ## FAQ
 
