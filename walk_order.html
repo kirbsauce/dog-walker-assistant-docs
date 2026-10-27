@@ -8,7 +8,7 @@
 <title>Walk Order Field Guide</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@500;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&display=swap">
 <style>
 /* Layout: a single reading column shaped like the roster itself — groups
    stack top to bottom in the same order the dogs do, each one marked by the
@@ -34,9 +34,10 @@
   --deprio: #cccccc;
   --cell-stroke: #888888;
 
-  --display: "Bricolage Grotesque", "Avenir Next", "Segoe UI", system-ui, sans-serif;
-  --body: "Atkinson Hyperlegible", "Segoe UI", system-ui, sans-serif;
-  --mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  /* Outfit, the app's font, for everything */
+  --display: "Outfit", system-ui, sans-serif;
+  --body: "Outfit", system-ui, sans-serif;
+  --mono: "Outfit", system-ui, sans-serif;
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
@@ -56,7 +57,7 @@
 * { box-sizing: border-box; }
 body {
   background: var(--bg); color: var(--fg);
-  font-family: var(--body); font-size: 16px; line-height: 1.55;
+  font-family: var(--body); font-size: 16px; font-weight: 300; line-height: 1.55;
 }
 .wrap {
   max-width: 920px; margin: 0 auto;
@@ -65,12 +66,12 @@ body {
 }
 h1, h2, h3 { font-family: var(--display); text-wrap: balance; line-height: 1.12; margin: 0; }
 h1 { font-size: clamp(2.2rem, 6vw, 3.6rem); font-weight: 800; letter-spacing: -0.02em; }
-h2 { font-size: clamp(1.5rem, 3.6vw, 2.1rem); font-weight: 800; letter-spacing: -0.01em; }
+h2 { font-size: clamp(1.4rem, 3vw, 1.75rem); font-weight: 800; letter-spacing: -0.01em; }
 h3 { font-size: 1.15rem; font-weight: 600; }
 p { margin: 0; max-width: 68ch; }
 .eyebrow {
-  font-family: var(--mono); font-size: 0.72rem; font-weight: 700;
-  letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent);
+  font-family: var(--mono); font-size: 1rem; font-weight: 700;
+  letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent);
 }
 .muted { color: var(--muted); }
 .mono { font-family: var(--mono); }
@@ -209,12 +210,14 @@ header.top { padding-block: 36px 28px; display: grid; gap: 16px; }
 .stable .bandnote { font-family: var(--body); font-weight: 400; font-size: 0.85rem; color: var(--muted); margin-left: 8px; }
 @media (max-width: 520px) { .stable th, .stable td { padding: 8px; } }
 
-/* ---------- three questions ---------- */
+/* ---------- three steps ---------- */
 .q3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 10px; }
 .q {
   background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 16px;
   display: grid; gap: 8px; align-content: start;
 }
+.q h3 { text-transform: uppercase; letter-spacing: 0.04em; }
+.q h3::after { content: ""; display: block; width: 32px; height: 2px; margin-top: 8px; background: var(--fg); opacity: 0.8; }
 .q .n {
   font-family: var(--display); font-weight: 800; font-size: 2rem; line-height: 1; color: var(--accent);
 }
@@ -272,12 +275,12 @@ img { max-width: 100%; }
 <!-- ============================================================ -->
 <section class="block" id="questions">
   <div class="eyebrow">How a dog finds its spot</div>
-  <h2>Three questions, in order</h2>
-  <p>For every dog, WALK ORDER asks the same three questions. A later question only matters when two dogs give the same answer to every earlier one.</p>
+  <h2>Three steps, in order</h2>
+  <p>WALK ORDER puts every dog through the same three steps. A later step only matters when two dogs come out the same on every earlier one.</p>
   <div class="q3">
-    <div class="q"><span class="n">1</span><h3>Which group?</h3><p>Can you walk the dog? How much activity has it had today? How urgent are its checkboxes: high, medium or low? Every dog in an earlier group sits above every dog in a later one.</p></div>
-    <div class="q"><span class="n">2</span><h3>Which color?</h3><p>Inside a group, hardest dog color first. The toughest dog you can walk leads, so it gets walked while experienced walkers are on shift. Before a dog's first activity, Blue- and Gold- are bundled with Blue and Gold.</p></div>
-    <div class="q"><span class="n">3</span><h3>Final order</h3><p>Among dogs in the same group, color and state: priority, potty, how long since its last activity, and amount of activity yesterday.</p></div>
+    <div class="q"><span class="n">1</span><h3>Find group</h3><p>Can you walk the dog? How much activity has it had today? How urgent are its checkboxes: high, medium or low? Every dog in an earlier group sits above every dog in a later one.</p></div>
+    <div class="q"><span class="n">2</span><h3>Order by color</h3><p>Inside a group, hardest dog color first. The toughest dog you can walk leads, so it gets walked while experienced walkers are on shift. Before a dog's first activity, Blue- and Gold- are bundled with Blue and Gold.</p></div>
+    <div class="q"><span class="n">3</span><h3>Set final order</h3><p>Among dogs in the same group, color and state: priority, potty, how long since its last activity, and amount of activity yesterday.</p></div>
   </div>
 </section>
 
@@ -371,7 +374,7 @@ img { max-width: 100%; }
 
 <!-- ============================================================ -->
 <section class="block" id="groups">
-  <div class="eyebrow">Step 1</div>
+  <div class="eyebrow">Step 1 – Find group</div>
   <h2>Twelve groups, always in this order</h2>
   <p>Each group is a set of states, split by whether you can walk the dog. Every dog lands in exactly one group, and every dog in a group sits above every dog in the next. A group with no dogs in it doesn't show.</p>
   <p>The States column lists which states are in the group and the order they go in. Within a group, dogs go by color first, then by this state order.</p>
@@ -401,7 +404,7 @@ img { max-width: 100%; }
 
 <!-- ============================================================ -->
 <section class="block" id="colors">
-  <div class="eyebrow">Step 2</div>
+  <div class="eyebrow">Step 2 – Order by color</div>
   <h2>Colors, easiest to hardest</h2>
   <p>Inside a group, dogs go hardest color first. You can walk any dog at or below your color.</p>
 
@@ -433,7 +436,7 @@ img { max-width: 100%; }
 
 <!-- ============================================================ -->
 <section class="block" id="final-order">
-  <div class="eyebrow">Step 3</div>
+  <div class="eyebrow">Step 3 – Set final order</div>
   <h2>Final order</h2>
   <p>When two dogs share a group, a color <b>and a state</b>, WALK ORDER compares them with the rules below, in order. The first rule where they differ decides it. Groups for dogs with no activity yet use one list; all other groups use the other.</p>
 
