@@ -75,7 +75,9 @@ sort (WALK ORDER by default). Each row shows, left to right:
 - **CLR** — the dog's color (see [Colors](#colors)).
 - **NAME** — the dog's name. A gray background means the dog has been
   deprioritized for walks. This might apply to puppies, small
-  dogs, medical cases, and dogs already on the staff walk list.
+  dogs, medical cases, and dogs already on the staff walk list. A **`*`** in
+  the name means the dog is on an **adoption hold** — the dog's page shows
+  **Adoption hold** too.
 - **W1 · W2 · PG** — the time each activity was logged, or a check once done.
 - **⋮** — a kebab menu, shown if you're flagged as a **trainer** and/or
   **playgroup lead** (set by an admin), or if your account role is
