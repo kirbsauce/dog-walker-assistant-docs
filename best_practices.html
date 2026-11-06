@@ -1,0 +1,424 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Habits that keep Dog Walker Assistant's picture of each dog accurate, so every dog gets what it needs.">
+<link rel="icon" type="image/svg+xml" href="images/paw-logo.svg">
+<title>Best Practices</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&display=swap">
+<style>
+/* Same look as walk_order.html: one reading column, the app's font and the
+   roster's own cell colors. The page follows a walk from start to finish:
+   what the app knows about a dog, then before, choosing, after, passing on. */
+:root {
+  --bg: #f6f5f1;
+  --surface: #ffffff;
+  --surface-2: #eeece6;
+  --fg: #1b1c1f;
+  --muted: #5f6168;
+  --line: #d9d6cd;
+  --accent: #b36f00;          /* shelter orange, darkened for text on light */
+  --band: #f5a800;            /* shelter orange, as a fill */
+  --warn: #c62828;            /* the dog page's red caution lines */
+
+  /* roster cell colors, straight from the app */
+  --chk-bright: #fafa00;
+  --chk-dim: #fad861;
+  --cyan: #00bcd4;
+  --pg-res: #c5f219;
+  --pg-done: #00c853;
+  --done: #666666;
+  --potty: #9900ff;
+  --deprio: #cccccc;
+  --cell-stroke: #888888;
+
+  --display: "Outfit", system-ui, sans-serif;
+  --body: "Outfit", system-ui, sans-serif;
+  --mono: "Outfit", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #111111; --surface: #1a1a1a; --surface-2: #222222; --fg: #f0f0f0;
+    --muted: #a3a3a3; --line: #2f2f2f; --accent: #f5a800; --band: #f5a800;
+    --warn: #ff6b6b;
+    --chk-bright: #ffff00; --chk-dim: #e3bd3e; --potty: #bb86fc; --deprio: #2a2a2a;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #111111; --surface: #1a1a1a; --surface-2: #222222; --fg: #f0f0f0;
+  --muted: #a3a3a3; --line: #2f2f2f; --accent: #f5a800; --band: #f5a800;
+  --warn: #ff6b6b;
+  --chk-bright: #ffff00; --chk-dim: #e3bd3e; --potty: #bb86fc; --deprio: #2a2a2a;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+:root { padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
+body {
+  margin: 0; background: var(--bg); color: var(--fg);
+  font-family: var(--body); font-size: 16px; font-weight: 300; line-height: 1.55;
+}
+.wrap {
+  max-width: 920px; margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+h1, h2, h3 { font-family: var(--display); text-wrap: balance; line-height: 1.12; margin: 0; }
+h1 { font-size: clamp(2.2rem, 6vw, 3.6rem); font-weight: 800; letter-spacing: -0.02em; }
+h2 { font-size: clamp(1.4rem, 3vw, 1.75rem); font-weight: 800; letter-spacing: -0.01em; }
+h3 { font-size: 1.15rem; font-weight: 600; }
+p { margin: 0; max-width: 68ch; }
+b { font-weight: 600; }
+.eyebrow {
+  font-family: var(--mono); font-size: 1rem; font-weight: 700;
+  letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent);
+}
+.muted { color: var(--muted); }
+a { color: var(--accent); }
+section.block { padding-block: 44px; border-top: 1px solid var(--line); display: grid; gap: 18px; }
+
+/* ---------- header ---------- */
+header.top { padding-block: 36px 28px; display: grid; gap: 16px; }
+.lede { font-size: 1.12rem; }
+
+/* ---------- roster pieces ---------- */
+.cb {
+  display: inline-block; width: 16px; height: 16px; border-radius: 3px;
+  border: 1.5px solid var(--cell-stroke); background: transparent;
+  position: relative; flex: none; vertical-align: middle;
+}
+.cb.y { background: var(--chk-bright); }
+.cb.a { background: var(--chk-dim); }
+.cb.c { background: var(--cyan); }
+.cb.d { background: var(--done); }
+.cb.pr { border-color: var(--pg-done); background: var(--pg-res); }
+.cb.d::after {
+  content: ""; position: absolute; left: 4px; top: 1px; width: 4px; height: 8px;
+  border: solid #fff; border-width: 0 2px 2px 0; transform: rotate(45deg);
+}
+.pill {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 22px; height: 16px; border-radius: 3px; font-weight: 700; font-size: 13px;
+  line-height: 1; flex: none; background: var(--c); color: var(--t, #fff); vertical-align: middle;
+}
+.nm { font-weight: 400; }
+.nm.p1 { color: var(--potty); }
+.nm.p2 { color: var(--potty); font-weight: 800; }
+.nm.dp { background: var(--deprio); padding: 0 4px; border-radius: 3px; }
+.flag { color: var(--warn); font-weight: 700; font-size: 0.82rem; letter-spacing: 0.02em; line-height: 1.3; }
+.yd { font-weight: 700; font-size: 0.95rem; }
+
+/* ---------- what the app knows ---------- */
+.needs { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 10px; }
+.need {
+  background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px;
+  display: grid; gap: 6px; align-content: start;
+}
+.need .sig { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; min-height: 22px; }
+.need p { font-size: 0.95rem; }
+
+/* ---------- practices ---------- */
+.stage-list { display: grid; gap: 10px; counter-reset: practice; }
+.practice {
+  background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 16px;
+  display: grid; grid-template-columns: 2.2rem minmax(0, 1fr); gap: 4px 12px;
+}
+.practice::before {
+  counter-increment: practice; content: counter(practice);
+  grid-row: span 2; font-family: var(--display); font-weight: 800; font-size: 1.6rem;
+  line-height: 1.1; color: var(--accent);
+}
+.practice > * { grid-column: 2; }
+.practice h3 { align-self: center; }
+.practice p { font-size: 0.97rem; }
+.practice .why { color: var(--muted); }
+
+/* ---------- walk order: physical / mental ---------- */
+.principle {
+  background: var(--surface); border: 1px solid var(--line); border-left: 4px solid var(--band);
+  border-radius: 10px; padding: 16px 18px; display: grid; gap: 6px;
+}
+.principle h3 { font-size: 1.25rem; }
+.twoway { display: grid; gap: 14px; grid-template-columns: minmax(0, 1fr); }
+@media (min-width: 760px) { .twoway { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.side { display: grid; gap: 8px; align-content: start; }
+.side > h3 {
+  text-transform: uppercase; letter-spacing: 0.04em; font-size: 1rem;
+  padding-bottom: 6px; border-bottom: 2px solid var(--fg);
+}
+.plain-list { margin: 0; padding-left: 1.2em; display: grid; gap: 6px; font-size: 1rem; }
+.plain-list li::marker { color: var(--accent); }
+
+.subhead {
+  font-size: 1rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted);
+  margin-top: 8px;
+}
+
+.callout {
+  background: var(--band); color: #111; border-radius: 10px; padding: 18px 20px; display: grid; gap: 8px;
+}
+.callout h3 { color: #111; }
+.callout p { color: #111; }
+
+/* ---------- faq ---------- */
+details { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 0 16px; }
+details + details { margin-top: 8px; }
+summary {
+  cursor: pointer; padding-block: 14px; font-family: var(--display); font-weight: 600; font-size: 1.05rem;
+  list-style: none; display: flex; justify-content: space-between; gap: 12px;
+}
+summary::-webkit-details-marker { display: none; }
+summary::after { content: "+"; font-family: var(--mono); color: var(--accent); font-weight: 700; }
+details[open] summary::after { content: "–"; }
+details .ans { padding-bottom: 16px; display: grid; gap: 8px; }
+summary:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+
+footer { padding-block: 32px 48px; border-top: 1px solid var(--line); font-size: 0.85rem; color: var(--muted); }
+
+@media (prefers-reduced-motion: no-preference) {
+  details[open] .ans { animation: drop 160ms ease-out; }
+  @keyframes drop { from { transform: translateY(-4px); opacity: 0.6; } to { transform: none; opacity: 1; } }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+  <h1>Best Practices</h1>
+  <p class="lede">Every dog in the kennel has its own mental and physical needs. One is anxious and stressed in its kennel. One wasn't walked yesterday. One needs a potty break. One is just back from surgery. Our goal is to meet those needs, dog by dog, to help them be happy and adoptable.</p>
+  <p>Reaching that goal takes three things. First and foremost, <b>you, the walker</b>: your time, your attention and your judgment with each dog. Second, <b>the app</b>, which keeps track of every dog's needs and turns them into the list in front of you. Third, <b>communication and collaboration</b>: each of us is responsible for every dog at or below our color, not only the ones that match it, and no walker can cover them all alone. These best practices cover all three.</p>
+</header>
+
+<!-- ============================================================ -->
+<section class="block" id="needs">
+  <div class="eyebrow">Each dog, on its own terms</div>
+  <h2>What the app knows about each dog</h2>
+  <p>None of these are about the kennel as a whole. Each one belongs to a single dog, and each one changes where that dog lands on your list or how you should handle it.</p>
+  <div class="needs">
+    <div class="need">
+      <div class="sig"><span class="yd">—</span><span class="yd">✓</span><span class="yd">✓✓</span><span class="yd">P</span></div>
+      <h3>Yesterday</h3>
+      <p>The Y column. A dog that wasn't walked yesterday goes near the top today, so no dog goes two days without getting out.</p>
+    </div>
+    <div class="need">
+      <div class="sig"><span class="nm p2">Moose</span><span class="nm p1">Penny</span></div>
+      <h3>Potty breaks</h3>
+      <p>A bold purple name is a bold potty dog, and it goes out first. A plain purple name is a potty dog: it ranks above dogs without the flag, but behind bold potty dogs and several others. For both, the second walk turns urgent sooner, counted from the time of the first.</p>
+    </div>
+    <div class="need">
+      <div class="sig"><span class="nm dp">Bear</span></div>
+      <h3>Priority</h3>
+      <p>A dog's priority is changed when it needs more or less attention than usual. It goes up for high fear, anxiety and stress, and down, with gray behind the name, for puppies, small dogs and medical cases.</p>
+    </div>
+    <div class="need">
+      <div class="sig"><span class="pill" style="--c:#00c853;--t:#111">&nbsp;</span><span class="pill" style="--c:#1565c0">&nbsp;</span><span class="pill" style="--c:#ffd700;--t:#111">&nbsp;</span><span class="pill" style="--c:#d32f2f">&nbsp;</span></div>
+      <h3>Color</h3>
+      <p>How much handling the dog needs, and so which walkers can take it. Dogs above your color are dimmed at the bottom of your list.</p>
+    </div>
+    <div class="need">
+      <div class="sig"><span class="flag">DROP DIVIDERS</span></div>
+      <h3>Standing cautions</h3>
+      <p>Red lines under the dog's photo: drop dividers, limited activity, recent surgery, and any other caution written for that dog.</p>
+    </div>
+    <div class="need">
+      <div class="sig"><i class="cb pr"></i><i class="cb c"></i></div>
+      <h3>Reservations</h3>
+      <p>Lime on PG means the dog is held for playgroup. Cyan on W1 means it's held for training. Someone has a plan for that dog today.</p>
+    </div>
+    <div class="need">
+      <div class="sig"><span class="yd">S</span></div>
+      <h3>Recovery</h3>
+      <p>"S" marks a surgery. The dog is prioritized accordingly so it can ease back in.</p>
+    </div>
+    <div class="need">
+      <div class="sig"><span class="muted" style="font-size:.85rem;font-weight:700;letter-spacing:.06em">NOTES</span></div>
+      <h3>Notes</h3>
+      <p>Care and behavior notes, activity notes, playgroup notes and the dog's full history: everything other people learned before you.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<section class="block" id="walk-order">
+  <div class="eyebrow">Walk order</div>
+  <h2>A list built from every dog's needs</h2>
+  <p>WALK ORDER, the roster's default sort, is where the app's attention to each dog comes together. It reads every dog's situation (yesterday, potty breaks, priority, surgery, reservations, how long since it was last out) and turns it into one list: the dog at the top is the one that needs you most right now. It looks after two kinds of need, mental and physical, for every dog in the kennel, not just the easy ones or the favorites.</p>
+
+  <div class="twoway">
+    <div class="side">
+      <h3>Mental needs</h3>
+      <ul class="plain-list">
+        <li><b>Lower fear, anxiety and stress (FAS)</b>: the biggest mental need, and critical to a dog's chance of adoption</li>
+        <li><b>Social contact</b>, with people and other dogs. While vital for all dogs, it's time-sensitive for puppies: their critical socialization window closes at around 14 weeks, and what they meet before then shapes how they handle people, dogs and new places for life, so every calm, positive moment with them counts.</li>
+        <li><b>Mental stimulation</b>, such as training or new sights and smells on a walk</li>
+      </ul>
+    </div>
+
+    <div class="side">
+      <h3>Physical needs</h3>
+      <ul class="plain-list">
+        <li><b>Exercise every day.</b> A walk is most of the exercise a kennel dog gets. Without it, energy builds up with nowhere to go.</li>
+        <li><b>Bladder.</b> Many dogs won't relieve themselves in their kennel and hold it until they're taken out. Bold potty dogs, in bold purple on the roster, need a break most.</li>
+        <li><b>Healing from surgery or injury.</b> These dogs still need to get out, but gently. Their red caution lines, like <span class="flag">Recent surgery - NO RUNNING</span>, say how much activity is safe.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<section class="block" id="best-practices">
+  <h2>Best practices</h2>
+  <p>Most of what makes a walk good for a dog happens before the kennel door opens. A walker who knows the day, the team and the dog can give each dog what it actually needs, and gets more dogs out in the same hours.</p>
+
+  <h3 class="subhead">General</h3>
+  <div class="principle">
+    <h3>Every dog gets out once before any dog gets out twice</h3>
+    <p>Dogs still waiting on their first walk or playgroup sit above every dog that has already been out, even when a second walk is urgent. A second walk matters, but a dog that hasn't left its kennel matters more.</p>
+    <p><b>A dog that doesn't get a walk today could be confined to its kennel for up to 58 hours, and 38 hours at a minimum, before it's out again.</b></p>
+    <p>The same idea runs all the way down the list. Among dogs that have already been out, the one that's waited longest since its last outing goes first. Dogs with less activity yesterday go ahead of dogs with more. And when dogs are equal on everything, a daily shuffle changes who leads each morning, so the same dogs aren't always last.</p>
+  </div>
+
+  <div class="principle">
+    <h3>Data accuracy: when do I log a walk?</h3>
+    <p>To keep walk history and other reporting accurate, please only log a walk when:</p>
+    <ul class="plain-list">
+      <li><b>You walked the dog.</b></li>
+      <li><b>You've confirmed the dog was walked, but the walk isn't logged.</b></li>
+    </ul>
+    <p>Please refrain from logging a walk when:</p>
+    <ul class="plain-list">
+      <li><b>The dog has left the shelter.</b></li>
+      <li><b>The dog cannot be located.</b></li>
+    </ul>
+    <p>Every log tells the whole team that a dog's need has been met. A walk that's logged but didn't happen hides a dog that still needs to go out. Dogs that have left the shelter are annotated in a different manner to maintain accurate walk history.</p>
+  </div>
+
+  <h3 class="subhead">Before your shift</h3>
+  <div class="stage-list">
+    <div class="practice">
+      <h3>Look at the Shift Calendar</h3>
+      <p><b>Resources → Volunteer → Shift Calendar</b> shows who's coming today and where coverage might be thin. If you'll be one of the few walkers at the harder colors, you already have a good idea as to how your shift will go.</p>
+    </div>
+    <div class="practice">
+      <h3>Read the roster before you pick up a leash</h3>
+      <p>The <b>NOT WALKED</b> count, how many yellow boxes there are, and the playgroup and training counts tell you how the day is going. Sixty dogs not walked at noon is a different shift from thirty, and can significantly change the rate at which you need to walk dogs.</p>
+    </div>
+    <div class="practice">
+      <h3>See who's here</h3>
+      <p><b>Walker Activity</b> lists everyone who's logged something today, with their color. Not everyone signs up for a shift, so it fills in walkers the Shift Calendar misses. Together, the two give you a good idea of who your collaborators are today.</p>
+    </div>
+  </div>
+
+  <h3 class="subhead">Choosing who's next</h3>
+  <p><b>Your color is a ceiling, not a lane.</b> A Gold walker can walk every Pink, Green, Aqua, Blue and Gold dog. That makes those dogs a Gold walker's responsibility too. The kennel only gets walked when walkers of every color work together and keep track of each other.</p>
+  <div class="stage-list">
+    <div class="practice">
+      <h3>Walk down, not only across</h3>
+      <p>WALK ORDER puts the hardest dogs you can walk first, because fewer walkers can take them. Lower colors are still yours. When the dogs at your color are covered, keep going down the list instead of waiting for someone at that color to arrive.</p>
+    </div>
+    <div class="practice">
+      <h3>Don't leave lower colors for later shifts</h3>
+      <p>Easier dogs feel like someone else will get to them. On a short-staffed day, no one does. Watch the <b>NOT WALKED</b> count under the roster; it counts every dog, not just yours.</p>
+    </div>
+    <div class="practice">
+      <h3>Know who else is here</h3>
+      <p><b>Walker Activity</b> shows everyone who's logged something today, with their color. If you're the only walker above Blue, the harder dogs are yours to cover first. If there are three Gold walkers, split the work so the easier dogs don't wait.</p>
+    </div>
+    <div class="practice">
+      <h3>Communicate and collaborate</h3>
+      <p>A shift where walkers coordinate gets more dogs out in the same hours, with the harder dogs left for the walkers who can take them and every color covered.</p>
+    </div>
+
+  <h3 class="subhead">Before each dog</h3>
+  <div class="stage-list">
+    <div class="practice">
+      <h3>Log the walk right away</h3>
+      <p>Go ahead and log the walk as soon as you've picked the dog. If for some reason you don't end up walking it, you can undo the log.</p>
+    </div>
+    <div class="practice">
+      <h3>Read the whole dog page</h3>
+      <p>Every time, even for a dog you've walked a hundred times. Cautions and notes change between shifts, and the dog's page is the only place that shows them all.</p>
+      <p>Start with the red caution lines. A caution like <span class="flag">DROP DIVIDERS</span> or <span class="flag">Recent surgery - NO RUNNING</span> is written for this dog specifically, so follow it over your usual routine. <span class="flag">LIMITED ACTIVITY - SEE NOTES</span> means the details are in the notes.</p>
+      <p>Then read the general and playgroup notes.</p>
+    </div>
+    <div class="practice">
+      <h3>Plan the walk for this dog</h3>
+      <p>A high-FAS dog may need a quiet route and a slower pace. A dog healing from surgery needs a short, gentle one. A dog that hasn't been out since yesterday may need a potty break before anything else. Decide before you open the door.</p>
+    </div>
+    <div class="practice">
+      <h3>Know where you're going</h3>
+      <p>Tap the kennel on the dog's page to jump to the <b>Kennel Map</b>, centered on its room.</p>
+    </div>
+  </div>
+
+  <h3 class="subhead">The dog isn't there</h3>
+  <div class="stage-list">
+    <div class="practice">
+      <h3>Consider where else it might be</h3>
+      <p>Tap <b>Verify Kennel</b> on the dog's page to check its kennel against Pet Compass.</p>
+    </div>
+    <div class="practice">
+      <h3>Post on WhatsApp</h3>
+      <p>Get help from the team by asking on WhatsApp; someone may know exactly where the dog is.</p>
+    </div>
+    <div class="practice">
+      <h3>When all else fails, ask the front desk</h3>
+      <p>The front desk usually has the most up-to-date information. Report what you find out back to WhatsApp.</p>
+    </div>
+    <div class="practice">
+      <h3>Flag your findings</h3>
+      <p>Post your findings on WhatsApp. This could be a new kennel number, or that the dog has left the shelter. Please allow the leads to massage the list based on your findings.</p>
+    </div>
+    <div class="practice">
+      <h3>Undo your log</h3>
+      <p>If you ultimately did not walk the dog, unlog the walk.</p>
+    </div>
+  </div>
+
+  <h3 class="subhead">After the walk</h3>
+  <div class="stage-list">
+    <div class="practice">
+      <h3>Submit a note when something's new</h3>
+      <p>A new trigger, a dog that's suddenly easier, something that helped it settle. Use <b>Submit a Note</b> in the Tools section of the dog's page; it comes filled in with the dog's details. Notes are how one walker's experience reaches every walker who comes after.</p>
+    </div>
+    <div class="practice">
+      <h3>Report anything physical</h3>
+      <p>Limping, vomiting, diarrhea, a wound, not eating: use <b>Submit a Medical Ticket</b> from the dog's page. You may be the only person who sees that dog up close today.</p>
+    </div>
+    <div class="practice">
+      <h3>Report kennel problems</h3>
+      <p>A broken latch, no water, a mess that needs cleaning: use <b>Submit a Kennel Ticket</b> from the dog's page.</p>
+    </div>
+    <div class="practice">
+      <h3>Check the list again before the next dog</h3>
+      <p>WALK ORDER keeps updating while you're out, as time passes and other walkers log. The dog at the top now may not be the one that was there when you last looked.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<section class="block" id="faq">
+  <h2>Common questions</h2>
+  <div>
+  <details>
+    <summary>Can I walk a dog further down the list first?</summary>
+    <div class="ans"><p>You can, and sometimes there's a good reason: the dog is in the room you're already in, or a volunteer lead asked. But each dog you skip above it stays in its kennel longer. When there's no reason, start at the top.</p></div>
+  </details>
+  <details>
+    <summary>I'm Gold. Shouldn't the Green dogs go to Green walkers?</summary>
+    <div class="ans"><p>Only if Green walkers are here and have time. A Green dog needs its walk whether or not a Green walker shows up today. Your list puts the Gold dogs first because you're one of the few who can take them; once they're covered, the dogs below are yours too.</p></div>
+  </details>
+  </div>
+</section>
+
+<footer>
+  Best Practices · Dog Walker Assistant.
+</footer>
+</div>
+</body>
+</html>
